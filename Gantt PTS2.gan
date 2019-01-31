@@ -35,6 +35,7 @@
         </taskproperties>
         <task id="0" name="Diagramme Coq" color="#8cb6ce" meeting="false" start="2019-01-31" duration="1" complete="0" thirdDate="2019-01-31" thirdDate-constraint="0" expand="true"/>
         <task id="1" name="Tryptique" meeting="false" start="2019-01-31" duration="1" complete="0" expand="true"/>
+        <task id="2" name="Compte rendu après suivi 0" meeting="false" start="2019-01-31" duration="1" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
