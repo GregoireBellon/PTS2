@@ -1,17 +1,17 @@
 
 public class Case {
 
-private String type;	
+private TypeCase type;	
 	
-	public Case(String type) {
-		this.type = type;
+	public Case(TypeCase type) {
+		this.type=type;
 	}
 	
-	public String getType() {
+	public TypeCase getType() {
 		return type;
 	}
 	
-	public void setType(String type) {
+	public void setType(TypeCase type) {
 		this.type=type;
 	}
 	
