@@ -1,9 +1,9 @@
 
-public class TestDefis {
+public class TestDefi {
 
 	public static void main(String[] args) {
 
-		Defis d = new Defis("1");
+		Defi d = new Defi("1");
 		d.afficherPlateau();
 	}
 
