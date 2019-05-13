@@ -28,16 +28,16 @@ public class Defis {
 				j = (i % 4 == 0 ? j++ : j);
 				switch (ligne.charAt(i)) {
 				case 'i':
-					plateau[i-4*j][j] = new Case(TypeCase.Innexistante);
+					plateau[i - 4 * j][j] = new Case(TypeCase.Innexistante);
 					break;
 				case 'v':
-					plateau[i-4*j][j] = new Case(TypeCase.Vide);
+					plateau[i - 4 * j][j] = new Case(TypeCase.Vide);
 					break;
 				case 'c':
-					plateau[i-4*j][j] = new Case(TypeCase.Cochon);
+					plateau[i - 4 * j][j] = new Case(TypeCase.Cochon);
 					break;
 				case 'l':
-					plateau[i-4*j][j] = new Case(TypeCase.loup);
+					plateau[i - 4 * j][j] = new Case(TypeCase.loup);
 					break;
 				default:
 					break;
@@ -50,9 +50,40 @@ public class Defis {
 		}
 
 	}
-	
+
 	public boolean verifierDefis() {
-		
-		
+		int j = 0;
+		for (int i = 0; i < solution.length(); i++) {
+			j = (i % 4 == 0 ? j++ : j);
+			switch (solution.charAt(i)) {
+			case 'i':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Innexistante)
+					return false;
+				break;
+			case 'v':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Vide)
+					return false;
+				break;
+			case 'c':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Cochon)
+					return false;
+				break;
+			case 'l':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.loup)
+					return false;
+				break;
+			case 'j':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Jardin)
+					return false;
+				break;
+			case 'm':
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Maison)
+					return false;
+				break;
+			default:
+				break;
+			}
+		}
+		return true;
 	}
 }
