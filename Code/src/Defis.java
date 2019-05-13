@@ -1,10 +1,13 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Defis {
 	private String nom;
+	private String solution;
 	private boolean fait;
 	private Contexte contexte;
 	private int difficulte;
@@ -16,12 +19,12 @@ public class Defis {
 
 	private void chargerDefis(String nom) {
 		try {
-			InputStream flux = new FileInputStream("Stockage/Defis/" + nom + ".txt");
-			InputStreamReader lecture = new InputStreamReader(flux);
-			BufferedReader buff = new BufferedReader(lecture);
-			String ligne = buff.readLine();
+			File file = new File("Stockage/Defis/" + nom + ".txt");
+			Scanner sc = new Scanner(file);
+			String ligne = sc.nextLine();
+			solution = ligne.split(" ")[1];
 			int j = 0;
-			for (int i = 0; i < ligne.length(); i++) {
+			for (int i = 0; i < ligne.split(" ")[0].length(); i++) {
 				j = (i % 4 == 0 ? j++ : j);
 				switch (ligne.charAt(i)) {
 				case 'i':
@@ -41,10 +44,15 @@ public class Defis {
 				}
 
 			}
-			buff.close();
+			sc.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 
+	}
+	
+	public boolean verifierDefis() {
+		
+		
 	}
 }
