@@ -8,13 +8,13 @@ public class TestPiece {
 		p.afficher();
 		bois.afficher();
 		brique.afficher();
-		p.tournerHoraire();
+		p.tournerAntiHoraire();
 		p.afficher();
-		p.tournerHoraire();
+		p.tournerAntiHoraire();
 		p.afficher();
-		p.tournerHoraire();
+		p.tournerAntiHoraire();
 		p.afficher();
-		p.tournerHoraire();
+		p.tournerAntiHoraire();
 		p.afficher();
 
 		

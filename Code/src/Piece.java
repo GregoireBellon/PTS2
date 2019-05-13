@@ -1,12 +1,9 @@
-import java.util.Arrays;
-
 public class Piece {
-	
 	private CompoPiece[][] piece;
-	
+
 	public Piece(TypePiece type) {
 		piece = new CompoPiece[3][3];
-		switch(type) {
+		switch (type) {
 		case Paille:
 			piece[1][1] = CompoPiece.Maison;
 			piece[1][2] = CompoPiece.Jardin;
@@ -23,7 +20,6 @@ public class Piece {
 			piece[2][1] = CompoPiece.Jardin;
 			piece[2][2] = CompoPiece.Maison;
 		}
-		
 	}
 
 	public CompoPiece[][] getPiece() {
@@ -41,8 +37,7 @@ public class Piece {
 				if (piece[i][j] != null)
 					if (piece[i][j] == CompoPiece.Maison) {
 						aff.append("M");
-					}
-					else {
+					} else {
 						aff.append("J");
 					}
 				else
@@ -59,15 +54,33 @@ public class Piece {
 			for (int j = 0; j <= 2; j++) {
 				if (piece[i][j] != null) {
 					if (i == 0)
-						 pieceTournee [j][2] = piece[i][j];
+						pieceTournee[j][2] = piece[i][j];
 					if (i == 1)
-						pieceTournee [j][1] = piece[i][j];
+						pieceTournee[j][1] = piece[i][j];
 					if (i == 2)
-						pieceTournee [j][0] = piece[i][j];
-				}	
+						pieceTournee[j][0] = piece[i][j];
+				}
 			}
 		}
 		piece = pieceTournee;
 	}
+	
+	public void tournerAntiHoraire() {
+		CompoPiece[][] pieceTournee = new CompoPiece[3][3];
+		for (int i = 0; i <= 2; i++) {
+			for (int j = 0; j <= 2; j++) {
+				if (piece[i][j] != null) {
+					if (i == 0)
+						pieceTournee[2-j][0] = piece[i][j];
+					if (i == 1)
+						pieceTournee[2-j][1] = piece[i][j];
+					if (i == 2)
+						pieceTournee[2-j][2] = piece[i][j];
+				}
+			}
+		}
+		piece = pieceTournee;
+	}
+
 
 }
