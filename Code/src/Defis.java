@@ -23,6 +23,7 @@ public class Defis {
 			Scanner sc = new Scanner(file);
 			String ligne = sc.nextLine();
 			solution = ligne.split(" ")[1];
+			System.out.println(solution);
 			int j = 0;
 			for (int i = 0; i < ligne.split(" ")[0].length(); i++) {
 				j = (i % 4 == 0 ? j++ : j);
