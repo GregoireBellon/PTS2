@@ -37,11 +37,11 @@ public class Defis {
 					plateau[i - 4 * j][j] = new Case(TypeCase.Cochon);
 					break;
 				case 'l':
-<<<<<<< HEAD
+
 					plateau[i-4*j][j] = new Case(TypeCase.Loup);
-=======
-					plateau[i - 4 * j][j] = new Case(TypeCase.loup);
->>>>>>> e3b5870596f7cc3db252fa80ea262d5030c69399
+
+					plateau[i - 4 * j][j] = new Case(TypeCase.Loup);
+
 					break;
 				default:
 					break;
@@ -54,13 +54,13 @@ public class Defis {
 		}
 
 	}
-<<<<<<< HEAD
+
 	
 	public void afficherNiveau() {
 		StringBuilder aff = new StringBuilder();
 		for (int i = 0; i <= 3; i++) {
 			for (int j = 0; j <= 3; j++) {
-				switch (plateau[i][j].getType()) {
+				switch (plateau[i-1][j-1].getType()) {
 				case Innexistante :
 					aff.append(" ");
 					break;
@@ -86,7 +86,8 @@ public class Defis {
 			}
 		}
 		System.out.println(aff);
-=======
+	}
+
 
 	public boolean verifierDefis() {
 		int j = 0;
@@ -106,7 +107,7 @@ public class Defis {
 					return false;
 				break;
 			case 'l':
-				if (plateau[i - 4 * j][j].getType() != TypeCase.loup)
+				if (plateau[i - 4 * j][j].getType() != TypeCase.Loup)
 					return false;
 				break;
 			case 'j':
@@ -122,6 +123,6 @@ public class Defis {
 			}
 		}
 		return true;
->>>>>>> e3b5870596f7cc3db252fa80ea262d5030c69399
+
 	}
 }
