@@ -23,29 +23,24 @@ public class Defis {
 			Scanner sc = new Scanner(file);
 			String ligne = sc.nextLine();
 			solution = ligne.split(" ")[1];
+			System.out.println(ligne.split(" ")[0]);
 			System.out.println(solution);
-			int j = 0;
 			for (int i = 0; i < ligne.split(" ")[0].length(); i++) {
-				j = (i % 4 == 0 ? j++ : j);
+				for (int j = 0; j < ligne.split(" ")[0].length(); j++)
 				switch (ligne.charAt(i)) {
 				case 'i':
-					plateau[i - 4 * j][j] = new Case(TypeCase.Innexistante);
+					plateau[i][j] = new Case(TypeCase.Innexistante);
 					break;
 				case 'v':
-					plateau[i - 4 * j][j] = new Case(TypeCase.Vide);
+					plateau[i][j] = new Case(TypeCase.Vide);
 					break;
 				case 'c':
-					plateau[i - 4 * j][j] = new Case(TypeCase.Cochon);
+					plateau[i][j] = new Case(TypeCase.Cochon);
 					break;
 				case 'l':
-
-					plateau[i-4*j][j] = new Case(TypeCase.Loup);
-
-					plateau[i - 4 * j][j] = new Case(TypeCase.Loup);
-
+					plateau[i][j] = new Case(TypeCase.Loup);
 					break;
-				default:
-					break;
+
 				}
 
 			}
@@ -56,22 +51,23 @@ public class Defis {
 
 	}
 
-	
-	public void afficherNiveau() {
-		StringBuilder aff = new StringBuilder();
+	public void afficherPlateau() {
+		/*StringBuilder aff = new StringBuilder();
 		for (int i = 0; i <= 3; i++) {
 			for (int j = 0; j <= 3; j++) {
-				switch (plateau[i-1][j-1].getType()) {
-				case Innexistante :
+				if (plateau[i][j].getType() == null)
+					System.out.println("Oui les blondes");
+				switch (plateau[i][j].getType()) {
+				case Innexistante:
 					aff.append(" ");
 					break;
-				case Vide :
+				case Vide:
 					aff.append("-");
 					break;
-				case Cochon :
+				case Cochon:
 					aff.append("C");
 					break;
-				case Loup :
+				case Loup:
 					aff.append("L");
 					break;
 				case Jardin:
@@ -83,12 +79,31 @@ public class Defis {
 				default:
 					break;
 				}
-				aff.append("\n");
+				System.out.println(aff);
 			}
-		}
-		System.out.println(aff);
-	}
+			aff.append("\n");
 
+		}
+		System.out.println(aff);*/
+		System.out.println(plateau[0][0]);
+		System.out.println(plateau[0][1]);
+		System.out.println(plateau[0][2]);
+		System.out.println(plateau[0][3]);
+		System.out.println(plateau[1][0]);
+		System.out.println(plateau[1][1]);
+		System.out.println(plateau[1][2]);
+		System.out.println(plateau[1][3]);
+		System.out.println(plateau[2][0]);
+		System.out.println(plateau[2][1]);
+		System.out.println(plateau[2][2]);
+		System.out.println(plateau[2][3]);
+		System.out.println(plateau[3][0]);
+		System.out.println(plateau[3][1]);
+		System.out.println(plateau[3][2]);
+		System.out.println(plateau[3][3]);
+
+
+	}
 
 	public boolean verifierDefis() {
 		int j = 0;

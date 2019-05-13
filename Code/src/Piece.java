@@ -30,7 +30,7 @@ public class Piece {
 		this.piece = piece;
 	}
 
-	public void afficherPièce() {
+	public void afficherPiece() {
 		StringBuilder aff = new StringBuilder();
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
