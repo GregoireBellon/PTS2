@@ -11,7 +11,6 @@ public class Defi {
 	private boolean fait;
 	private Contexte contexte;
 	private int difficulte;
-	private Case[][] plateau = new Case[4][4];
 
 	public Defi(String nom) {
 		chargerDefi(nom);
@@ -51,7 +50,7 @@ public class Defi {
 		StringBuilder aff = new StringBuilder();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				aff.append(plateau[i][j]);
+				aff.append(Jeux.getPlateau()[i][j]);
 			}
 			aff.append("\n");
 
@@ -65,27 +64,27 @@ public class Defi {
 			for (int j = 0; j < 4; j++) {
 				switch (solution.charAt(4*i+j)) {
 				case 'i':
-					if (plateau[i][j].getType() != TypeCase.Innexistante)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Innexistante)
 						return false;
 					break;
 				case 'v':
-					if (plateau[i][j].getType() != TypeCase.Vide)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Vide)
 						return false;
 					break;
 				case 'c':
-					if (plateau[i][j].getType() != TypeCase.Cochon)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Cochon)
 						return false;
 					break;
 				case 'l':
-					if (plateau[i][j].getType() != TypeCase.Loup)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Loup)
 						return false;
 					break;
 				case 'j':
-					if (plateau[i][j].getType() != TypeCase.Jardin)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Jardin)
 						return false;
 					break;
 				case 'm':
-					if (plateau[i][j].getType() != TypeCase.Maison)
+					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Maison)
 						return false;
 					break;
 				default:
@@ -98,6 +97,6 @@ public class Defi {
 	}
 	
 	public void ajouterCase(int i, int j, TypeCase type) {
-		this.plateau[i][j] = new Case(type);
+		Jeux.getPlateau()[i][j] = new Case(type);
 	}
 }

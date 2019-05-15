@@ -82,5 +82,8 @@ public class Piece {
 		piece = pieceTournee;
 	}
 
-
+	public void Placer(int x, int y) {
+		
+	}
+	
 }
