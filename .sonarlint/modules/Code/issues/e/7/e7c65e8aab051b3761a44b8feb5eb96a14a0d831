@@ -1,0 +1,17 @@
+
+wsquid:S1871_"LThis branch's code block is the same as the block for the branch on line 90.(∏Æ√'H>RMAJORZ
+CODE_SMELL
+wsquid:S1871\"LThis branch's code block is the same as the block for the branch on line 90.(∏Æ√'H?RMAJORZ
+CODE_SMELL
+Fsquid:S1220""Move this file to a named package.H@RMINORZ
+CODE_SMELL
+Äsquid:S37763"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(∏ÔπHARCRITICALZ
+CODE_SMELL
+Äsquid:S3776D"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(∫êñCHBRCRITICALZ
+CODE_SMELL
+Üsquid:S3776U"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ú»¶˘ˇˇˇˇHCRCRITICALZ
+CODE_SMELL
+Äsquid:S00100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú»¶˘ˇˇˇˇHDRMINORZ
+CODE_SMELL
+@squid:S1700"Rename field "piece"(Ÿ±“éHERMAJORZ
+CODE_SMELL

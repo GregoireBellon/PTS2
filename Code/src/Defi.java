@@ -12,19 +12,24 @@ public class Defi {
 	private Contexte contexte;
 	private int difficulte;
 
+	/**
+	 * Construit un défi
+	 * 
+	 * @param nom est le nom du défi a charger
+	 */
 	public Defi(String nom) {
 		chargerDefi(nom);
 	}
 
 	private void chargerDefi(String nom) {
 		try {
-			File file = new File("Stockage/Defis/" + nom + ".txt");
-			Scanner sc = new Scanner(file);
+			File file = new File("Stockage/Defis/" + nom + ".txt"); //Récupère les données du fichier correspondant au défi à charger
+			Scanner sc = new Scanner(file); // Lit les données du fichier file
 			String ligne = sc.nextLine();
-			solution = ligne.split(" ")[1];
-			for (int i = 0; i < 4; i++) {
-				for (int j = 0; j < 4; j++) {
-					switch (ligne.charAt(4*i+j)){
+			solution = ligne.split(" ")[1]; // Récupère la solution du niveau
+			for (int i = 0; i < 4; i++) {		// Parcourt le tableau
+				for (int j = 0; j < 4; j++) {	//
+					switch (ligne.charAt(4*i+j)){ // Récupère le caractère désiré
 						case 'i' :
 							Jeux.setPlateau(TypeCase.Innexistante,i, j);
 						break;
@@ -48,8 +53,8 @@ public class Defi {
 
 	public void afficherPlateau() {
 		StringBuilder aff = new StringBuilder();
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
+		for (int i = 0; i < 4; i++) {		// Parcourt le plateau
+			for (int j = 0; j < 4; j++) {	// 
 				aff.append(Jeux.getPlateau()[i][j]);
 			}
 			aff.append("\n");
@@ -60,11 +65,11 @@ public class Defi {
 	}
 
 	public boolean verifierDefi() {
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				switch (solution.charAt(4*i+j)) {
+		for (int i = 0; i < 4; i++) {		//Parcourt le plateau
+			for (int j = 0; j < 4; j++) {	// 
+				switch (solution.charAt(4*i+j)) { //Récupère le caractère désiré de la solution
 				case 'i':
-					if (Jeux.getPlateau()[i][j] != TypeCase.Innexistante)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Innexistante) // Compare avec la case correspondante
 						return false;
 					break;
 				case 'v':
