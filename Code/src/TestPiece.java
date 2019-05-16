@@ -5,17 +5,17 @@ public class TestPiece {
 		Piece p = new Piece(TypePiece.Paille);
 		Piece bois = new Piece(TypePiece.Bois);
 		Piece brique = new Piece(TypePiece.Brique);
-		p.afficherPièce();
-		bois.afficherPièce();
-		brique.afficherPièce();
+		p.afficherPiece();
+		bois.afficherPiece();
+		brique.afficherPiece();
 		p.tournerAntiHoraire();
-		p.afficherPièce();
+		p.afficherPiece();
 		p.tournerAntiHoraire();
-		p.afficherPièce();
+		p.afficherPiece();
 		p.tournerAntiHoraire();
-		p.afficherPièce();
+		p.afficherPiece();
 		p.tournerAntiHoraire();
-		p.afficherPièce();
+		p.afficherPiece();
 
 		
 	}
