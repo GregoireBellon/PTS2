@@ -50,7 +50,7 @@ public class Defi {
 		StringBuilder aff = new StringBuilder();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				aff.append(Jeux.getPlateau()[i][j]);
+				aff.append(Jeux.getPlateau()[i][j]).toString();
 			}
 			aff.append("\n");
 

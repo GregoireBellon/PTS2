@@ -85,7 +85,9 @@ public class Piece {
 	public boolean Placer(int x, int y, Contexte contexte) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (contexte == Contexte.Diurne && (piece[i][j] == TypeCase.Maison || piece[i][j] == TypeCase.Jardin)
+				if (contexte == Contexte.Diurne 
+						&& (piece[i][j] == TypeCase.Maison 
+						|| piece[i][j] == TypeCase.Jardin)
 						&& Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide)
 					return false;
 				else if (piece[i][j] == TypeCase.Jardin && Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide)
