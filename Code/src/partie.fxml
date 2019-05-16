@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.Controller">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <HBox>
          <children>
             <VBox prefHeight="450.0" prefWidth="491.0">
                <children>
                   <Label text="Titre du niveau" />
+                  <Line endX="100.0" startX="-100.0" />
                   <GridPane prefHeight="431.0" prefWidth="491.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,7 +31,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="case1" fitHeight="109.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                        <ImageView fx:id="case1" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                         <ImageView fx:id="case2" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
                         <ImageView fx:id="case3" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
                         <ImageView fx:id="case4" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -37,21 +41,34 @@
                         <ImageView fx:id="case8" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fx:id="case9" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <ImageView fx:id="case10" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <ImageView fx:id="case12" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ImageView fx:id="case13" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <ImageView fx:id="case14" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <ImageView fx:id="case11" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ImageView fx:id="case12" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <ImageView fx:id="case13" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="piece1" fitHeight="150.0" fitWidth="200.0" onMouseDragged="#PieceDrague" onMouseReleased="#PieceDragueFini" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="piece2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="piece3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="piece1" fitHeight="220.0" fitWidth="240.0" onMouseDragged="#Piece1Drague" onMouseReleased="#PieceDragueFini" onScroll="#rotationPiece1" pickOnBounds="true" preserveRatio="true" />
+                  <Line endX="100.0" startX="-100.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Line>
+                  <ImageView fx:id="piece2" fitHeight="220.0" fitWidth="240.0" onMouseDragged="#Piece2Drague" onScroll="#rotationPiece2" pickOnBounds="true" preserveRatio="true" />
+                  <Line endX="100.0" startX="-100.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Line>
+                  <ImageView fx:id="piece3" fitHeight="220.0" fitWidth="240.0" onMouseDragged="#Piece3Drague" onScroll="#rotationPiece3" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
          </children>
       </HBox>
    </children>
+   <cursor>
+      <Cursor fx:constant="CROSSHAIR" />
+   </cursor>
 </AnchorPane>

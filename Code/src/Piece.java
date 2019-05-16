@@ -1,6 +1,7 @@
 public class Piece {
 	private TypeCase[][] piece;
-
+	private TypePiece typePiece;
+	private int degreRotation = 0;
 	/**
 	 * Crée une pièce
 	 * 
@@ -8,6 +9,7 @@ public class Piece {
 	 */
 	public Piece(TypePiece type) {
 		piece = new TypeCase[3][3];
+		this.typePiece = type;
 		switch (type) {
 		case Paille: //Crée une pièce avec la maison de paille
 			piece[1][1] = TypeCase.Maison;
@@ -74,6 +76,8 @@ public class Piece {
 			}
 		}
 		piece = pieceTournee;
+		degreRotation += 90;
+		degreRotation = degreRotation % 360;
 	}
 
 	/**
@@ -94,6 +98,8 @@ public class Piece {
 			}
 		}
 		piece = pieceTournee;
+		degreRotation -= 90;
+		degreRotation = degreRotation % 360;
 	}
 
 	public boolean Placer(int x, int y, Contexte contexte) {
@@ -125,6 +131,23 @@ public class Piece {
 		return true;
 	}
 
+	public TypePiece getTypePiece() {
+		return typePiece;
+	}
+
+	public void setTypePiece(TypePiece typePiece) {
+		this.typePiece = typePiece;
+	}
+
+	public int getDegreRotation() {
+		return degreRotation;
+	}
+
+	public void setDegreRotation(int degreRotation) {
+		this.degreRotation = degreRotation;
+	}
+
+	
 }
 
-}
+
