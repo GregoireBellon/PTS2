@@ -1,0 +1,9 @@
+
+Fsquid:S1220""Move this file to a named package.H1RMINORZ
+CODE_SMELL
+squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(å€¤ÀúÿÿÿÿH2RCRITICALZ
+CODE_SMELL
+squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(å€¤ÀúÿÿÿÿH3RCRITICALZ
+CODE_SMELL
+squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(å€¤ÀúÿÿÿÿH4RCRITICALZ
+CODE_SMELL
