@@ -26,16 +26,16 @@ public class Defi {
 				for (int j = 0; j < 4; j++) {
 					switch (ligne.charAt(4*i+j)){
 						case 'i' :
-						this.ajouterCase(i, j, TypeCase.Innexistante);
+							Jeux.setPlateau(TypeCase.Innexistante,i, j);
 						break;
 						case 'v' :
-						this.ajouterCase(i, j, TypeCase.Vide);
+							Jeux.setPlateau(TypeCase.Vide,i, j);
 						break;
 						case 'c' :
-						this.ajouterCase(i, j, TypeCase.Cochon);
+							Jeux.setPlateau(TypeCase.Cochon,i, j);
 						break;
 						case 'l' :
-						this.ajouterCase(i, j, TypeCase.Loup);
+							Jeux.setPlateau(TypeCase.Loup,i, j);
 						break;
 					}
 				}
@@ -64,27 +64,27 @@ public class Defi {
 			for (int j = 0; j < 4; j++) {
 				switch (solution.charAt(4*i+j)) {
 				case 'i':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Innexistante)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Innexistante)
 						return false;
 					break;
 				case 'v':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Vide)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Vide)
 						return false;
 					break;
 				case 'c':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Cochon)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Cochon)
 						return false;
 					break;
 				case 'l':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Loup)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Loup)
 						return false;
 					break;
 				case 'j':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Jardin)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Jardin)
 						return false;
 					break;
 				case 'm':
-					if (Jeux.getPlateau()[i][j].getType() != TypeCase.Maison)
+					if (Jeux.getPlateau()[i][j] != TypeCase.Maison)
 						return false;
 					break;
 				default:
@@ -96,7 +96,4 @@ public class Defi {
 
 	}
 	
-	public void ajouterCase(int i, int j, TypeCase type) {
-		Jeux.getPlateau()[i][j] = new Case(type);
-	}
 }
