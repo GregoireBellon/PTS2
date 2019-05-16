@@ -99,26 +99,32 @@ public class Piece {
 	public boolean Placer(int x, int y, Contexte contexte) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (contexte == Contexte.Diurne 
-						&& (piece[i][j] == TypeCase.Maison 
-						|| piece[i][j] == TypeCase.Jardin)
-						&& Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide)
+				
+				//Si la piece est un jardin et que la case sur laquelle elle doit etre placé n'est pas vide on return false
+				if (piece[i][j] == TypeCase.Jardin && Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide)
 					return false;
-				else if (piece[i][j] == TypeCase.Jardin && Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide)
+				//Contexte Diurne
+				//Si la piece est une Maison et que la case sur laquelle elle doit etre placé n'est pas vide on return false
+				if (contexte == Contexte.Diurne && piece[i][j] == TypeCase.Maison && Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Vide) {
 					return false;
-				else if (piece[i][j] == TypeCase.Maison
-						&& Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Cochon)
+				}
+				//Contexte Nocturne
+				//Si la piece est une Maison et que la case sur laquelle elle doit etre placé n'est pas un cochon on return false
+				if (contexte == Contexte.Nocturne && piece[i][j] == TypeCase.Maison && Jeux.getPlateau()[x + (i - x)][y + (j - y)] != TypeCase.Cochon) {
 					return false;
+				}
 			}
 		}
-		
+
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if(piece[i][j] != null)
-					Jeux.setPlateau(piece[i][j],x + (i - x),y + (j - y));
+				if (piece[i][j] != null)
+					Jeux.setPlateau(piece[i][j], x + (i - x), y + (j - y));
 			}
 		}
 		return true;
 	}
+
+}
 
 }
