@@ -6,6 +6,8 @@ public class Piece {
 	private int posY;
 	// Contexte dans lequelle elle à été placé
 	private Contexte contexte;
+	private TypePiece typePiece;
+	private int degreRotation;
 
 	/**
 	 * Crée une pièce
@@ -13,6 +15,7 @@ public class Piece {
 	 * @param type correspond au type de pièce a créer
 	 */
 	public Piece(TypePiece type) {
+		typePiece = type;
 		piece = new TypeCase[3][3];
 		switch (type) {
 		case Paille: // Crée une pièce avec la maison de paille
@@ -80,6 +83,8 @@ public class Piece {
 			}
 		}
 		piece = pieceTournee;
+		degreRotation += 90;
+		degreRotation = degreRotation % 360;
 	}
 
 	/**
@@ -100,6 +105,8 @@ public class Piece {
 			}
 		}
 		piece = pieceTournee;
+		degreRotation -= 90;
+		degreRotation = degreRotation % 360;
 	}
 
 	public void Placer(int x, int y, Contexte contexte) {
@@ -163,4 +170,24 @@ public class Piece {
 			}
 		}
 	}
+
+	public int getDegreRotation() {
+		return degreRotation;
+	}
+
+	public void setDegreRotation(int degreRotation) {
+		this.degreRotation = degreRotation;
+	}
+
+	public TypePiece getTypePiece() {
+		return typePiece;
+	}
+
+	public void setTypePiece(TypePiece typePiece) {
+		this.typePiece = typePiece;
+	}
+
+
+
+	
 }

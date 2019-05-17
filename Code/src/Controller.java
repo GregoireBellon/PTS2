@@ -2,15 +2,29 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.geom.Point2D;
+
+import javafx.application.Application.Parameters;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.input.TransferMode;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class Controller implements Initializable {
 
@@ -70,28 +84,27 @@ public class Controller implements Initializable {
 
 	@FXML
 	void Piece1Drague(MouseEvent event) {
-		piece1.setTranslateX(event.getX());
-		piece1.setTranslateY(event.getY());
-		piece1.setX(event.getX());
-		piece1.setY(event.getY());
-
+		piece1.setTranslateX(event.getSceneX() - piece1.getFitWidth()*2);
+		piece1.setTranslateY(event.getSceneY() - piece1.getFitHeight()/2 );
+		piece1.setX(event.getSceneX()- piece1.getFitWidth()/2 );
+		piece1.setY(event.getSceneY()- piece1.getFitHeight()/2 );
 	}
+	
 
 	@FXML
 	void Piece2Drague(MouseEvent event) {
-		System.out.println(piece2.getBoundsInParent().toString());
-		piece2.setTranslateX(event.getX());
-		piece2.setTranslateY(event.getY());
-		piece2.setX(event.getX());
-		piece2.setY(event.getY());
+		piece2.setTranslateX(event.getSceneX() - piece2.getFitWidth()*2);
+		piece2.setTranslateY(event.getSceneY() - piece2.getFitHeight()*1.5 );
+		piece2.setX(event.getSceneX()- piece2.getFitWidth()/2 );
+		piece2.setY(event.getSceneY()- piece2.getFitHeight()/2 );
 	}
 
 	@FXML
 	void Piece3Drague(MouseEvent event) {
-		piece3.setTranslateX(event.getX());
-		piece3.setTranslateY(event.getY());
-		piece3.setX(event.getX());
-		piece3.setY(event.getY());
+		piece3.setTranslateX(event.getSceneX() - piece3.getFitWidth()*1.85);
+		piece3.setTranslateY(event.getSceneY() - piece3.getFitHeight()*2.45 );
+		piece3.setX(event.getSceneX()- piece3.getFitWidth()/2 );
+		piece3.setY(event.getSceneY()- piece3.getFitHeight()/2 );
 	}
 
 	@FXML
@@ -336,6 +349,7 @@ public class Controller implements Initializable {
 		default:
 			break;
 		}
+
 	}
 
 }
