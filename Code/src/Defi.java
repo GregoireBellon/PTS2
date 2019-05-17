@@ -94,8 +94,8 @@ public class Defi {
 			}
 		}
 		return true;
-
 	}
+	
 	
 	public void ajouterCase(int i, int j, TypeCase type) {
 		this.plateau[i][j] = new Case(type);
