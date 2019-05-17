@@ -11,8 +11,9 @@ public class TestPiece {
 		Defi test = new Defi("1");
 		test.afficherPlateau();
 		System.out.println(test.verifierDefi());
-		
-		paille.
+		System.out.println(paille.verifPlacement(1, 1, Contexte.Diurne));
+		paille.Placer(1, 1, Contexte.Diurne);
+		test.afficherPlateau();
 
 
 		
