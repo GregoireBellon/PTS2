@@ -10,11 +10,22 @@ public class TestPiece {
 		brique.afficherPiece();
 		Defi test = new Defi("1");
 		test.afficherPlateau();
-		System.out.println(test.verifierDefi());
-		System.out.println(paille.verifPlacement(1, 1, Contexte.Diurne));
-		paille.Placer(1, 1, Contexte.Diurne);
+		paille.tournerHoraire();
+		bois.tournerAntiHoraire();
+		brique.tournerAntiHoraire();
+		brique.afficherPiece();
+		paille.Placer(0, 2, Contexte.Diurne);
+		bois.Placer(2, 3, Contexte.Diurne);
+		brique.Placer(1, 1, Contexte.Diurne);
 		test.afficherPlateau();
-
+		System.out.println(test.verifierDefi());
+		paille.enlever();
+		test.afficherPlateau();
+		bois.enlever();
+		test.afficherPlateau();
+		brique.enlever();
+		brique.enlever();
+		test.afficherPlateau();
 
 		
 	}
