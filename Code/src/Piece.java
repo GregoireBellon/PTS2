@@ -10,7 +10,7 @@ public class Piece {
 	private Contexte contexte;
 	private TypePiece typePiece;
 	private int degreRotation;
-	private boolean contenirCochon;
+	private boolean contenirCochon; // Servira pour les propriétés du mode nocturne
 	private Hashtable<String, Integer> coordMaison = new Hashtable<String, Integer>();
 	/**
 	 * Crée une pièce
@@ -183,10 +183,9 @@ public class Piece {
 					if (Jeux.getPlateau()[x + i - coordMaison.get("x")][y + j - coordMaison.get("y")] != TypeCase.Vide) // A réviser
 						return false;
 				}
-				// Contexte Diurne
 				// Si la piece est une Maison et que la case sur laquelle elle doit etre placé
 				// n'est pas vide on return false
-				if (contexte == Contexte.Diurne && piece[i][j] == TypeCase.Maison
+				if (piece[i][j] == TypeCase.Maison
 						&& Jeux.getPlateau()[x][y] != TypeCase.Vide) {
 					return false;
 				}

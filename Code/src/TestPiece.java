@@ -8,7 +8,7 @@ public class TestPiece {
 		paille.afficherPiece();
 		bois.afficherPiece();
 		brique.afficherPiece();
-		Defi test = new Defi("1");
+		Defi test = new Defi("1D");
 		test.afficherPlateau();
 		paille.tournerHoraire();
 		bois.tournerAntiHoraire();
@@ -24,6 +24,7 @@ public class TestPiece {
 		bois.enlever();
 		test.afficherPlateau();
 		brique.enlever();
+		test.afficherPlateau();
 		brique.enlever();
 		test.afficherPlateau();
 
