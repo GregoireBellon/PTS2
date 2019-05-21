@@ -8,12 +8,13 @@ public class TestPiece {
 		paille.afficherPiece();
 		bois.afficherPiece();
 		brique.afficherPiece();
-		Defi test = new Defi("1");
-		test.afficherPlateau();
-		System.out.println(test.verifierDefi());
-		System.out.println(paille.verifPlacement(1, 1, Contexte.Diurne));
-		paille.Placer(1, 1, Contexte.Diurne);
-		test.afficherPlateau();
+		paille.tournerHoraire();
+		paille.afficherPiece();
+		bois.tournerAntiHoraire();
+		bois.afficherPiece();
+		brique.tournerAntiHoraire();
+		brique.afficherPiece();
+		
 
 
 		
