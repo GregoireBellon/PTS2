@@ -8,14 +8,25 @@ public class TestPiece {
 		paille.afficherPiece();
 		bois.afficherPiece();
 		brique.afficherPiece();
+		Defi test = new Defi("1D");
+		test.afficherPlateau();
 		paille.tournerHoraire();
-		paille.afficherPiece();
 		bois.tournerAntiHoraire();
-		bois.afficherPiece();
 		brique.tournerAntiHoraire();
 		brique.afficherPiece();
-		
-
+		paille.Placer(0, 2, Contexte.Diurne);
+		bois.Placer(2, 3, Contexte.Diurne);
+		brique.Placer(1, 1, Contexte.Diurne);
+		test.afficherPlateau();
+		System.out.println(test.verifierDefi());
+		paille.enlever();
+		test.afficherPlateau();
+		bois.enlever();
+		test.afficherPlateau();
+		brique.enlever();
+		test.afficherPlateau();
+		brique.enlever();
+		test.afficherPlateau();
 
 		
 	}

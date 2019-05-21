@@ -9,7 +9,7 @@ public class TestPlacerPiece {
 		p.Placer(1, 1, Contexte.Diurne);
 		d.afficherPlateau();
 		
-		p.Enlever();
+		p.enlever();
 		
 		d.afficherPlateau();
 		
