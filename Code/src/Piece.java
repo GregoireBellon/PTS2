@@ -1,4 +1,5 @@
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Piece {
 	private TypeCase[][] piece;
@@ -6,12 +7,11 @@ public class Piece {
 	private Integer posX = null;
 	// position en Y sur le plateau
 	private Integer posY = null;
-	// Contexte dans lequel elle a ï¿½tï¿½ placï¿½
-	private Contexte contexte;
+	// Contexte dans lequel elle a ete place
 	private TypePiece typePiece;
-	private int degreRotation;
-	private boolean contenirCochon; // Servira pour les propriï¿½tï¿½s du mode nocturne
-	private Hashtable<String, Integer> coordMaison = new Hashtable<String, Integer>();
+	private int degreRotation; // Ne devrait pas servir
+	private boolean contenirCochon; // Servira pour les proprietes du mode nocturne
+	private Map<String, Integer> coordMaison = new HashMap<String, Integer>();
 
 	/**
 	 * Crï¿½e une piï¿½ce
@@ -22,21 +22,21 @@ public class Piece {
 		typePiece = type;
 		piece = new TypeCase[3][3];
 		switch (type) {
-		case Paille: // Crï¿½e une piï¿½ce avec la maison de paille
+		case Paille: // Cree une piece avec la maison de paille
 			piece[1][1] = TypeCase.Maison;
 			piece[1][2] = TypeCase.Jardin;
 			piece[2][1] = TypeCase.Jardin;
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			break;
-		case Bois: // Crï¿½e une piï¿½ce avec la maison de bois
+		case Bois: // Cree une piece avec la maison de bois
 			piece[1][0] = TypeCase.Jardin;
 			piece[1][1] = TypeCase.Maison;
 			piece[1][2] = TypeCase.Jardin;
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			break;
-		case Brique: // Crï¿½e une piï¿½ce avec la maison de brique
+		case Brique: // Cree une piece avec la maison de brique
 			piece[1][2] = TypeCase.Jardin;
 			piece[2][0] = TypeCase.Jardin;
 			piece[2][1] = TypeCase.Jardin;
@@ -46,16 +46,8 @@ public class Piece {
 		}
 	}
 
-	public TypeCase[][] getPiece() {
-		return piece;
-	}
-
-	public void setPiece(TypeCase[][] piece) {
-		this.piece = piece;
-	}
-
 	/**
-	 * Affiche la piï¿½ce en console
+	 * Affiche la piece en console
 	 */
 	public void afficherPiece() {
 		StringBuilder aff = new StringBuilder();
@@ -76,7 +68,7 @@ public class Piece {
 	 */
 	public void tournerHoraire() {
 		TypeCase[][] pieceTournee = new TypeCase[3][3];
-		for (int i = 0; i <= 2; i++) { // Parcourt le tableau de la piï¿½ce
+		for (int i = 0; i <= 2; i++) { // Parcourt le tableau de la piece
 			for (int j = 0; j <= 2; j++) { //
 				if (piece[i][j] != null) {
 					if (i == 0) {
@@ -118,21 +110,21 @@ public class Piece {
 			for (int j = 0; j <= 2; j++) {
 				if (piece[i][j] != null) {
 					if (i == 0) {
-						pieceTournee[2 - j][0] = piece[i][j];
+						pieceTournee[2 - j][i] = piece[i][j];
 						if (piece[i][j] == TypeCase.Maison) {
 							coordMaison.put("x", 2 - j);
 							coordMaison.put("y", 0);
 						}
 					}
 					if (i == 1) {
-						pieceTournee[2 - j][1] = piece[i][j];
+						pieceTournee[2 - j][i] = piece[i][j];
 						if (piece[i][j] == TypeCase.Maison) {
 							coordMaison.put("x", 2 - j);
 							coordMaison.put("y", 1);
 						}
 					}
 					if (i == 2) {
-						pieceTournee[2 - j][2] = piece[i][j];
+						pieceTournee[2 - j][i] = piece[i][j];
 						if (piece[i][j] == TypeCase.Maison) {
 							coordMaison.put("x", 2 - j);
 							coordMaison.put("y", 2);
@@ -158,61 +150,49 @@ public class Piece {
 					}
 				}
 			}
+			posX = x;
+			posY = y;
 		} else {
 			System.out.println("Impossible de placer");
 			return;
 		}
-		posX = x;
-		posY = y;
-		this.contexte = contexte;
+
 	}
 
-	public boolean verifPlacement(int x, int y, Contexte contexte) { 
+	public boolean verifPlacement(int x, int y, Contexte contexte) {
+
+		if (x > 3 || x < 0 || y > 3 || y < 0) // Si les coordonnées entrées ne sont pas bonnes
+			return false;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 
-				// Si la piece est un jardin et que la case sur laquelle elle doit etre placï¿½
+				// Si la piece est un jardin et que la case sur laquelle elle doit etre placee
 				// ne fait pas parti du plateau on return false
 				if (piece[i][j] == TypeCase.Jardin) {
 					if (x + i - coordMaison.get("x") > 3 || x + i - coordMaison.get("x") < 0
 							|| y + j - coordMaison.get("y") > 3 || y + j - coordMaison.get("y") < 0) {
 						return false;
 					}
-					if (Jeux.getPlateau()[x + i - coordMaison.get("x")][y + j - coordMaison.get("y")] != TypeCase.Vide) // A
-																														// rï¿½viser
+					if (Jeux.getPlateau()[x + i - coordMaison.get("x")][y + j - coordMaison.get("y")] != TypeCase.Vide)
 						return false;
 				}
-				
-				
-				if (contexte==contexte.Diurne) {
-					
-					//si le contexte est diurne
-					// Si la piece est une Maison et que la case sur laquelle elle doit etre placï¿½
+
+				if (contexte == Contexte.Diurne) {
+
+					// si le contexte est diurne
+					// Si la piece est une Maison et que la case sur laquelle elle doit etre placee
 					// n'est pas vide on return false
 
-					
 					if (piece[i][j] == TypeCase.Maison && Jeux.getPlateau()[x][y] != TypeCase.Vide) {
 						return false;
 					}
 				}
-				
-				
-				
-			/*	// Si la piece est une Maison et que la case sur laquelle elle doit etre placee est un cochon
-				//on retourne true
-				if (contexte==contexte.Nocturne) {
-					if (piece[i][j] == TypeCase.Maison && Jeux.getPlateau()[x][y] != TypeCase.Cochon) {
-						return true;
-					}
-				}
-				*/
-				
-				
+
 				// Contexte Nocturne
 				// Si la piece est une Maison et que la case sur laquelle elle doit etre placï¿½
 				// n'est pas un cochon on return false
 				if (contexte == Contexte.Nocturne && piece[i][j] == TypeCase.Maison
-						&& Jeux.getPlateau()[i][j] != TypeCase.Cochon) {
+						&& (Jeux.getPlateau()[i][j] != TypeCase.Cochon || Jeux.getPlateau()[x][y] != TypeCase.Vide)) {
 					return false;
 				}
 			}
@@ -224,30 +204,24 @@ public class Piece {
 		if (posX != null && posY != null) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
-					if (contexte == Contexte.Diurne) {
-						if (piece[i][j] != null) {
-							if (piece[i][j] == TypeCase.Jardin)
-								Jeux.setPlateau(TypeCase.Vide, posX + i - coordMaison.get("x"),
-										posY + j - coordMaison.get("y"));
-							if (piece[i][j] == TypeCase.Maison)
+					if (piece[i][j] != null) {
+						if (piece[i][j] == TypeCase.Jardin)
+							Jeux.setPlateau(TypeCase.Vide, posX + i - coordMaison.get("x"),
+									posY + j - coordMaison.get("y"));
+						if (piece[i][j] == TypeCase.Maison) {
+							if (this.isContenirCochon())
+								Jeux.setPlateau(TypeCase.Cochon, posX, posY);
+							else
 								Jeux.setPlateau(TypeCase.Vide, posX, posY);
 						}
 					}
-
-					if (contexte == Contexte.Nocturne) {
-						if (piece[i][j] != TypeCase.Maison
-								&& Jeux.getPlateau()[posX + (i - posX)][posY + (j - posY)] == piece[i][j])
-							Jeux.setPlateau(TypeCase.Cochon, posX + (i - posX), posY + (j - posY)); // NON PAS FORCEMENT
-						if (piece[i][j] != TypeCase.Jardin
-								&& Jeux.getPlateau()[posX + (i - posX)][posY + (j - posY)] == piece[i][j])
-							Jeux.setPlateau(TypeCase.Vide, posX + (i - posX), posY + (j - posY));
-					}
 				}
 			}
+			posX = null;
+			posY = null;
 		} else
-			System.out.println("Piï¿½ce non placï¿½e");
-		posX = null;
-		posY = null;
+			System.out.println("Piece non placee");
+
 	}
 
 	public int getDegreRotation() {
@@ -272,6 +246,14 @@ public class Piece {
 
 	public void setContenirCochon(boolean contenirCochon) {
 		this.contenirCochon = contenirCochon;
+	}
+
+	public TypeCase[][] getPiece() {
+		return piece;
+	}
+
+	public void setPiece(TypeCase[][] piece) {
+		this.piece = piece;
 	}
 
 }

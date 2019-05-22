@@ -101,7 +101,7 @@ public class Defi {
 	}
 	
 	/*
-	public void ajouterCase(int i, int j, TypeCase type) {
+	public void ajouterCase(int i, int j, TypeCase type) { // Surement inutile (Supprimer si c'est le cas)
 		Jeux.getPlateau()[i][j] = new Case(type);
 	}*/
 }
