@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,7 +28,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Controller implements Initializable {
-
 	private Jeux jeu;
 
 	public void setJeu(Jeux jeu) {
@@ -84,27 +84,50 @@ public class Controller implements Initializable {
 
 	@FXML
 	void Piece1Drague(MouseEvent event) {
-		piece1.setTranslateX(event.getSceneX() - piece1.getFitWidth()*2);
-		piece1.setTranslateY(event.getSceneY() - piece1.getFitHeight()/2 );
-		piece1.setX(event.getSceneX()- piece1.getFitWidth()/2 );
-		piece1.setY(event.getSceneY()- piece1.getFitHeight()/2 );
+		if(piece1.getRotate()==0) {
+			piece1.setTranslateX(event.getSceneX() - 0.1717*piece1.getFitWidth());
+			piece1.setTranslateY(event.getSceneY() - 0.25*piece2.getFitHeight());
+		}
+		if(piece1.getRotate()==90) {
+			piece1.setTranslateX(event.getSceneX() - 0.70*piece1.getFitWidth());
+			piece1.setTranslateY(event.getSceneY() - 0.05*piece2.getFitHeight());
+		}
+		if(piece1.getRotate()==180) {
+			piece1.setTranslateX(event.getSceneX() - 0.85*piece1.getFitWidth());
+			piece1.setTranslateY(event.getSceneY() - 0.80*piece2.getFitHeight());
+		}
+		if(piece1.getRotate()==270) {
+			piece1.setTranslateX(event.getSceneX() - 0.35*piece1.getFitWidth());
+			piece1.setTranslateY(event.getSceneY() - 0.95*piece2.getFitHeight());
+		}
+		
 	}
 	
 
 	@FXML
 	void Piece2Drague(MouseEvent event) {
-		piece2.setTranslateX(event.getSceneX() - piece2.getFitWidth()*2);
-		piece2.setTranslateY(event.getSceneY() - piece2.getFitHeight()*1.5 );
-		piece2.setX(event.getSceneX()- piece2.getFitWidth()/2 );
-		piece2.setY(event.getSceneY()- piece2.getFitHeight()/2 );
+		if(piece2.getRotate()==0) {
+			piece2.setTranslateX(event.getSceneX() - 0.1717*piece2.getFitWidth());
+			piece2.setTranslateY(event.getSceneY() - 0.75*piece2.getFitHeight());
+		}
+		if(piece2.getRotate()==90) {
+			piece2.setTranslateX(event.getSceneX() - 0.33*piece2.getFitWidth());
+			piece2.setTranslateY(event.getSceneY() - 0.09*piece2.getFitHeight());
+		}
+		if(piece2.getRotate()==180) {
+			piece2.setTranslateX(event.getSceneX() - 0.85*piece2.getFitWidth());
+			piece2.setTranslateY(event.getSceneY() - 0.30*piece2.getFitHeight());
+		}
+		if(piece2.getRotate()==270) {
+			piece2.setTranslateX(event.getSceneX() - 0.70*piece2.getFitWidth());
+			piece2.setTranslateY(event.getSceneY() - 0.95*piece2.getFitHeight());
+		}
 	}
 
 	@FXML
 	void Piece3Drague(MouseEvent event) {
-		piece3.setTranslateX(event.getSceneX() - piece3.getFitWidth()*1.85);
-		piece3.setTranslateY(event.getSceneY() - piece3.getFitHeight()*2.45 );
-		piece3.setX(event.getSceneX()- piece3.getFitWidth()/2 );
-		piece3.setY(event.getSceneY()- piece3.getFitHeight()/2 );
+		piece3.setTranslateX(event.getSceneX() - 0.5*piece1.getFitWidth());
+		piece3.setTranslateY(event.getSceneY() - 0.25*piece2.getFitHeight());
 	}
 
 	@FXML
@@ -127,12 +150,32 @@ public class Controller implements Initializable {
 	}
 
 	@FXML
-	void PieceDragueFini(MouseEvent event) {
-		return;
+	void PieceDragueFini1(MouseEvent event) {
+		placerPiece(event, piece1);
+	}
+	@FXML
+	void PieceDragueFini2(MouseEvent event) {
+		placerPiece(event, piece2);
+	}
+	@FXML
+	void PieceDragueFini3(MouseEvent event) {
+		placerPiece(event, piece3);
+	}
+	
+	public void placerPiece(MouseEvent event, Node piece) {
+		
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		piece1.setTranslateX(670);
+		piece1.setTranslateY(0);
+		
+		piece2.setTranslateX(670);
+		piece2.setTranslateY(241);
+		
+		piece3.setTranslateX(670);
+		piece3.setTranslateY(482);
 		jeu = new Jeux();
 		TypeCase[][] plateau = jeu.getPlateau();
 
