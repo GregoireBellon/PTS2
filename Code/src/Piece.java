@@ -70,9 +70,9 @@ public class Piece {
 		TypeCase[][] pieceTournee = new TypeCase[3][3];
 		for (int i = 0; i <= 2; i++) { // Parcourt le tableau de la piece
 			for (int j = 0; j <= 2; j++) { //
-				if (piece[i][j] != null) {
+				if (piece[i][j] != null) {			// A factoriser ( pieceTournee[j][2-i])
 					if (i == 0) {
-						pieceTournee[j][2] = piece[i][j];
+						pieceTournee[j][2-i] = piece[i][j];
 						if (piece[i][j] == TypeCase.Maison) {
 							coordMaison.put("x", j);
 							coordMaison.put("y", 2);

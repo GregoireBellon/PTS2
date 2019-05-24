@@ -1,7 +1,7 @@
 
 public class Jeux {
 	
-	private static TypeCase[][] plateau = new TypeCase[4][4]; // Non, il faut utiliser le plateau du niveau
+	private static TypeCase[][] plateau = new TypeCase[4][4];
 	private Piece piece1 = new Piece(TypePiece.Paille);
 	private Piece piece2 = new Piece(TypePiece.Brique);
 	private Piece piece3 = new Piece(TypePiece.Bois);
