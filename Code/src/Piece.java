@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Piece {
 	private TypeCase[][] piece;
 	// position en X sur le plateau
@@ -12,6 +15,9 @@ public class Piece {
 	private int degreRotation; // Ne devrait pas servir
 	private boolean contenirCochon; // Servira pour les proprietes du mode nocturne
 	private Map<String, Integer> coordMaison = new HashMap<String, Integer>();
+	
+	//pour JavaFX
+	private ImageView imagePiece;
 
 	/**
 	 * Cr�e une pi�ce
@@ -254,6 +260,14 @@ public class Piece {
 
 	public void setPiece(TypeCase[][] piece) {
 		this.piece = piece;
+	}
+
+	public ImageView getImagePiece() {
+		return imagePiece;
+	}
+
+	public void setImagePiece(ImageView piece1) {
+		this.imagePiece = piece1;
 	}
 
 }
