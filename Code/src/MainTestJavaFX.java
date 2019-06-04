@@ -13,7 +13,7 @@ public class MainTestJavaFX extends Application {
 	public void start(Stage primaryStage) {
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("partie.fxml"));
+			root = FXMLLoader.load(getClass().getResource("InGame.fxml"));
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 		} catch (IOException e) {

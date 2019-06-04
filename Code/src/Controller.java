@@ -1,5 +1,7 @@
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.geom.Point2D;
@@ -29,7 +31,7 @@ import javafx.scene.paint.Paint;
 
 public class Controller implements Initializable {
 	private Jeux jeu;
-
+	List<ImageView> listeCases;
 	public void setJeu(Jeux jeu) {
 		this.jeu = jeu;
 	}
@@ -163,6 +165,20 @@ public class Controller implements Initializable {
 	}
 	
 	public void placerPiece(MouseEvent event, Node piece) {
+		double Xpiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(),piece.getTranslateY()).getX();
+		double Ypiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(),piece.getTranslateY()).getY();
+		double Xevent = event.getSceneX();
+		double Yevent = event.getSceneY();
+		for(ImageView uneCase : listeCases) {
+			double Xcase = uneCase.getLocalToSceneTransform().transform(uneCase.getTranslateX(),uneCase.getTranslateY()).getX();
+			double Ycase = uneCase.getLocalToSceneTransform().transform(uneCase.getTranslateX(),uneCase.getTranslateY()).getY();
+			if(Xevent>Xcase && Yevent>Ycase && Xevent<Xcase+uneCase.getFitWidth() && Yevent<Ycase + uneCase.getFitHeight()) {
+				piece.setTranslateX(Xcase);
+				piece.setTranslateY(Ycase);
+			}
+		}
+			
+			
 		
 	}
 
@@ -176,6 +192,22 @@ public class Controller implements Initializable {
 		
 		piece3.setTranslateX(670);
 		piece3.setTranslateY(482);
+		
+		listeCases = new ArrayList<ImageView>();
+		listeCases.add(case1);
+		listeCases.add(case2);
+		listeCases.add(case3);
+		listeCases.add(case4);
+		listeCases.add(case5);
+		listeCases.add(case6);
+		listeCases.add(case7);
+		listeCases.add(case8);
+		listeCases.add(case9);
+		listeCases.add(case10);
+		listeCases.add(case11);
+		listeCases.add(case12);
+		listeCases.add(case13);
+		
 		jeu = new Jeux();
 		TypeCase[][] plateau = jeu.getPlateau();
 
