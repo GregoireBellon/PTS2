@@ -70,9 +70,9 @@ public class Piece {
 		TypeCase[][] pieceTournee = new TypeCase[3][3];
 		for (int i = 0; i <= 2; i++) { // Parcourt le tableau de la piece
 			for (int j = 0; j <= 2; j++) { //
-				if (piece[i][j] != null) {			// A factoriser ( pieceTournee[j][2-i])
+				if (piece[i][j] != null) { // A factoriser ( pieceTournee[j][2-i])
 					if (i == 0) {
-						pieceTournee[j][2-i] = piece[i][j];
+						pieceTournee[j][2 - i] = piece[i][j];
 						if (piece[i][j] == TypeCase.Maison) {
 							coordMaison.put("x", j);
 							coordMaison.put("y", 2);
@@ -145,8 +145,13 @@ public class Piece {
 					if (piece[i][j] != null) {
 						if (piece[i][j] == TypeCase.Jardin)
 							Jeux.setPlateau(piece[i][j], x + i - coordMaison.get("x"), y + j - coordMaison.get("y"));
-						if (piece[i][j] == TypeCase.Maison)
+						if (piece[i][j] == TypeCase.Maison) {
+							if (Jeux.getPlateau()[x][y] == TypeCase.Cochon) {
+								this.setContenirCochon(true);
+							}
 							Jeux.setPlateau(piece[i][j], x, y);
+
+						}
 					}
 				}
 			}
@@ -176,24 +181,19 @@ public class Piece {
 					if (Jeux.getPlateau()[x + i - coordMaison.get("x")][y + j - coordMaison.get("y")] != TypeCase.Vide)
 						return false;
 				}
-
-				if (contexte == Contexte.Diurne) {
-
-					// si le contexte est diurne
-					// Si la piece est une Maison et que la case sur laquelle elle doit etre placee
-					// n'est pas vide on return false
-
-					if (piece[i][j] == TypeCase.Maison && Jeux.getPlateau()[x][y] != TypeCase.Vide) {
+				
+				// si le contexte est diurne
+				// Si la piece est une Maison et que la case sur laquelle elle doit etre placee
+				// n'est pas vide on return false
+				if (piece[i][j] == TypeCase.Maison) {
+					if (Jeux.getPlateau()[x][y] != TypeCase.Vide && Jeux.getPlateau()[x][y] != TypeCase.Cochon) {
 						return false;
 					}
-				}
-
-				// Contexte Nocturne
-				// Si la piece est une Maison et que la case sur laquelle elle doit etre plac�
-				// n'est pas un cochon on return false
-				if (contexte == Contexte.Nocturne && piece[i][j] == TypeCase.Maison
-						&& (Jeux.getPlateau()[i][j] != TypeCase.Cochon || Jeux.getPlateau()[x][y] != TypeCase.Vide)) {
-					return false;
+					if (contexte == Contexte.Diurne) {
+						if (Jeux.getPlateau()[x][y] != TypeCase.Vide) { 
+							return false;
+						}
+					}
 				}
 			}
 		}
@@ -217,6 +217,8 @@ public class Piece {
 					}
 				}
 			}
+			if (this.isContenirCochon())
+				this.setContenirCochon(false);
 			posX = null;
 			posY = null;
 		} else
