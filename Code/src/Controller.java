@@ -4,40 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.sun.javafx.geom.Point2D;
-
-import javafx.application.Application.Parameters;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
 import javafx.scene.Node;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.TransferMode;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 
 public class Controller implements Initializable {
-	private Jeux jeu;
-	List<ImageView> listeCases;
-	public void setJeu(Jeux jeu) {
-		this.jeu = jeu;
-	}
-
 	@FXML
 	private ImageView case1;
+	@FXML
+	private ImageView case10;
+	@FXML
+	private ImageView case11;
+	@FXML
+	private ImageView case12;
+
+	@FXML
+	private ImageView case13;
 
 	@FXML
 	private ImageView case2;
@@ -63,136 +50,35 @@ public class Controller implements Initializable {
 	@FXML
 	private ImageView case9;
 
-	@FXML
-	private ImageView case11;
+	private Chrono chrono;
 
-	@FXML
-	private ImageView case12;
+	private Jeux jeu;
 
-	@FXML
-	private ImageView case13;
-
-	@FXML
-	private ImageView piece3;
-
-	@FXML
-	private ImageView piece2;
-
-	@FXML
-	private ImageView case10;
+	List<ImageView> listeCases;
 
 	@FXML
 	private ImageView piece1;
 
 	@FXML
-	void Piece1Drague(MouseEvent event) {
-		if(piece1.getRotate()==0) {
-			piece1.setTranslateX(event.getSceneX() - 0.1717*piece1.getFitWidth());
-			piece1.setTranslateY(event.getSceneY() - 0.25*piece2.getFitHeight());
-		}
-		if(piece1.getRotate()==90) {
-			piece1.setTranslateX(event.getSceneX() - 0.70*piece1.getFitWidth());
-			piece1.setTranslateY(event.getSceneY() - 0.05*piece2.getFitHeight());
-		}
-		if(piece1.getRotate()==180) {
-			piece1.setTranslateX(event.getSceneX() - 0.85*piece1.getFitWidth());
-			piece1.setTranslateY(event.getSceneY() - 0.80*piece2.getFitHeight());
-		}
-		if(piece1.getRotate()==270) {
-			piece1.setTranslateX(event.getSceneX() - 0.35*piece1.getFitWidth());
-			piece1.setTranslateY(event.getSceneY() - 0.95*piece2.getFitHeight());
-		}
-		
-	}
-	
+	private ImageView piece2;
 
 	@FXML
-	void Piece2Drague(MouseEvent event) {
-		if(piece2.getRotate()==0) {
-			piece2.setTranslateX(event.getSceneX() - 0.1717*piece2.getFitWidth());
-			piece2.setTranslateY(event.getSceneY() - 0.75*piece2.getFitHeight());
-		}
-		if(piece2.getRotate()==90) {
-			piece2.setTranslateX(event.getSceneX() - 0.33*piece2.getFitWidth());
-			piece2.setTranslateY(event.getSceneY() - 0.09*piece2.getFitHeight());
-		}
-		if(piece2.getRotate()==180) {
-			piece2.setTranslateX(event.getSceneX() - 0.85*piece2.getFitWidth());
-			piece2.setTranslateY(event.getSceneY() - 0.30*piece2.getFitHeight());
-		}
-		if(piece2.getRotate()==270) {
-			piece2.setTranslateX(event.getSceneX() - 0.70*piece2.getFitWidth());
-			piece2.setTranslateY(event.getSceneY() - 0.95*piece2.getFitHeight());
-		}
-	}
+	private ImageView piece3;
 
 	@FXML
-	void Piece3Drague(MouseEvent event) {
-		piece3.setTranslateX(event.getSceneX() - 0.5*piece1.getFitWidth());
-		piece3.setTranslateY(event.getSceneY() - 0.25*piece2.getFitHeight());
-	}
-
-	@FXML
-	void rotationPiece1(ScrollEvent event) {
-		jeu.getPiece1().tournerHoraire();
-		piece1.setRotate(jeu.getPiece1().getDegreRotation());
-	}
-
-	@FXML
-	void rotationPiece2(ScrollEvent event) {
-		jeu.getPiece2().tournerHoraire();
-		piece2.setRotate(jeu.getPiece2().getDegreRotation());
-		System.out.println(piece2.getRotate());
-	}
-
-	@FXML
-	void rotationPiece3(ScrollEvent event) {
-		jeu.getPiece3().tournerHoraire();
-		piece3.setRotate(jeu.getPiece3().getDegreRotation());
-	}
-
-	@FXML
-	void PieceDragueFini1(MouseEvent event) {
-		placerPiece(event, piece1);
-	}
-	@FXML
-	void PieceDragueFini2(MouseEvent event) {
-		placerPiece(event, piece2);
-	}
-	@FXML
-	void PieceDragueFini3(MouseEvent event) {
-		placerPiece(event, piece3);
-	}
-	
-	public void placerPiece(MouseEvent event, Node piece) {
-		double Xpiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(),piece.getTranslateY()).getX();
-		double Ypiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(),piece.getTranslateY()).getY();
-		double Xevent = event.getSceneX();
-		double Yevent = event.getSceneY();
-		for(ImageView uneCase : listeCases) {
-			double Xcase = uneCase.getLocalToSceneTransform().transform(uneCase.getTranslateX(),uneCase.getTranslateY()).getX();
-			double Ycase = uneCase.getLocalToSceneTransform().transform(uneCase.getTranslateX(),uneCase.getTranslateY()).getY();
-			if(Xevent>Xcase && Yevent>Ycase && Xevent<Xcase+uneCase.getFitWidth() && Yevent<Ycase + uneCase.getFitHeight()) {
-				piece.setTranslateX(Xcase);
-				piece.setTranslateY(Ycase);
-			}
-		}
-			
-			
-		
-	}
+	private Text TextTemps;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		piece1.setTranslateX(670);
 		piece1.setTranslateY(0);
-		
+
 		piece2.setTranslateX(670);
 		piece2.setTranslateY(241);
-		
+
 		piece3.setTranslateX(670);
 		piece3.setTranslateY(482);
-		
+
 		listeCases = new ArrayList<ImageView>();
 		listeCases.add(case1);
 		listeCases.add(case2);
@@ -207,7 +93,7 @@ public class Controller implements Initializable {
 		listeCases.add(case11);
 		listeCases.add(case12);
 		listeCases.add(case13);
-		
+
 		jeu = new Jeux();
 		TypeCase[][] plateau = jeu.getPlateau();
 
@@ -425,6 +311,111 @@ public class Controller implements Initializable {
 			break;
 		}
 
+	}
+
+	@FXML
+	void Piece1Drague(MouseEvent event) {
+		if (piece1.getRotate() == 0) {
+			piece1.setTranslateX(event.getSceneX() - (0.1717 * piece1.getFitWidth()));
+			piece1.setTranslateY(event.getSceneY() - (0.25 * piece2.getFitHeight()));
+		}
+		if (piece1.getRotate() == 90) {
+			piece1.setTranslateX(event.getSceneX() - (0.70 * piece1.getFitWidth()));
+			piece1.setTranslateY(event.getSceneY() - (0.05 * piece2.getFitHeight()));
+		}
+		if (piece1.getRotate() == 180) {
+			piece1.setTranslateX(event.getSceneX() - (0.85 * piece1.getFitWidth()));
+			piece1.setTranslateY(event.getSceneY() - (0.80 * piece2.getFitHeight()));
+		}
+		if (piece1.getRotate() == 270) {
+			piece1.setTranslateX(event.getSceneX() - (0.35 * piece1.getFitWidth()));
+			piece1.setTranslateY(event.getSceneY() - (0.95 * piece2.getFitHeight()));
+		}
+
+	}
+
+	@FXML
+	void Piece2Drague(MouseEvent event) {
+		if (piece2.getRotate() == 0) {
+			piece2.setTranslateX(event.getSceneX() - (0.1717 * piece2.getFitWidth()));
+			piece2.setTranslateY(event.getSceneY() - (0.75 * piece2.getFitHeight()));
+		}
+		if (piece2.getRotate() == 90) {
+			piece2.setTranslateX(event.getSceneX() - (0.33 * piece2.getFitWidth()));
+			piece2.setTranslateY(event.getSceneY() - (0.09 * piece2.getFitHeight()));
+		}
+		if (piece2.getRotate() == 180) {
+			piece2.setTranslateX(event.getSceneX() - (0.85 * piece2.getFitWidth()));
+			piece2.setTranslateY(event.getSceneY() - (0.30 * piece2.getFitHeight()));
+		}
+		if (piece2.getRotate() == 270) {
+			piece2.setTranslateX(event.getSceneX() - (0.70 * piece2.getFitWidth()));
+			piece2.setTranslateY(event.getSceneY() - (0.95 * piece2.getFitHeight()));
+		}
+	}
+
+	@FXML
+	void Piece3Drague(MouseEvent event) {
+		piece3.setTranslateX(event.getSceneX() - (0.5 * piece1.getFitWidth()));
+		piece3.setTranslateY(event.getSceneY() - (0.25 * piece2.getFitHeight()));
+	}
+
+	@FXML
+	void PieceDragueFini1(MouseEvent event) {
+		placerPiece(event, piece1);
+	}
+
+	@FXML
+	void PieceDragueFini2(MouseEvent event) {
+		placerPiece(event, piece2);
+	}
+
+	@FXML
+	void PieceDragueFini3(MouseEvent event) {
+		placerPiece(event, piece3);
+	}
+
+	public void placerPiece(MouseEvent event, Node piece) {
+		TextTemps.setText(chrono.getTime() + "");
+		double Xpiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(), piece.getTranslateY()).getX();
+		double Ypiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(), piece.getTranslateY()).getY();
+		double Xevent = event.getSceneX();
+		double Yevent = event.getSceneY();
+		for (ImageView uneCase : listeCases) {
+			double Xcase = uneCase.getLocalToSceneTransform()
+					.transform(uneCase.getTranslateX(), uneCase.getTranslateY()).getX();
+			double Ycase = uneCase.getLocalToSceneTransform()
+					.transform(uneCase.getTranslateX(), uneCase.getTranslateY()).getY();
+			if ((Xevent > Xcase) && (Yevent > Ycase) && (Xevent < (Xcase + uneCase.getFitWidth()))
+					&& (Yevent < (Ycase + uneCase.getFitHeight()))) {
+				piece.setTranslateX(Xcase);
+				piece.setTranslateY(Ycase);
+			}
+		}
+
+	}
+
+	@FXML
+	void rotationPiece1(ScrollEvent event) {
+		jeu.getPiece1().tournerHoraire();
+		piece1.setRotate(jeu.getPiece1().getDegreRotation());
+	}
+
+	@FXML
+	void rotationPiece2(ScrollEvent event) {
+		jeu.getPiece2().tournerHoraire();
+		piece2.setRotate(jeu.getPiece2().getDegreRotation());
+		System.out.println(piece2.getRotate());
+	}
+
+	@FXML
+	void rotationPiece3(ScrollEvent event) {
+		jeu.getPiece3().tournerHoraire();
+		piece3.setRotate(jeu.getPiece3().getDegreRotation());
+	}
+
+	public void setJeu(Jeux jeu) {
+		this.jeu = jeu;
 	}
 
 }
