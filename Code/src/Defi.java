@@ -67,6 +67,30 @@ public class Defi {
 
 	}
 
+	public Contexte getContexte() {
+		return contexte;
+	}
+
+	public int getDifficulte() {
+		return difficulte;
+	}
+
+	public Jeux getJeu() {
+		return jeu;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public String getSolution() {
+		return solution;
+	}
+
+	public boolean isFait() {
+		return fait;
+	}
+
 	public boolean verifierDefi() {
 		for (int i = 0; i < 4; i++) { // Parcourt le plateau
 			for (int j = 0; j < 4; j++) { //

@@ -24,7 +24,7 @@
          </font>
       </Text>
       <Button fx:id="boutonAbandonner" layoutX="1022.0" layoutY="572.0" mnemonicParsing="false" onAction="#abandonner" prefHeight="35.0" prefWidth="244.0" text="Abandonner" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fe8f5" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1017.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6ae3f8" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1017.0" />
       <ImageView fx:id="imagePlateau13" fitHeight="110.0" fitWidth="110.0" layoutX="399.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imageVide.PNG" />

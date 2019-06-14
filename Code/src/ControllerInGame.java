@@ -266,21 +266,17 @@ public class ControllerInGame implements Initializable {
 		default:
 			break;
 		}
-		switch (numPiece) {
-		case 1:
-			jeu.getPiece1().afficherPiece();
-			System.err.println("Case : " + xCase + " ; " + yCase);
-			System.err.println(jeu.getPiece1().verifPlacement(xCase, yCase, Contexte.Diurne));
-			break;
-		case 2:
-			jeu.getPiece2().Placer(xCase, yCase, Contexte.Diurne);
-			break;
-		case 3:
-			jeu.getPiece3().Placer(xCase, yCase, Contexte.Diurne);
-			break;
-
-		default:
-			break;
+		if ((xCase != -1) && (yCase != -1)) {
+			switch (numPiece) {
+			case 1:
+				return jeu.getPiece1().placerPiece(xCase, yCase);
+			case 2:
+				return jeu.getPiece2().placerPiece(xCase, yCase);
+			case 3:
+				return jeu.getPiece3().placerPiece(xCase, yCase);
+			default:
+				break;
+			}
 		}
 		return true;
 	}
@@ -290,12 +286,15 @@ public class ControllerInGame implements Initializable {
 		switch (numPiece) {
 		case 1:
 			image = Piece1;
+			jeu.getPiece1().enlever();
 			break;
 		case 2:
 			image = Piece2;
+			jeu.getPiece2().enlever();
 			break;
 		case 3:
 			image = Piece3;
+			jeu.getPiece3().enlever();
 			break;
 
 		default:
@@ -365,16 +364,19 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	void rotationPiece1(ScrollEvent event) {
 		jeu.getPiece1().tournerHoraire();
+		jeu.getPiece1().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece2(ScrollEvent event) {
 		jeu.getPiece2().tournerHoraire();
+		jeu.getPiece2().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece3(ScrollEvent event) {
 		jeu.getPiece3().tournerHoraire();
+		jeu.getPiece3().afficherPiece();
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e) {

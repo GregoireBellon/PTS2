@@ -12,9 +12,9 @@ public class Piece {
 	private ImageView imagePiece;
 	private Jeux jeu;
 	// position en X sur le plateau
-	private Integer posX = null;
+	private int posX;
 	// position en Y sur le plateau
-	private Integer posY = null;
+	private int posY;
 
 	// Contexte dans lequel elle a ete place
 	private TypePiece typePiece;
@@ -28,6 +28,8 @@ public class Piece {
 		this.jeu = jeu;
 		typePiece = type;
 		casesPiece = new TypeCase[3][3];
+		posX = -1;
+		posY = -1;
 		switch (type) {
 		case Paille: // Cree une piece avec la maison de paille
 			casesPiece[1][1] = TypeCase.Maison;
@@ -45,11 +47,11 @@ public class Piece {
 			break;
 		case Brique: // Cree une piece avec la maison de brique
 			casesPiece[0][0] = TypeCase.Jardin;
-			casesPiece[1][1] = TypeCase.Jardin;
+			casesPiece[0][1] = TypeCase.Jardin;
 			casesPiece[1][2] = TypeCase.Jardin;
-			casesPiece[1][0] = TypeCase.Maison;
-			coordMaison.put("x", 1);
-			coordMaison.put("y", 0);
+			casesPiece[0][2] = TypeCase.Maison;
+			coordMaison.put("x", 0);
+			coordMaison.put("y", 2);
 		}
 	}
 
@@ -72,30 +74,28 @@ public class Piece {
 	}
 
 	public void enlever() {
-		if ((posX != null) && (posY != null)) {
+		if ((posX != -1) && (posY != -1)) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
 						if (casesPiece[i][j] == TypeCase.Jardin) {
-							jeu.setPlateau(TypeCase.Vide, (posX + i) - coordMaison.get("x"),
-									(posY + j) - coordMaison.get("y"));
+							jeu.setPlateau(TypeCase.Vide, (posX + i), (posY + j));
 						}
 						if (casesPiece[i][j] == TypeCase.Maison) {
 							if (isContenirCochon()) {
-								jeu.setPlateau(TypeCase.Cochon, posX, posY);
+								jeu.setPlateau(TypeCase.Cochon, posX + i, posY + j);
 							} else {
-								jeu.setPlateau(TypeCase.Vide, posX, posY);
+								jeu.setPlateau(TypeCase.Vide, posX + i, posY + j);
 							}
 						}
 					}
 				}
 			}
-			posX = null;
-			posY = null;
+			posX = -1;
+			posY = -1;
 		} else {
-			System.out.println("Piece non placee");
 		}
-
+		jeu.afficherPlateau();
 	}
 
 	public int getDegreRotation() {
@@ -118,26 +118,27 @@ public class Piece {
 		return contenirCochon;
 	}
 
-	public void Placer(int x, int y, Contexte contexte) {
-		if (verifPlacement(x, y, contexte)) {
+	public boolean placerPiece(int x, int y) {
+		if (verifierPlacementPiece(x, y)) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
 						if (casesPiece[i][j] == TypeCase.Jardin) {
-							jeu.setPlateau(casesPiece[i][j], (x + i) - coordMaison.get("x"),
-									(y + j) - coordMaison.get("y"));
+							jeu.setPlateau(TypeCase.Jardin, x + i, y + j);
 						}
 						if (casesPiece[i][j] == TypeCase.Maison) {
-							jeu.setPlateau(casesPiece[i][j], x, y);
+							jeu.setPlateau(TypeCase.Maison, x + i, y + j);
 						}
 					}
 				}
 			}
 			posX = x;
 			posY = y;
+			System.err.println("Placée en  : " + posX + " ; " + posY);
+			jeu.afficherPlateau();
+			return true;
 		} else {
-			System.out.println("Impossible de placer");
-			return;
+			return false;
 		}
 
 	}
@@ -237,6 +238,30 @@ public class Piece {
 		degreRotation = degreRotation % 360;
 	}
 
+	private boolean verifierPlacementPiece(int x, int y) {
+		afficherPiece();
+		// Verification que les coordonnées sont bien dans le plateau
+		if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
+			return false;
+		}
+		// Verification que la piece peut etre posée
+		for (int i = 0; i < casesPiece.length; i++) {
+			for (int j = 0; j < casesPiece.length; j++) {
+				if (casesPiece[i][j] != null) {
+					TypeCase t = jeu.getPlateau()[x + i][y + j];
+					if (t != TypeCase.Vide) {
+						System.err.println("Tu essaye de poser sur un " + t.toString() + "en " + (x + i) + ";" + (y + j)
+								+ " en dessus d'un " + casesPiece[i][j] + " en " + i + ";" + j);
+						return false;
+					}
+				} else {
+
+				}
+			}
+		}
+		return true;
+	}
+
 	public boolean verifPlacement(int x, int y, Contexte contexte) {
 
 		if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
@@ -280,5 +305,4 @@ public class Piece {
 		}
 		return true;
 	}
-
 }
