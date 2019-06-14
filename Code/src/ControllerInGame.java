@@ -364,16 +364,19 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	void rotationPiece1(ScrollEvent event) {
 		jeu.getPiece1().tournerHoraire();
+		jeu.getPiece1().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece2(ScrollEvent event) {
 		jeu.getPiece2().tournerHoraire();
+		jeu.getPiece2().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece3(ScrollEvent event) {
 		jeu.getPiece3().tournerHoraire();
+		jeu.getPiece3().afficherPiece();
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e) {
