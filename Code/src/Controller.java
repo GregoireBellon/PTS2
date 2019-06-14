@@ -50,8 +50,6 @@ public class Controller implements Initializable {
 	@FXML
 	private ImageView case9;
 
-	private Chrono chrono;
-
 	private Jeux jeu;
 
 	List<ImageView> listeCases;
@@ -376,7 +374,6 @@ public class Controller implements Initializable {
 	}
 
 	public void placerPiece(MouseEvent event, Node piece) {
-		TextTemps.setText(chrono.getTime() + "");
 		double Xpiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(), piece.getTranslateY()).getX();
 		double Ypiece = piece.getLocalToSceneTransform().transform(piece.getTranslateX(), piece.getTranslateY()).getY();
 		double Xevent = event.getSceneX();

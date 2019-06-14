@@ -3,9 +3,9 @@ public class Jeux {
 
 	private Defi defi;
 
-	private Piece piece1 = new Piece(TypePiece.Paille, this);
+	private Piece piece1 = new Piece(TypePiece.Brique, this);
 
-	private Piece piece2 = new Piece(TypePiece.Brique, this);
+	private Piece piece2 = new Piece(TypePiece.Paille, this);
 
 	private Piece piece3 = new Piece(TypePiece.Bois, this);
 
