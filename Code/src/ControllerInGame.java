@@ -1,4 +1,6 @@
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.animation.PathTransition;
@@ -7,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -18,18 +21,18 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class ControllerInGame implements Initializable {
-	PathTransition animationToSouris = new PathTransition();
 
+	private PathTransition animationToSouris = new PathTransition();
 	@FXML
 	private Button boutonAbandonner;
 	@FXML
 	private Button boutonSolution;
+	private Chrono chrono;
+
 	@FXML
 	private ImageView imagePlateau1;
-
 	@FXML
 	private ImageView imagePlateau10;
-
 	@FXML
 	private ImageView imagePlateau11;
 
@@ -65,26 +68,25 @@ public class ControllerInGame implements Initializable {
 
 	private Jeux jeu;
 
-	private Piece piece1;
+	private List<ImageView> listCases;
 
 	@FXML
 	private ImageView Piece1;
 
-	private Piece piece2;
-
 	@FXML
 	private ImageView Piece2;
-
-	private Piece piece3;
 
 	@FXML
 	private ImageView Piece3;
 
+	private double[][] positionDepartPieces = { { 0, 0 }, { 0, 0 }, { 0, 0 } };
 	@FXML
 	private AnchorPane root;
 
 	@FXML
 	private Text TextTemps;
+
+	private double[][] transformCursorPosition = { { 0, 0 }, { 0, 0 }, { 0, 0 } };
 
 	@FXML
 	void abandonner(ActionEvent event) {
@@ -93,17 +95,17 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void activerDeplacementPiece1(MouseEvent event) {
-		suiviPieceSouris(piece1, event);
+		suiviPieceSouris(jeu.getPiece1(), event);
 	}
 
 	@FXML
 	void activerDeplacementPiece2(MouseEvent event) {
-		suiviPieceSouris(piece2, event);
+		suiviPieceSouris(jeu.getPiece2(), event);
 	}
 
 	@FXML
 	void activerDeplacementPiece3(MouseEvent event) {
-		suiviPieceSouris(piece3, event);
+		suiviPieceSouris(jeu.getPiece3(), event);
 	}
 
 	@FXML
@@ -115,31 +117,90 @@ public class ControllerInGame implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		Jeux jeu = new Jeux();
 		this.jeu = jeu;
-		piece1 = jeu.getPiece1();
-		piece2 = jeu.getPiece2();
-		piece3 = jeu.getPiece3();
-		piece1.setImagePiece(Piece1);
-		piece2.setImagePiece(Piece2);
-		piece3.setImagePiece(Piece3);
+		jeu.getPiece1().setImagePiece(Piece1);
+		jeu.getPiece2().setImagePiece(Piece2);
+		jeu.getPiece3().setImagePiece(Piece3);
+
+		// chrono = new Chrono(System.currentTimeMillis(), TextTemps);
+		listCases = new ArrayList<>();
+
+		listCases.add(imagePlateau1);
+		listCases.add(imagePlateau2);
+		listCases.add(imagePlateau3);
+		listCases.add(imagePlateau4);
+		listCases.add(imagePlateau5);
+		listCases.add(imagePlateau6);
+		listCases.add(imagePlateau7);
+		listCases.add(imagePlateau8);
+		listCases.add(imagePlateau9);
+		listCases.add(imagePlateau10);
+		listCases.add(imagePlateau11);
+		listCases.add(imagePlateau12);
+		listCases.add(imagePlateau13);
+		int i = 0;
+		int j = 0;
+		jeu.afficherPlateau();
+		for (int k = 0; k < listCases.size(); k++) {
+			ImageView image = listCases.get(k);
+			switch (jeu.getPlateau()[i][j]) {
+			case Cochon:
+				image.setImage(new Image("imageCochon.PNG"));
+				k++;
+				break;
+			case Vide:
+				image.setImage(new Image("imageVide.PNG"));
+				k++;
+				break;
+			case Loup:
+				image.setImage(new Image("imageLoup.PNG"));
+				k++;
+				break;
+			default:
+				System.err.println("Erreur : " + i + " / " + j + " : " + jeu.getPlateau()[i][j].toString());
+				break;
+			}
+
+			i++;
+			if (i > 3) {
+				i = 0;
+				j++;
+			}
+		}
+
+	}
+
+	@FXML
+	void PieceDragueFini1(MouseEvent event) {
+		placerPiece(Piece1);
+	}
+
+	@FXML
+	void PieceDragueFini2(MouseEvent event) {
+		placerPiece(Piece2);
+	}
+
+	@FXML
+	void PieceDragueFini3(MouseEvent event) {
+		placerPiece(Piece3);
+	}
+
+	public void placerPiece(ImageView piece) {
 
 	}
 
 	@FXML
 	void rotationPiece1(ScrollEvent event) {
 		jeu.getPiece1().tournerHoraire();
-		Piece1.setRotate(jeu.getPiece1().getDegreRotation());
 	}
 
 	@FXML
 	void rotationPiece2(ScrollEvent event) {
 		jeu.getPiece2().tournerHoraire();
-		Piece2.setRotate(jeu.getPiece2().getDegreRotation());
 	}
 
 	@FXML
 	void rotationPiece3(ScrollEvent event) {
 		jeu.getPiece3().tournerHoraire();
-		Piece3.setRotate(jeu.getPiece3().getDegreRotation());
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e) {
@@ -160,10 +221,9 @@ public class ControllerInGame implements Initializable {
 		animationToSouris.setPath(path);
 		animationToSouris.setDuration(Duration.millis(0));
 		animationToSouris.setNode(piece.getImagePiece());
-		animationToSouris.setOnFinished(event -> {
-
-		});
 		animationToSouris.play();
+		animationToSouris.setOnFinished(event -> {
+		});
 
 		piece.getImagePiece().setX(toX);
 		piece.getImagePiece().setY(toY);

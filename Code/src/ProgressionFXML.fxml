@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="211.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="1D" />
+      <Button layoutX="281.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2D" />
+      <Button layoutX="351.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3D" />
+      <Button layoutX="421.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="4D" />
+      <Button layoutX="491.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="5D" />
+      <Button layoutX="561.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="6D" />
+      <Button layoutX="211.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="7D" />
+      <Button layoutX="281.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="8D" />
+      <Button layoutX="351.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="9D" />
+      <Button layoutX="421.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="10D" />
+      <Button layoutX="491.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="11D" />
+      <Button layoutX="561.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="12D" />
+      <Button layoutX="211.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="13D" />
+      <Button layoutX="281.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="14D" />
+      <Button layoutX="351.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="15D" />
+      <Button layoutX="421.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="16D" />
+      <Button layoutX="491.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="17D" />
+      <Button layoutX="561.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="18D" />
+      <Button layoutX="211.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="19D" />
+      <Button layoutX="281.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="20D" />
+      <Button layoutX="351.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="21D" />
+      <Button layoutX="421.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="22D" />
+      <Button layoutX="491.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="23D" />
+      <Button layoutX="561.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="24D" />
+      <Button layoutX="771.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="1N" />
+      <Button layoutX="841.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2N" />
+      <Button layoutX="911.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3N" />
+      <Button layoutX="981.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="4N" />
+      <Button layoutX="1051.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="5N" />
+      <Button layoutX="1121.0" layoutY="182.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="6N" />
+      <Button layoutX="771.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="7N" />
+      <Button layoutX="841.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="8N" />
+      <Button layoutX="911.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="9N" />
+      <Button layoutX="981.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="10N" />
+      <Button layoutX="1051.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="11N" />
+      <Button layoutX="1121.0" layoutY="282.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="12N" />
+      <Button layoutX="771.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="13N" />
+      <Button layoutX="841.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="14N" />
+      <Button layoutX="911.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="15N" />
+      <Button layoutX="981.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="16N" />
+      <Button layoutX="1051.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="17N" />
+      <Button layoutX="1121.0" layoutY="382.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="18N" />
+      <Button layoutX="771.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="19N" />
+      <Button layoutX="841.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="20N" />
+      <Button layoutX="911.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="21N" />
+      <Button layoutX="981.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="22N" />
+      <Button layoutX="1051.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="23N" />
+      <Button layoutX="1121.0" layoutY="482.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="24N" />
+      <Button layoutY="652.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="147.0" text="Retour" />
+   </children>
+</AnchorPane>
