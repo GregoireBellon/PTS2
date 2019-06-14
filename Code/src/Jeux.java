@@ -20,6 +20,10 @@ public class Jeux {
 		defi.afficherPlateau();
 	}
 
+	public Defi getDefi() {
+		return defi;
+	}
+
 	public Piece getPiece1() {
 		return piece1;
 	}
@@ -34,6 +38,10 @@ public class Jeux {
 
 	public TypeCase[][] getPlateau() {
 		return plateau;
+	}
+
+	public void setDefi(Defi defi) {
+		this.defi = defi;
 	}
 
 	public void setPiece1(Piece piece1) {
