@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,7 @@
             <Image url="@../../ressources/Tableau%20des%20scores.png" />
          </image>
       </ImageView>
-      <Label layoutX="499.0" layoutY="178.0" text="Junior Nocturne" textFill="WHITE">
+      <Label fx:id="categorie" alignment="CENTER" layoutX="411.0" layoutY="178.0" prefHeight="73.0" prefWidth="513.0" textFill="WHITE">
          <font>
             <Font size="50.0" />
          </font>
@@ -24,7 +25,11 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#cliquerRetour" prefHeight="65.0" prefWidth="132.0" text="Retour" />
+      <Button layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#cliquerRetour" prefHeight="65.0" prefWidth="132.0" text="Retour">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Label fx:id="temps1" alignment="CENTER" layoutX="399.0" layoutY="288.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
          <font>
             <Font size="30.0" />
@@ -220,5 +225,15 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Button layoutX="505.0" layoutY="127.0" mnemonicParsing="false" onAction="#cliquerPrecedent" opacity="0.0" prefHeight="38.0" prefWidth="37.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="799.0" layoutY="126.0" mnemonicParsing="false" onAction="#cliquerSuivant" opacity="0.0" prefHeight="38.0" prefWidth="37.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

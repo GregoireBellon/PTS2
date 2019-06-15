@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -22,7 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ControllerAccueil implements Initializable {
-	
+
 	@FXML
 	private Canvas canvas;
 
@@ -41,18 +42,19 @@ public class ControllerAccueil implements Initializable {
 	@FXML
 	private Label labelEffets;
 
+	@FXML
+	private Button quitter;
+
 	private GraphicsContext g;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		g = canvas.getGraphicsContext2D();
-		
+
 		sliderMusique.setValue(UtilSons.mediaPlayerMusique.getVolume());
 		sliderEffets.setValue(UtilSons.bruitages.getVolume());
 		checkBoxPleinEcran.setSelected(DemarrageApplication.fullScreen);
-		
-		
 
 	}
 
@@ -68,7 +70,7 @@ public class ControllerAccueil implements Initializable {
 			Scene scene = new Scene(stage);
 
 			fenetre.setScene(scene);
-			
+
 			fenetre.setFullScreen(DemarrageApplication.fullScreen);
 
 			fenetre.show();
@@ -89,7 +91,7 @@ public class ControllerAccueil implements Initializable {
 			Scene scene = new Scene(stage);
 
 			fenetre.setScene(scene);
-			
+
 			fenetre.setFullScreen(DemarrageApplication.fullScreen);
 
 			fenetre.show();
@@ -110,7 +112,7 @@ public class ControllerAccueil implements Initializable {
 			Scene scene = new Scene(stage);
 
 			fenetre.setScene(scene);
-			
+
 			fenetre.setFullScreen(DemarrageApplication.fullScreen);
 
 			fenetre.show();
@@ -131,7 +133,7 @@ public class ControllerAccueil implements Initializable {
 			Scene scene = new Scene(stage);
 
 			fenetre.setScene(scene);
-			
+
 			fenetre.setFullScreen(DemarrageApplication.fullScreen);
 
 			fenetre.show();
@@ -148,6 +150,7 @@ public class ControllerAccueil implements Initializable {
 		checkBoxPleinEcran.setVisible(!checkBoxPleinEcran.isVisible());
 		labelMusique.setVisible(!labelMusique.isVisible());
 		labelEffets.setVisible(!labelEffets.isVisible());
+		quitter.setVisible(!quitter.isVisible());
 		if (sliderMusique.isVisible()) {
 			g.setFill(Color.WHITE);
 			g.beginPath();
@@ -179,5 +182,11 @@ public class ControllerAccueil implements Initializable {
 		UtilSons.mediaPlayerMusique.setVolume(sliderMusique.getValue());
 
 	}
+
+	@FXML
+	public void cliquerQuitter(ActionEvent event) {
+		System.exit(0);
+	}
+
 
 }
