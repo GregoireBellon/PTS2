@@ -1,17 +1,20 @@
 package visual;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class ControllerProgression {
+public class ControllerProgression implements Initializable{
 
     @FXML
     private Button d1;
@@ -156,6 +159,13 @@ public class ControllerProgression {
 
     @FXML
     private Button n24;
+    
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//////////////////AJOUTER DE QUOI MONTRER SI UN NIVEAU EST COMPLETE///////////////////
+		d1.setStyle("-fx-background-color: #9ACC27"); //C'est la formule pour changer la couleur
+	}
 
 	@FXML
 	public void cliquerRetour(ActionEvent event) {
@@ -467,4 +477,5 @@ public class ControllerProgression {
 		UtilSons.jouerSonBouton();
 
 	}
+
 }
