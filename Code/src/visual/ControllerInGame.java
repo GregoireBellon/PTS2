@@ -1,3 +1,4 @@
+package visual;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import poo.Jeux;
+import poo.Piece;
 
 public class ControllerInGame implements Initializable {
 
@@ -81,7 +84,7 @@ public class ControllerInGame implements Initializable {
 	private double[][] positionDepartCases = { { 179, 140 }, { 289, 140 }, { 69, 250 }, { 179, 250 }, { 289, 250 },
 			{ 399, 250 }, { 69, 360 }, { 179, 360 }, { 289, 360 }, { 399, 360 }, { 179, 470 }, { 289, 470 },
 			{ 399, 470 } };
-	private double[][] positionDepartPieces = { { 640, 64 }, { 640, 305 }, { 640, } };
+	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
 	@FXML
 	private AnchorPane root;
 
@@ -312,7 +315,7 @@ public class ControllerInGame implements Initializable {
 				numCase = i;
 			}
 		}
-		if ((minDistance < 100) && placementAutoriser(numPiece, numCase + 1)) {
+		if ((minDistance < 500) && placementAutoriser(numPiece, numCase + 1)) {
 			switch (numCase) {
 			case 0:
 				deplacerImage(image, positionDepartCases[0][0], positionDepartCases[0][1]);
@@ -358,24 +361,30 @@ public class ControllerInGame implements Initializable {
 				break;
 			}
 		}
+		if (jeu.getDefi().verifierDefi()) {
+			System.out.println("GAGNÉÉÉÉÉÉ");
+		}
 
 	}
 
 	@FXML
 	void rotationPiece1(ScrollEvent event) {
 		jeu.getPiece1().tournerHoraire();
+		Piece1 = jeu.getPiece1().getImagePiece();
 		jeu.getPiece1().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece2(ScrollEvent event) {
 		jeu.getPiece2().tournerHoraire();
+		Piece2 = jeu.getPiece2().getImagePiece();
 		jeu.getPiece2().afficherPiece();
 	}
 
 	@FXML
 	void rotationPiece3(ScrollEvent event) {
 		jeu.getPiece3().tournerHoraire();
+		Piece3 = jeu.getPiece3().getImagePiece();
 		jeu.getPiece3().afficherPiece();
 	}
 
