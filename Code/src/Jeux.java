@@ -3,9 +3,9 @@ public class Jeux {
 
 	private Defi defi;
 
-	private Piece piece1 = new Piece(TypePiece.Paille, this);
+	private Piece piece1 = new Piece(TypePiece.Brique, this);
 
-	private Piece piece2 = new Piece(TypePiece.Brique, this);
+	private Piece piece2 = new Piece(TypePiece.Paille, this);
 
 	private Piece piece3 = new Piece(TypePiece.Bois, this);
 
@@ -18,6 +18,10 @@ public class Jeux {
 
 	public void afficherPlateau() {
 		defi.afficherPlateau();
+	}
+
+	public Defi getDefi() {
+		return defi;
 	}
 
 	public Piece getPiece1() {
@@ -34,6 +38,10 @@ public class Jeux {
 
 	public TypeCase[][] getPlateau() {
 		return plateau;
+	}
+
+	public void setDefi(Defi defi) {
+		this.defi = defi;
 	}
 
 	public void setPiece1(Piece piece1) {

@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/Mode%20compétition.png" />
+         </image>
+      </ImageView>
       <Button layoutY="652.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="147.0" text="Retour" />
-      <Button layoutX="211.0" layoutY="185.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="370.0" text="D/S" />
-      <Button layoutX="211.0" layoutY="385.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/E" />
-      <Button layoutX="211.0" layoutY="285.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/J" />
-      <Button layoutX="211.0" layoutY="485.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/M" />
-      <Button layoutX="809.0" layoutY="185.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="370.0" text="N/S" />
-      <Button layoutX="809.0" layoutY="385.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/E" />
-      <Button layoutX="809.0" layoutY="285.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/J" />
-      <Button layoutX="809.0" layoutY="485.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/M" />
+      <Button layoutX="211.0" layoutY="236.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="370.0" text="D/S" />
+      <Button layoutX="211.0" layoutY="436.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/E" />
+      <Button layoutX="211.0" layoutY="336.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/J" />
+      <Button layoutX="211.0" layoutY="536.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="D/M" />
+      <Button layoutX="809.0" layoutY="236.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="370.0" text="N/S" />
+      <Button layoutX="809.0" layoutY="436.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/E" />
+      <Button layoutX="809.0" layoutY="336.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/J" />
+      <Button layoutX="809.0" layoutY="536.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="369.0" text="N/M" />
    </children>
 </AnchorPane>
