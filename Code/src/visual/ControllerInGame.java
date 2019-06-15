@@ -1,3 +1,4 @@
+package visual;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import poo.Jeux;
+import poo.Piece;
 
 public class ControllerInGame implements Initializable {
 
