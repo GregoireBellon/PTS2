@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visual.ControllerClassement">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ressources/Tableau%20des%20scores.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="499.0" layoutY="178.0" text="Junior Nocturne" textFill="WHITE">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom1" alignment="CENTER" layoutX="173.0" layoutY="288.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#cliquerRetour" prefHeight="65.0" prefWidth="132.0" text="Retour" />
+      <Label fx:id="temps1" alignment="CENTER" layoutX="399.0" layoutY="288.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom2" alignment="CENTER" layoutX="173.0" layoutY="328.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps2" alignment="CENTER" layoutX="399.0" layoutY="328.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom3" alignment="CENTER" layoutX="173.0" layoutY="374.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps3" alignment="CENTER" layoutX="399.0" layoutY="375.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom4" alignment="CENTER" layoutX="173.0" layoutY="422.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps4" alignment="CENTER" layoutX="399.0" layoutY="422.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom5" alignment="CENTER" layoutX="173.0" layoutY="465.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom6" alignment="CENTER" layoutX="173.0" layoutY="504.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom7" alignment="CENTER" layoutX="173.0" layoutY="546.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom8" alignment="CENTER" layoutX="173.0" layoutY="585.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom9" alignment="CENTER" layoutX="173.0" layoutY="624.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom10" alignment="CENTER" layoutX="173.0" layoutY="663.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps5" alignment="CENTER" layoutX="399.0" layoutY="463.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps6" alignment="CENTER" layoutX="399.0" layoutY="503.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps7" alignment="CENTER" layoutX="399.0" layoutY="541.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps8" alignment="CENTER" layoutX="399.0" layoutY="581.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps9" alignment="CENTER" layoutX="399.0" layoutY="623.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps10" alignment="CENTER" layoutX="399.0" layoutY="663.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom11" alignment="CENTER" layoutX="831.0" layoutY="288.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps11" alignment="CENTER" layoutX="1057.0" layoutY="288.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom12" alignment="CENTER" layoutX="831.0" layoutY="328.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps12" alignment="CENTER" layoutX="1057.0" layoutY="328.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom13" alignment="CENTER" layoutX="831.0" layoutY="374.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps13" alignment="CENTER" layoutX="1057.0" layoutY="375.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom14" alignment="CENTER" layoutX="831.0" layoutY="422.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps14" alignment="CENTER" layoutX="1057.0" layoutY="422.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom15" alignment="CENTER" layoutX="831.0" layoutY="465.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom16" alignment="CENTER" layoutX="831.0" layoutY="504.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom17" alignment="CENTER" layoutX="831.0" layoutY="546.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom18" alignment="CENTER" layoutX="831.0" layoutY="585.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom19" alignment="CENTER" layoutX="831.0" layoutY="624.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom20" alignment="CENTER" layoutX="831.0" layoutY="663.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps15" alignment="CENTER" layoutX="1057.0" layoutY="463.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps16" alignment="CENTER" layoutX="1057.0" layoutY="503.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps17" alignment="CENTER" layoutX="1057.0" layoutY="541.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps18" alignment="CENTER" layoutX="1057.0" layoutY="581.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps19" alignment="CENTER" layoutX="1057.0" layoutY="623.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="temps20" alignment="CENTER" layoutX="1057.0" layoutY="663.0" prefHeight="45.0" prefWidth="223.0" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
