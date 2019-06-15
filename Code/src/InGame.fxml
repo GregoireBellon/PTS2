@@ -90,19 +90,19 @@
             <Image url="@imageVide.PNG" />
          </image>
       </ImageView>
-      <ImageView fx:id="Piece1" fitHeight="220.0" fitWidth="330.0" layoutX="640.0" layoutY="64.0" onMouseDragged="#activerDeplacementPiece1" onMouseReleased="#PieceDragueFini1" onScroll="#rotationPiece1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Piece1" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="14.0" onMouseDragged="#activerDeplacementPiece1" onMouseReleased="#PieceDragueFini1" onScroll="#rotationPiece1" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imagePieceBrique.PNG" />
+            <Image url="@imagePieceBriqueHaut.PNG" />
          </image>
       </ImageView>
-      <ImageView fx:id="Piece3" fitHeight="110.0" fitWidth="330.0" layoutX="640.0" layoutY="541.0" onMouseDragged="#activerDeplacementPiece3" onMouseReleased="#PieceDragueFini3" onScroll="#rotationPiece3" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Piece3" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="390.0" onMouseDragged="#activerDeplacementPiece3" onMouseReleased="#PieceDragueFini3" onScroll="#rotationPiece3" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imagePieceBois.PNG" />
+            <Image url="@imagePieceBoisHorizontal.PNG" />
          </image>
       </ImageView>
-      <ImageView fx:id="Piece2" fitHeight="220.0" fitWidth="220.0" layoutX="640.0" layoutY="305.0" onMouseDragged="#activerDeplacementPiece2" onMouseReleased="#PieceDragueFini2" onScroll="#rotationPiece2" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Piece2" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="140.0" onMouseDragged="#activerDeplacementPiece2" onMouseReleased="#PieceDragueFini2" onScroll="#rotationPiece2" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imagePiecePaille.PNG" />
+            <Image url="@imagePiecePailleBasDroite.PNG" />
          </image>
       </ImageView>
    </children>

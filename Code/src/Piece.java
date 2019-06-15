@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Piece {
@@ -9,12 +10,13 @@ public class Piece {
 	private Map<String, Integer> coordMaison = new HashMap<String, Integer>();
 	private int degreRotation; // Ne devrait pas servir
 	// pour JavaFX
-	private ImageView imagePiece;
+	private ImageView imagePiece = new ImageView();
 	private Jeux jeu;
 	// position en X sur le plateau
 	private int posX;
 	// position en Y sur le plateau
 	private int posY;
+	private String[] rotationImages;
 
 	// Contexte dans lequel elle a ete place
 	private TypePiece typePiece;
@@ -37,6 +39,12 @@ public class Piece {
 			casesPiece[2][1] = TypeCase.Jardin;
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
+			rotationImages = new String[4];
+			rotationImages[0] = "imagePiecePailleBasDroite.PNG";
+			rotationImages[1] = "imagePiecePailleBasGauche.PNG";
+			rotationImages[2] = "imagePiecePailleHautGauche.PNG";
+			rotationImages[3] = "imagePiecePailleHautDroite.PNG";
+			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Bois: // Cree une piece avec la maison de bois
 			casesPiece[1][0] = TypeCase.Jardin;
@@ -44,14 +52,26 @@ public class Piece {
 			casesPiece[1][2] = TypeCase.Jardin;
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
+			rotationImages = new String[4];
+			rotationImages[0] = "imagePieceBoisHorizontal.PNG";
+			rotationImages[1] = "imagePieceBoisVertical.PNG";
+			rotationImages[2] = "imagePieceBoisHorizontal.PNG";
+			rotationImages[3] = "imagePieceBoisVertical.PNG";
+			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Brique: // Cree une piece avec la maison de brique
 			casesPiece[0][0] = TypeCase.Jardin;
 			casesPiece[0][1] = TypeCase.Jardin;
-			casesPiece[1][2] = TypeCase.Jardin;
+			casesPiece[1][0] = TypeCase.Jardin;
 			casesPiece[0][2] = TypeCase.Maison;
 			coordMaison.put("x", 0);
 			coordMaison.put("y", 2);
+			rotationImages = new String[4];
+			rotationImages[0] = "imagePieceBriqueHaut.PNG";
+			rotationImages[1] = "imagePieceBriqueDroite.PNG";
+			rotationImages[2] = "imagePieceBriqueBas.PNG";
+			rotationImages[3] = "imagePieceBriqueGauche.PNG";
+			imagePiece.setImage(new Image(rotationImages[0]));
 		}
 	}
 
@@ -198,6 +218,8 @@ public class Piece {
 		casesPiece = pieceTournee;
 		degreRotation -= 90;
 		degreRotation = degreRotation % 360;
+		imagePiece.setImage(new Image(rotationImages[degreRotation % 90]));
+		System.err.println("Image chargée : " + rotationImages[degreRotation % 90]);
 	}
 
 	/**
@@ -236,6 +258,7 @@ public class Piece {
 		casesPiece = pieceTournee;
 		degreRotation += 90;
 		degreRotation = degreRotation % 360;
+		imagePiece.setImage(new Image(rotationImages[degreRotation / 90]));
 	}
 
 	private boolean verifierPlacementPiece(int x, int y) {
@@ -248,12 +271,18 @@ public class Piece {
 		for (int i = 0; i < casesPiece.length; i++) {
 			for (int j = 0; j < casesPiece.length; j++) {
 				if (casesPiece[i][j] != null) {
-					TypeCase t = jeu.getPlateau()[x + i][y + j];
-					if (t != TypeCase.Vide) {
-						System.err.println("Tu essaye de poser sur un " + t.toString() + "en " + (x + i) + ";" + (y + j)
-								+ " en dessus d'un " + casesPiece[i][j] + " en " + i + ";" + j);
+					try {
+						TypeCase t = jeu.getPlateau()[x + i][y + j];
+						if (t != TypeCase.Vide) {
+							System.err.println("Tu essaye de poser sur un " + t.toString() + "en " + (x + i) + ";"
+									+ (y + j) + " en dessus d'un " + casesPiece[i][j] + " en " + i + ";" + j);
+							return false;
+						}
+					} catch (Exception e) {
+						System.err.println("Tu essais de poser la pièce hors des limites du plateau");
 						return false;
 					}
+
 				} else {
 
 				}
