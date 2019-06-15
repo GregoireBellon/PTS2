@@ -11,6 +11,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class DemarrageApplication extends Application {
+	
+	public static boolean fullScreen = false;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		Parent root;

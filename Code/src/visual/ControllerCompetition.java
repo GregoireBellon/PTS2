@@ -11,76 +11,75 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ControllerCompetition {
-	
-	
+
 	@FXML
-	public void cliquerRetour (ActionEvent event) {
-		
+	public void cliquerRetour(ActionEvent event) {
+
 		UtilSons.jouerSonBouton();
-    	
-    	try {
-	    	Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	
+
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
 			Parent stage = FXMLLoader.load(getClass().getResource("AccueilFXML.fxml"));
-	
+
 			Scene scene = new Scene(stage);
-	
+
 			fenetre.setScene(scene);
-	
+
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
 			fenetre.show();
-    	} catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-    @FXML
-    void cliquerDE(ActionEvent event) {
+
+	@FXML
+	void cliquerDE(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerDJ(ActionEvent event) {
+	@FXML
+	void cliquerDJ(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerDM(ActionEvent event) {
+	@FXML
+	void cliquerDM(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerDS(ActionEvent event) {
+	@FXML
+	void cliquerDS(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerNE(ActionEvent event) {
+	@FXML
+	void cliquerNE(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerNJ(ActionEvent event) {
+	@FXML
+	void cliquerNJ(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerNM(ActionEvent event) {
+	@FXML
+	void cliquerNM(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
+	}
 
-    @FXML
-    void cliquerNS(ActionEvent event) {
+	@FXML
+	void cliquerNS(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
-    }
-
-
+	}
 
 }
