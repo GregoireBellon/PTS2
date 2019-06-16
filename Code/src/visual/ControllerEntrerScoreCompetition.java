@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import poo.ManipTabScore;
 import poo.UtilSons;
 
 public class ControllerEntrerScoreCompetition {
@@ -23,7 +24,9 @@ public class ControllerEntrerScoreCompetition {
 
 	private String nomJoueur;
 
-	private String temps;
+	private int temps;
+	
+	private int situation; // genre diurne master
 	
 	
 	/* 	
@@ -40,7 +43,7 @@ public class ControllerEntrerScoreCompetition {
 			stageJeu = loader.load();
 
 			ControllerEntrerScoreCompetition score = loader.getController();
-			score.setTemps("Le temps fait");
+			score.setTemps(Le temps fait en long);
 
 			Scene sceneJeu = new Scene(stageJeu);
 
@@ -82,9 +85,9 @@ public class ControllerEntrerScoreCompetition {
 		}
 	}
 
-	public void setTemps(String temps) {
-		this.temps = temps;
-		labelTemps.setText(temps);
+	public void setTemps(long temps) {
+		this.temps = (int) temps;
+		labelTemps.setText(Integer.toString(this.temps));
 	}
 
 }

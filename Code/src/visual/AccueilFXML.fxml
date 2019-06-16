@@ -45,32 +45,42 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Canvas fx:id="canvas" height="377.0" layoutY="250.0" width="299.0" />
-      <Slider fx:id="sliderMusique" layoutX="90.0" layoutY="326.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeMusique" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
+      <Slider fx:id="sliderMusique" layoutX="62.0" layoutY="326.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeMusique" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Slider>
-      <Slider fx:id="sliderEffets" layoutX="90.0" layoutY="446.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeEffets" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
+      <Slider fx:id="sliderEffets" layoutX="62.0" layoutY="446.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeEffets" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Slider>
-      <CheckBox fx:id="checkBoxPleinEcran" alignment="CENTER" layoutX="81.0" layoutY="522.0" mnemonicParsing="false" onAction="#cliquerPleinEcran" text="Plein Ecran" visible="false">
+      <CheckBox fx:id="checkBoxPleinEcran" alignment="CENTER" layoutX="53.0" layoutY="512.0" mnemonicParsing="false" onAction="#cliquerPleinEcran" text="Plein Ecran" visible="false">
          <font>
             <Font size="22.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></CheckBox>
-      <Label fx:id="labelMusique" alignment="CENTER" layoutX="104.0" layoutY="274.0" text="Musique" visible="false">
+      <Label fx:id="labelMusique" alignment="CENTER" layoutX="76.0" layoutY="274.0" text="Musique" visible="false">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="labelEffets" alignment="CENTER" layoutX="124.0" layoutY="393.0" text="Effets" visible="false">
+      <Label fx:id="labelEffets" alignment="CENTER" layoutX="96.0" layoutY="393.0" text="Effets" visible="false">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="quitter" layoutX="96.0" layoutY="570.0" mnemonicParsing="false" onAction="#cliquerQuitter" prefHeight="46.0" prefWidth="118.0" text="Quitter" visible="false">
+      <Button fx:id="quitter" layoutX="11.0" layoutY="570.0" mnemonicParsing="false" onAction="#cliquerQuitter" prefHeight="46.0" prefWidth="118.0" text="Quitter" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="plus" layoutX="226.0" layoutY="515.0" mnemonicParsing="false" onAction="#cliquerPlus" prefHeight="19.0" prefWidth="39.0" text="Plus" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="reinitialiser" layoutX="187.0" layoutY="570.0" mnemonicParsing="false" onAction="#cliquerReinitialiser" prefHeight="46.0" prefWidth="80.0" text="Reinitialiser" textFill="RED" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
