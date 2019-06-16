@@ -1,32 +1,32 @@
-1 / starter / diurne / non
-2 / starter / diurne / non
-3 / starter / diurne / non
-4 / starter / diurne / non
-5 / starter / diurne / non
-6 / starter / diurne / non
-7 / starter / nocturne / non
-8 / starter / nocturne / non
-9 / starter / nocturne / non
-10 / starter / nocturne / non
-11 / starter / nocturne / non
-12 / starter / nocturne / non
-13 / starter / diurne / non
-14 / starter / diurne / non
-15 / starter / diurne / non
-16 / starter / diurne / non
-17 / starter / diurne / non
-18 / starter / diurne / non
-19 / starter / nocturne / non
-20 / starter / nocturne / non
-21 / starter / nocturne / non
-22 / starter / nocturne / non
-23 / starter / nocturne / non
-24 / starter / nocturne / non
-25 / starter / diurne / non
-26 / starter / diurne / non
-27 / starter / diurne / non
-28 / starter / diurne / non
-29 / starter / diurne / non
-30 / starter / diurne / non
-
-
+1/starter/diurne/non
+2/starter/diurne/non
+3/starter/diurne/non
+4/starter/diurne/non
+5/starter/nocturne/non
+6/starter/nocturne/non
+7/starter/nocturne/non
+8/starter/nocturne/oui
+9/junior/diurne/non
+10/junior/diurne/non
+11/junior/diurne/non
+12/junior/diurne/non
+13/junior/nocturne/non
+14/junior/nocturne/non
+15/junior/nocturne/non
+16/junior/nocturne/non
+17/expert/diurne/non
+18/expert/diurne/non
+19/expert/diurne/non
+20/expert/diurne/non
+21/expert/nocturne/non
+22/expert/nocturne/non
+23/expert/nocturne/non
+24/expert/nocturne/non
+25/master/diurne/non
+26/master/diurne/non
+27/master/diurne/non
+28/master/diurne/non
+29/master/nocturne/non
+30/master/nocturne/non
+31/master/nocturne/non
+32/master/nocturne/non
