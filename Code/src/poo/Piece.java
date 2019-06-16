@@ -103,13 +103,16 @@ public class Piece {
 
 	public void enlever() {
 		if ((posX != null) && (posY != null)) {
+			System.err.println("Enlevage de la piece aux coord : " + posX +";" + posY);
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
-						try {
-							jeu.setPlateau(TypeCase.Vide, (posX + i), (posY + j));
-						} catch (Exception e) {
-							System.err.println("Impossible d’enlever tout");
+						if (casesPiece[i][j] == TypeCase.Jardin) {
+							jeu.setPlateau(casesPiece[i][j], (posX + i) - coordMaison.get("x"),
+									(posY + j) - coordMaison.get("y"));
+						}
+						if (casesPiece[i][j] == TypeCase.Maison) {
+							jeu.setPlateau(casesPiece[i][j], posX, posY);
 						}
 
 					}
@@ -117,8 +120,9 @@ public class Piece {
 			}
 			posX = null;
 			posY = null;
+			System.out.println("Pièce enlevée");
 		} else {
-			System.out.println("Piece non placee");
+			
 		}
 
 	}
