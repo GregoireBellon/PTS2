@@ -7,6 +7,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Piece {
+	public static int[] obtenirEmplacementMaison(int x, int y, int numPiece, int numRotation) {
+		int[][][] table = { { { 0, 0 }, { 2, 0 }, { 2, 2 }, { 0, 2 } }, { { 1, 1 }, { 1, 1 }, { 1, 1 }, { 1, 1 } },
+				{ { 1, 1 }, { 1, 1 }, { 1, 1 }, { 1, 1 } } };
+		int[] rep = { table[numPiece][numRotation][0] + x, table[numPiece][numRotation][1] + y };
+		return rep;
+	}
+
 	private TypeCase[][] casesPiece;
 	private boolean contenirCochon; // Servira pour les proprietes du mode nocturne
 	private Map<String, Integer> coordMaison = new HashMap<String, Integer>();
@@ -18,6 +25,7 @@ public class Piece {
 	private Integer posX = null;
 	// position en Y sur le plateau
 	private Integer posY = null;
+
 	private String[] rotationImages;
 
 	// Contexte dans lequel elle a ete place
@@ -98,17 +106,12 @@ public class Piece {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
-						if (casesPiece[i][j] == TypeCase.Jardin) {
-							jeu.setPlateau(TypeCase.Vide, (posX + i) - coordMaison.get("x"),
-									(posY + j) - coordMaison.get("y"));
+						try {
+							jeu.setPlateau(TypeCase.Vide, (posX + i), (posY + j));
+						} catch (Exception e) {
+							System.err.println("Impossible d’enlever tout");
 						}
-						if (casesPiece[i][j] == TypeCase.Maison) {
-							if (isContenirCochon()) {
-								jeu.setPlateau(TypeCase.Cochon, posX, posY);
-							} else {
-								jeu.setPlateau(TypeCase.Vide, posX, posY);
-							}
-						}
+
 					}
 				}
 			}
@@ -140,7 +143,7 @@ public class Piece {
 		return contenirCochon;
 	}
 
-	public void Placer(int x, int y, Contexte contexte) {
+	public boolean placer(int x, int y, Contexte contexte) {
 		if (verifPlacement(x, y, contexte)) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
@@ -157,36 +160,9 @@ public class Piece {
 			}
 			posX = x;
 			posY = y;
-		} else {
-			System.out.println("Impossible de placer");
-			return;
-		}
-
-	}
-
-	public boolean placerPiece(int x, int y) {
-		x++;
-		y--;
-		if (verifierPlacementPiece(x, y)) {
-			for (int i = 0; i < 3; i++) {
-				for (int j = 0; j < 3; j++) {
-					if (casesPiece[i][j] != null) {
-						if (casesPiece[i][j] == TypeCase.Jardin) {
-							jeu.setPlateau(TypeCase.Jardin, x + i, y + j);
-						}
-						if (casesPiece[i][j] == TypeCase.Maison) {
-							jeu.setPlateau(TypeCase.Maison, x + i, y + j);
-						}
-					}
-				}
-			}
-			posX = x;
-			posY = y;
-			System.err.println("Placée en  : " + posX + " ; " + posY);
-			jeu.afficherPlateau();
 			return true;
 		} else {
-			enlever();
+			System.out.println("Impossible de placer");
 			return false;
 		}
 
@@ -287,36 +263,6 @@ public class Piece {
 		degreRotation += 90;
 		degreRotation = degreRotation % 360;
 		imagePiece.setImage(new Image(rotationImages[degreRotation / 90]));
-	}
-
-	private boolean verifierPlacementPiece(int x, int y) {
-		// Verification que les coordonnées sont bien dans le plateau
-		// if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
-		// return false;
-		// }
-		// Verification que la piece peut etre posée
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				if (casesPiece[j][i] != null) {
-					try {
-						TypeCase t = jeu.getPlateau()[x + j][y + i];
-						if (t != TypeCase.Vide) {
-							System.err.println("Tu essaye de poser sur un " + t.toString() + " en " + (x + j) + ";"
-									+ (y + i) + " (sur le plateau) en dessus d'un " + casesPiece[j][i] + " en " + j
-									+ ";" + i + "(relativement à la pièce)");
-							return false;
-						}
-					} catch (Exception e) {
-						System.err.println("Tu essaie de placer en dehors du plateau la case " + casesPiece[i][j]);
-						return false;
-					}
-
-				} else {
-					System.out.println("case en " + j + ";" + i + "est null");
-				}
-			}
-		}
-		return true;
 	}
 
 	public boolean verifPlacement(int x, int y, Contexte contexte) {

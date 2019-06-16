@@ -90,29 +90,6 @@
             <Image url="@imagesDuJeu/imageVide.PNG" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageBordPlateau16" fitHeight="110.0" fitWidth="110.0" layoutX="120.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau9" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau8" fitHeight="110.0" fitWidth="110.0" layoutX="120.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau22" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau21" fitHeight="110.0" fitWidth="110.0" layoutX="356.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau20" fitHeight="110.0" fitWidth="110.0" layoutX="246.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau19" fitHeight="110.0" fitWidth="110.0" layoutX="136.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau17" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau14" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau12" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau10" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau23" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau6" fitHeight="110.0" fitWidth="110.0" layoutX="560.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau5" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau4" fitHeight="110.0" fitWidth="110.0" layoutX="340.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau3" fitHeight="110.0" fitWidth="110.0" layoutX="230.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau2" fitHeight="110.0" fitWidth="110.0" layoutX="120.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau7" fitHeight="110.0" fitWidth="110.0" layoutX="10.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau1" fitHeight="110.0" fitWidth="110.0" layoutX="10.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau11" fitHeight="110.0" fitWidth="110.0" layoutX="10.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau13" fitHeight="110.0" fitWidth="110.0" layoutX="10.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau15" fitHeight="110.0" fitWidth="110.0" layoutX="10.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageBordPlateau18" fitHeight="110.0" fitWidth="110.0" layoutX="26.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="Piece1" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="14.0" onMouseDragged="#activerDeplacementPiece1" onMouseReleased="#PieceDragueFini1" onScroll="#rotationPiece1" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imagePieceBriqueHaut.PNG" />
