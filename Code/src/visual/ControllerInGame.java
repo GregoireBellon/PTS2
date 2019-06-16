@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
 import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -160,6 +163,10 @@ public class ControllerInGame implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		chrono.run();
+		Timeline timeline;
+		timeline = new Timeline(new KeyFrame(Duration.millis(100), ae -> TextTemps.setText(chrono.getDureeTxt())));
+		timeline.setCycleCount(Animation.INDEFINITE);
+		timeline.play();
 		Jeux jeu = new Jeux();
 		this.jeu = jeu;
 		jeu.getPiece1().setImagePiece(Piece1);
@@ -238,41 +245,6 @@ public class ControllerInGame implements Initializable {
 
 		int xCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[0];
 		int yCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[1];
-		/*
-		 * int xCase = -1; int yCase = -1; switch (numCase) { case 1: xCase =
-		 * Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[0]; yCase =
-		 * Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[1]; break;
-		 * case 2: xCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1,
-		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1,
-		 * numRotation)[1]; break; case 3: xCase = Piece.obtenirEmplacementMaison(0, 1,
-		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(0, 1,
-		 * numPiece - 1, numRotation)[1]; break; case 4: xCase =
-		 * Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[0]; yCase =
-		 * Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[1]; break;
-		 * case 5: xCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1,
-		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1,
-		 * numRotation)[1]; break; case 6: xCase = Piece.obtenirEmplacementMaison(3, 1,
-		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(3, 1,
-		 * numPiece - 1, numRotation)[1]; break; case 7: xCase =
-		 * Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[0]; yCase =
-		 * Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[1]; break;
-		 * case 8: xCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1,
-		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1,
-		 * numRotation)[1]; break; case 9: xCase = Piece.obtenirEmplacementMaison(2, 2,
-		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 2,
-		 * numPiece - 1, numRotation)[1]; break; case 10: xCase =
-		 * Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[0]; yCase =
-		 * Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[1]; break;
-		 * case 11: xCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1,
-		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1,
-		 * numRotation)[1]; break; case 12: xCase = Piece.obtenirEmplacementMaison(2, 3,
-		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 3,
-		 * numPiece - 1, numRotation)[1]; break; case 13: xCase =
-		 * Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[0]; yCase =
-		 * Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[1]; break;
-		 *
-		 * default: break; }
-		 */
 		if ((xCase != -2) && (yCase != -2)) {
 			System.out.println("Case ciblÈe par la maison: " + xCaseMaison + " ; " + yCaseMaison);
 			switch (numPiece) {
@@ -335,7 +307,7 @@ public class ControllerInGame implements Initializable {
 			}
 		}
 		if (piece1Placee && piece2Placee && piece3Placee) {
-			System.out.println("GAGN………………");
+			chrono.stopChrono();
 		}
 		jeu.afficherPlateau();
 	}
@@ -365,7 +337,6 @@ public class ControllerInGame implements Initializable {
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e, int numPiece) {
-		TextTemps.setText(chrono.getDureeTxt());
 		piece.getImagePiece().cursorProperty().setValue(Cursor.NONE);
 		animationToSouris.setNode(null);
 		animationToSouris.stop();
