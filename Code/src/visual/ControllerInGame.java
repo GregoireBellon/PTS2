@@ -102,16 +102,19 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void activerDeplacementPiece1(MouseEvent event) {
+		jeu.getPiece1().enlever();
 		suiviPieceSouris(jeu.getPiece1(), event);
 	}
 
 	@FXML
 	void activerDeplacementPiece2(MouseEvent event) {
+		jeu.getPiece2().enlever();
 		suiviPieceSouris(jeu.getPiece2(), event);
 	}
 
 	@FXML
 	void activerDeplacementPiece3(MouseEvent event) {
+		jeu.getPiece3().enlever();
 		suiviPieceSouris(jeu.getPiece3(), event);
 	}
 
@@ -333,6 +336,7 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece1().tournerHoraire();
 		Piece1 = jeu.getPiece1().getImagePiece();
 		jeu.getPiece1().afficherPiece();
+		jeu.getPiece1().enlever();
 	}
 
 	@FXML
@@ -340,6 +344,7 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece2().tournerHoraire();
 		Piece2 = jeu.getPiece2().getImagePiece();
 		jeu.getPiece2().afficherPiece();
+		jeu.getPiece2().enlever();
 	}
 
 	@FXML
@@ -347,6 +352,7 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece3().tournerHoraire();
 		Piece3 = jeu.getPiece3().getImagePiece();
 		jeu.getPiece3().afficherPiece();
+		jeu.getPiece3().enlever();
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e) {
