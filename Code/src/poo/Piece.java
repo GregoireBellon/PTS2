@@ -48,10 +48,10 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePiecePailleBasDroite.PNG";
-			rotationImages[1] = "imagesDuJeu/imagePiecePailleBasGauche.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePiecePailleHautGauche.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePiecePailleHautDroite.PNG";
+			rotationImages[0] = "file:ressources/imagePiecePailleBasDroite.PNG";
+			rotationImages[1] = "file:ressources/imagePiecePailleBasGauche.PNG";
+			rotationImages[2] = "file:ressources/imagePiecePailleHautGauche.PNG";
+			rotationImages[3] = "file:ressources/imagePiecePailleHautDroite.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Bois: // Cree une piece avec la maison de bois
@@ -61,10 +61,10 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
-			rotationImages[1] = "imagesDuJeu/imagePieceBoisVertical.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePieceBoisVertical.PNG";
+			rotationImages[0] = "file:ressources/imagePieceBoisHorizontal.PNG";
+			rotationImages[1] = "file:ressources/imagePieceBoisVertical.PNG";
+			rotationImages[2] = "file:ressources/imagePieceBoisHorizontal.PNG";
+			rotationImages[3] = "file:ressources/imagePieceBoisVertical.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Brique: // Cree une piece avec la maison de brique
@@ -75,10 +75,10 @@ public class Piece {
 			coordMaison.put("x", 0);
 			coordMaison.put("y", 0);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePieceBriqueHaut.png";
-			rotationImages[1] = "imagesDuJeu/imagePieceBriqueDroite.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePieceBriqueBas.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePieceBriqueGauche.PNG";
+			rotationImages[0] = "file:ressources/imagePieceBriqueHaut.png";
+			rotationImages[1] = "file:ressources/imagePieceBriqueDroite.PNG";
+			rotationImages[2] = "file:ressources/imagePieceBriqueBas.PNG";
+			rotationImages[3] = "file:ressources/imagePieceBriqueGauche.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 		}
 	}
@@ -103,7 +103,7 @@ public class Piece {
 
 	public void enlever() {
 		if ((posX != null) && (posY != null)) {
-			System.err.println("Enlevage de la piece aux coord : " + posX +";" + posY);
+			System.err.println("Enlevage de la piece aux coord : " + posX + ";" + posY);
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
@@ -122,7 +122,7 @@ public class Piece {
 			posY = null;
 			System.out.println("Pièce enlevée");
 		} else {
-			
+
 		}
 
 	}
