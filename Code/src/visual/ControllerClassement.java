@@ -142,7 +142,7 @@ public class ControllerClassement implements Initializable{
     @FXML
     private Label temps20;
     
-    public int selection = 1;
+    public int selection = 1; //Tu peux bind directement le contexte à afficher
     
     public List<String> listeCategories = new ArrayList<>();
     
@@ -158,6 +158,8 @@ public class ControllerClassement implements Initializable{
 		listeCategories.add("Master Diurne");
 		listeCategories.add("Master Nocturne");
 		categorie.setText(listeCategories.get(selection-1));
+		
+		/////////////A COMPLETER (afficher par défaut avec la sélection)////////////////////////
 	}
 	
 	@FXML
