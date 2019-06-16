@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visual.ControllerEntrainement">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ressources/Mode%20entrainement.png" />
+         </image>
+      </ImageView>
+      <Button layoutY="652.0" mnemonicParsing="false" onAction="#cliquerRetour" prefHeight="68.0" prefWidth="147.0" text="Retour">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="211.0" layoutY="236.0" mnemonicParsing="false" onAction="#cliquerDS" prefHeight="75.0" prefWidth="370.0" text="D/S">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="211.0" layoutY="436.0" mnemonicParsing="false" onAction="#cliquerDE" prefHeight="75.0" prefWidth="369.0" text="D/E">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="211.0" layoutY="336.0" mnemonicParsing="false" onAction="#cliquerDJ" prefHeight="75.0" prefWidth="369.0" text="D/J">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="211.0" layoutY="536.0" mnemonicParsing="false" onAction="#cliquerDM" prefHeight="75.0" prefWidth="369.0" text="D/M">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="809.0" layoutY="236.0" mnemonicParsing="false" onAction="#cliquerNS" prefHeight="75.0" prefWidth="370.0" text="N/S">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="809.0" layoutY="436.0" mnemonicParsing="false" onAction="#cliquerNE" prefHeight="75.0" prefWidth="369.0" text="N/E">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="809.0" layoutY="336.0" mnemonicParsing="false" onAction="#cliquerNJ" prefHeight="75.0" prefWidth="369.0" text="N/J">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="809.0" layoutY="536.0" mnemonicParsing="false" onAction="#cliquerNM" prefHeight="75.0" prefWidth="369.0" text="N/M">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

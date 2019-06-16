@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visual.ControllerAccueil">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ressources/pageaccueil.png" />
+         </image>
+      </ImageView>
+      <Button layoutY="640.0" mnemonicParsing="false" onAction="#cliquerOptions" prefHeight="80.0" prefWidth="80.0" text="⚙">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="34.0" />
+         </font></Button>
+      <Button layoutX="1200.0" layoutY="640.0" mnemonicParsing="false" onAction="#cliquerClassement" prefHeight="80.0" prefWidth="80.0" text="🏆">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="34.0" />
+         </font></Button>
+      <Button layoutX="536.0" layoutY="238.0" mnemonicParsing="false" onAction="#CliquerEntraînement" prefHeight="70.0" prefWidth="300.0" text="Entraînement">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="536.0" layoutY="348.0" mnemonicParsing="false" onAction="#CliquerProgression" prefHeight="70.0" prefWidth="300.0" text="Progression">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="536.0" layoutY="458.0" mnemonicParsing="false" onAction="#cliquerCompetition" prefHeight="70.0" prefWidth="300.0" text="Compétition">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Canvas fx:id="canvas" height="377.0" layoutY="250.0" width="299.0" />
+      <Slider fx:id="sliderMusique" layoutX="90.0" layoutY="326.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeMusique" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Slider>
+      <Slider fx:id="sliderEffets" layoutX="90.0" layoutY="446.0" majorTickUnit="0.25" max="1.0" minorTickCount="0" onMouseReleased="#changerVolumeEffets" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Slider>
+      <CheckBox fx:id="checkBoxPleinEcran" alignment="CENTER" layoutX="81.0" layoutY="522.0" mnemonicParsing="false" onAction="#cliquerPleinEcran" text="Plein Ecran" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <Label fx:id="labelMusique" alignment="CENTER" layoutX="104.0" layoutY="274.0" text="Musique" visible="false">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelEffets" alignment="CENTER" layoutX="124.0" layoutY="393.0" text="Effets" visible="false">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="quitter" layoutX="96.0" layoutY="570.0" mnemonicParsing="false" onAction="#cliquerQuitter" prefHeight="46.0" prefWidth="118.0" text="Quitter" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

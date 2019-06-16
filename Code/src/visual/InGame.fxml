@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visual.ControllerInGame">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9ba2a8" height="720.0" layoutX="1015.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
+      <Button fx:id="boutonSolution" layoutX="1022.0" layoutY="633.0" mnemonicParsing="false" onAction="#donnerSolution" prefHeight="35.0" prefWidth="244.0" text="Solution" />
+      <Text layoutX="1062.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temps :">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="TextTemps" layoutX="1115.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="boutonAbandonner" layoutX="1022.0" layoutY="572.0" mnemonicParsing="false" onAction="#abandonner" prefHeight="35.0" prefWidth="244.0" text="Abandonner" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6ae3f8" height="720.0" stroke="BLACK" strokeType="INSIDE" width="1017.0" />
+      <ImageView fx:id="imagePlateau13" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau8" fitHeight="110.0" fitWidth="110.0" layoutX="230.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau7" fitHeight="110.0" fitWidth="110.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau12" fitHeight="110.0" fitWidth="110.0" layoutX="340.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau10" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau6" fitHeight="110.0" fitWidth="110.0" layoutX="450.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau11" fitHeight="110.0" fitWidth="110.0" layoutX="230.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau5" fitHeight="110.0" fitWidth="110.0" layoutX="340.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau9" fitHeight="110.0" fitWidth="110.0" layoutX="340.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau3" fitHeight="110.0" fitWidth="110.0" layoutX="120.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau4" fitHeight="110.0" fitWidth="110.0" layoutX="230.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau1" fitHeight="110.0" fitWidth="110.0" layoutX="230.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imagePlateau2" fitHeight="110.0" fitWidth="110.0" layoutX="340.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagesDuJeu/imageVide.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Piece1" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="14.0" onMouseDragged="#activerDeplacementPiece1" onMouseReleased="#PieceDragueFini1" onScroll="#rotationPiece1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagePieceBriqueHaut.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Piece3" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="390.0" onMouseDragged="#activerDeplacementPiece3" onMouseReleased="#PieceDragueFini3" onScroll="#rotationPiece3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagePieceBoisHorizontal.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Piece2" fitHeight="330.0" fitWidth="330.0" layoutX="671.0" layoutY="140.0" onMouseDragged="#activerDeplacementPiece2" onMouseReleased="#PieceDragueFini2" onScroll="#rotationPiece2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagePiecePailleBasDroite.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
