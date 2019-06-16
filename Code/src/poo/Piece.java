@@ -40,10 +40,10 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePiecePailleBasDroite.PNG";
-			rotationImages[1] = "imagesDuJeu/imagePiecePailleBasGauche.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePiecePailleHautGauche.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePiecePailleHautDroite.PNG";
+			rotationImages[0] = "file:ressources/imagePiecePailleBasDroite.PNG";
+			rotationImages[1] = "file:ressources/imagePiecePailleBasGauche.PNG";
+			rotationImages[2] = "file:ressources/imagePiecePailleHautGauche.PNG";
+			rotationImages[3] = "file:ressources/imagePiecePailleHautDroite.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Bois: // Cree une piece avec la maison de bois
@@ -53,10 +53,10 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
-			rotationImages[1] = "imagesDuJeu/imagePieceBoisVertical.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePieceBoisVertical.PNG";
+			rotationImages[0] = "file:ressources/imagePieceBoisHorizontal.PNG";
+			rotationImages[1] = "file:ressources/imagePieceBoisVertical.PNG";
+			rotationImages[2] = "file:ressources/imagePieceBoisHorizontal.PNG";
+			rotationImages[3] = "file:ressources/imagePieceBoisVertical.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Brique: // Cree une piece avec la maison de brique
@@ -67,10 +67,10 @@ public class Piece {
 			coordMaison.put("x", 0);
 			coordMaison.put("y", 0);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagesDuJeu/imagePieceBriqueHaut.png";
-			rotationImages[1] = "imagesDuJeu/imagePieceBriqueDroite.PNG";
-			rotationImages[2] = "imagesDuJeu/imagePieceBriqueBas.PNG";
-			rotationImages[3] = "imagesDuJeu/imagePieceBriqueGauche.PNG";
+			rotationImages[0] = "file:ressources/imagePieceBriqueHaut.png";
+			rotationImages[1] = "file:ressources/imagePieceBriqueDroite.PNG";
+			rotationImages[2] = "file:ressources/imagePieceBriqueBas.PNG";
+			rotationImages[3] = "file:ressources/imagePieceBriqueGauche.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 		}
 	}
@@ -182,7 +182,7 @@ public class Piece {
 			}
 			posX = x;
 			posY = y;
-			System.err.println("Placée en  : " + posX + " ; " + posY);
+			System.err.println("Placï¿½e en  : " + posX + " ; " + posY);
 			jeu.afficherPlateau();
 			return true;
 		} else {
@@ -290,11 +290,11 @@ public class Piece {
 	}
 
 	private boolean verifierPlacementPiece(int x, int y) {
-		// Verification que les coordonnées sont bien dans le plateau
+		// Verification que les coordonnï¿½es sont bien dans le plateau
 		// if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
 		// return false;
 		// }
-		// Verification que la piece peut etre posée
+		// Verification que la piece peut etre posï¿½e
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				if (casesPiece[j][i] != null) {
@@ -303,7 +303,7 @@ public class Piece {
 						if (t != TypeCase.Vide) {
 							System.err.println("Tu essaye de poser sur un " + t.toString() + " en " + (x + j) + ";"
 									+ (y + i) + " (sur le plateau) en dessus d'un " + casesPiece[j][i] + " en " + j
-									+ ";" + i + "(relativement à la pièce)");
+									+ ";" + i + "(relativement ï¿½ la piï¿½ce)");
 							return false;
 						}
 					} catch (Exception e) {

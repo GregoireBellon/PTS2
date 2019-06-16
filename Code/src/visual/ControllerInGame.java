@@ -175,16 +175,16 @@ public class ControllerInGame implements Initializable {
 			ImageView image = listCases.get(k);
 			switch (jeu.getPlateau()[j][i]) {
 			case Cochon:
-				image.setImage(new Image("imagesDuJeu/imageCochon.PNG"));
+				image.setImage(new Image("file:ressources/imageCochon.PNG"));
 				break;
 			case Vide:
-				image.setImage(new Image("imagesDuJeu/imageVide.PNG"));
+				image.setImage(new Image("file:ressources/imageVide.PNG"));
 				break;
 			case Loup:
-				image.setImage(new Image("imagesDuJeu/imageLoup.PNG"));
+				image.setImage(new Image("file:ressources/imageLoup.PNG"));
 				break;
 			default:
-				image.setImage(new Image("imagesDuJeu/imageLoup.PNG"));
+				image.setImage(new Image("file:ressources/imageLoup.PNG"));
 				k--;
 				break;
 			}
