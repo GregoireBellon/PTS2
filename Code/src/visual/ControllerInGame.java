@@ -31,6 +31,7 @@ public class ControllerInGame implements Initializable {
 	private Button boutonAbandonner;
 	@FXML
 	private Button boutonSolution;
+	private Chrono chrono = new Chrono();
 	@FXML
 	private ImageView imagePlateau1;
 	@FXML
@@ -158,6 +159,7 @@ public class ControllerInGame implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		chrono.run();
 		Jeux jeu = new Jeux();
 		this.jeu = jeu;
 		jeu.getPiece1().setImagePiece(Piece1);
@@ -363,6 +365,7 @@ public class ControllerInGame implements Initializable {
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e, int numPiece) {
+		TextTemps.setText(chrono.getDureeTxt());
 		piece.getImagePiece().cursorProperty().setValue(Cursor.NONE);
 		animationToSouris.setNode(null);
 		animationToSouris.stop();
