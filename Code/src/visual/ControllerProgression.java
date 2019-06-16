@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import poo.ManipListeDefis;
 import poo.UtilSons;
 
 public class ControllerProgression implements Initializable{
@@ -164,7 +165,106 @@ public class ControllerProgression implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//////////////////AJOUTER DE QUOI MONTRER SI UN NIVEAU EST COMPLETE///////////////////
+		
+		if(ManipListeDefis.estTermine(1)) {
+			d1.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(2)) {
+			d2.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(3)) {
+			d3.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(4)) {
+			d4.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(5)) {
+			d5.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(6)) {
+			d6.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(7)) {
+			n1.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(8)) {
+			n2.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(9)) {
+			n3.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(10)) {
+			n4.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(11)) {
+			n5.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(12)) {
+			n6.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(13)) {
+			d7.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(14)) {
+			d8.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(15)) {
+			d9.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(16)) {
+			d10.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(17)) {
+			d11.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(18)) {
+			d12.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(19)) {
+			n7.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(20)) {
+			n8.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(21)) {
+			n9.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(22)) {
+			n10.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(23)) {
+			n11.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(24)) {
+			n12.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(25)) {
+			d13.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(26)) {
+			d14.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(27)) {
+			d15.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(28)) {
+			d16.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(29)) {
+			d17.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(30)) {
+			d18.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(31)) {
+			n13.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(32)) {
+			n14.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(33)) {
+			n15.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(34)) {
+			n16.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(35)) {
+			n17.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(36)) {
+			n18.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(37)) {
+			d19.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(38)) {
+			d20.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(39)) {
+			d21.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(40)) {
+			d22.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(41)) {
+			d23.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(42)) {
+			d24.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(43)) {
+			n19.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(44)) {
+			n20.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(45)) {
+			n21.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(46)) {
+			n22.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(47)) {
+			n23.setStyle("-fx-background-color: #9ACC27");
+		}if(ManipListeDefis.estTermine(48)) {
+			n24.setStyle("-fx-background-color: #9ACC27");
+		}
+		
+		
 		d1.setStyle("-fx-background-color: #9ACC27"); //C'est la formule pour changer la couleur
 	}
 

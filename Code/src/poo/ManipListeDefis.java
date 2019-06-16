@@ -42,15 +42,15 @@ public class ManipListeDefis {
 			int compteur_contexte = 1;
 			String contexte;
 			String ligne = "";
-			for (num_niveau = 1; num_niveau < 33; num_niveau++) { // num ligne, difficulte, contexte, fait
-				compteur_contexte = compteur_contexte % 9;
+			for (num_niveau = 1; num_niveau < 49; num_niveau++) { // num ligne, difficulte, contexte, fait
+				compteur_contexte = compteur_contexte % 13;
 
 				if (compteur_contexte == 0) {
 					compteur_contexte = 1;
 				}
 
 				ligne = ligne + Integer.toString(num_niveau) + "/";
-				if (compteur_contexte < 5) {
+				if (compteur_contexte < 7) {
 					contexte = "diurne";
 				}
 

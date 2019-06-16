@@ -60,14 +60,20 @@ public class ControllerEntrerScoreCompetition {
 
 	@FXML
 	void cliquerConfirmer(ActionEvent event) {
-		/////////////////////////////////////// Enregistrer le
-		/////////////////////////////////////// score//////////////////////////////////////////
+
+		//ENREGISTREMENT SCORE
+		
+		
 		UtilSons.jouerSonBouton();
 		nomJoueur = textFieldNom.getText();
 		if (!nomJoueur.equals("")) { // VERIFIE QUE LE JOUEUR AI PAS RENTRE UNE VALEUR NULLE, ON NE SAUVEGARDE PAS
 										// SON SCORE SI IL N A PAS ENTRE DE NOM, QU IL PUISSE JOUER JUSTE POUR LE FUN
 
 		}
+		else {
+			ManipTabScore.AjouterScore(situation, temps, nomJoueur);
+		}
+		
 		try {
 			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

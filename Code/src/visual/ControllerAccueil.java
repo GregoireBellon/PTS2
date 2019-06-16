@@ -21,6 +21,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import poo.ManipListeDefis;
+import poo.ManipTabScore;
 import poo.UtilSons;
 
 public class ControllerAccueil implements Initializable {
@@ -66,7 +68,7 @@ public class ControllerAccueil implements Initializable {
 	}
 
 	@FXML
-	void CliquerEntraînement(ActionEvent event) {
+	void CliquerEntraï¿½nement(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 
 		try {
@@ -207,7 +209,9 @@ public class ControllerAccueil implements Initializable {
 	public void cliquerReinitialiser(ActionEvent event) {
 		UtilSons.jouerSonBouton();
 		
-		/////////////////////A COMPLETER////////////////////////
+		ManipListeDefis.CreerFichier();
+		ManipTabScore.CreerFichier();
+
 	}
 
 
