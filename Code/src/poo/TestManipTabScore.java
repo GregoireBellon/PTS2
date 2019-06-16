@@ -5,7 +5,7 @@ public class TestManipTabScore {
 
 	public static void main(String[] args) {
 
-	//	ManipTabScore.CreerFichier();
+		ManipTabScore.CreerFichier();
 		ManipTabScore.AjouterScore(3, 8,"Moa");
 		
 	}

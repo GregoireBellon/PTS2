@@ -8,10 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 public class ManipTabScore {
 
-	public static File tab_score = new File(System.getProperty("user.dir") + "/TabScore.txt"); // Répertoire
+	public static File tab_score = new File(System.getProperty("user.dir") + "/Stockage/TabScore.txt"); // Répertoire
 
 	public static void CreerFichier() {
 		// courant+"/TabScore.txt"
