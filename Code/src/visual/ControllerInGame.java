@@ -1,4 +1,5 @@
 package visual;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,9 +82,12 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	private ImageView Piece3;
 
-	private double[][] positionDepartCases = { { 179, 140 }, { 289, 140 }, { 69, 250 }, { 179, 250 }, { 289, 250 },
-			{ 399, 250 }, { 69, 360 }, { 179, 360 }, { 289, 360 }, { 399, 360 }, { 179, 470 }, { 289, 470 },
-			{ 399, 470 } };
+	private double[][] positionDepartCases = { { 10, 30 }, { 120, 30 }, { 230, 30 }, { 340, 30 }, { 450, 30 },
+			{ 560, 30 }, { 10, 140 }, { 120, 140 }, { 230, 140 }, { 340, 140 }, { 450, 140 }, { 560, 140 }, { 10, 250 },
+			{ 120, 250 }, { 230, 250 }, { 340, 250 }, { 450, 250 }, { 560, 250 }, { 10, 250 }, { 120, 360 },
+			{ 230, 360 }, { 340, 360 }, { 450, 360 }, { 560, 360 }, { 10, 470 }, { 120, 470 }, { 230, 470 },
+			{ 340, 470 }, { 450, 470 }, { 560, 470 }, { 10, 580 }, { 120, 580 }, { 230, 580 }, { 340, 580 },
+			{ 450, 580 }, { 560, 580 } };
 	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
 	@FXML
 	private AnchorPane root;
@@ -171,16 +175,16 @@ public class ControllerInGame implements Initializable {
 			ImageView image = listCases.get(k);
 			switch (jeu.getPlateau()[j][i]) {
 			case Cochon:
-				image.setImage(new Image("imageCochon.PNG"));
+				image.setImage(new Image("imagesDuJeu/imageCochon.PNG"));
 				break;
 			case Vide:
-				image.setImage(new Image("imageVide.PNG"));
+				image.setImage(new Image("imagesDuJeu/imageVide.PNG"));
 				break;
 			case Loup:
-				image.setImage(new Image("imageLoup.PNG"));
+				image.setImage(new Image("imagesDuJeu/imageLoup.PNG"));
 				break;
 			default:
-				image.setImage(new Image("imageLoup.PNG"));
+				image.setImage(new Image("imagesDuJeu/imageLoup.PNG"));
 				k--;
 				break;
 			}
@@ -210,66 +214,16 @@ public class ControllerInGame implements Initializable {
 	}
 
 	private boolean placementAutoriser(int numPiece, int numCase) {
-		int xCase = -1;
-		int yCase = -1;
-		switch (numCase) {
-		case 1:
-			xCase = 0;
-			yCase = 1;
-			break;
-		case 2:
-			xCase = 0;
-			yCase = 2;
-			break;
-		case 3:
-			xCase = 1;
-			yCase = 0;
-			break;
-		case 4:
-			xCase = 1;
-			yCase = 1;
-			break;
-		case 5:
-			xCase = 1;
-			yCase = 2;
-			break;
-		case 6:
-			xCase = 1;
-			yCase = 3;
-			break;
-		case 7:
-			xCase = 2;
-			yCase = 0;
-			break;
-		case 8:
-			xCase = 2;
-			yCase = 1;
-			break;
-		case 9:
-			xCase = 2;
-			yCase = 2;
-			break;
-		case 10:
-			xCase = 2;
-			yCase = 3;
-			break;
-		case 11:
-			xCase = 3;
-			yCase = 1;
-			break;
-		case 12:
-			xCase = 3;
-			yCase = 2;
-			break;
-		case 13:
-			xCase = 3;
-			yCase = 3;
-			break;
-
-		default:
-			break;
+		int xCase = (numCase % 6) - 2;
+		int yCase = (numCase / 6) - 1;
+		if ((numCase % 6) == 0) {
+			xCase = 4;
 		}
-		if ((xCase != -1) && (yCase != -1)) {
+		if (numCase > 30) {
+			yCase = 4;
+		}
+		if ((xCase != -2) && (yCase != -2)) {
+			System.out.println("Case ciblée : " + xCase + " ; " + yCase);
 			switch (numPiece) {
 			case 1:
 				return jeu.getPiece1().placerPiece(xCase, yCase);
@@ -307,7 +261,7 @@ public class ControllerInGame implements Initializable {
 		double fromX = image.getX() + positionDepartPieces[numPiece - 1][0];
 		double fromY = image.getY() + positionDepartPieces[numPiece - 1][1];
 		int numCase = -1;
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < 36; i++) {
 			double distance = Math.sqrt(
 					Math.pow((fromX - positionDepartCases[i][0]), 2) + Math.pow(fromY - positionDepartCases[i][1], 2));
 			if (distance < minDistance) {

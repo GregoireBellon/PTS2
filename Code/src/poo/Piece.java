@@ -40,10 +40,10 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagePiecePailleBasDroite.PNG";
-			rotationImages[1] = "imagePiecePailleBasGauche.PNG";
-			rotationImages[2] = "imagePiecePailleHautGauche.PNG";
-			rotationImages[3] = "imagePiecePailleHautDroite.PNG";
+			rotationImages[0] = "imagesDuJeu/imagePiecePailleBasDroite.PNG";
+			rotationImages[1] = "imagesDuJeu/imagePiecePailleBasGauche.PNG";
+			rotationImages[2] = "imagesDuJeu/imagePiecePailleHautGauche.PNG";
+			rotationImages[3] = "imagesDuJeu/imagePiecePailleHautDroite.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Bois: // Cree une piece avec la maison de bois
@@ -53,24 +53,24 @@ public class Piece {
 			coordMaison.put("x", 1);
 			coordMaison.put("y", 1);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagePieceBoisHorizontal.PNG";
-			rotationImages[1] = "imagePieceBoisVertical.PNG";
-			rotationImages[2] = "imagePieceBoisHorizontal.PNG";
-			rotationImages[3] = "imagePieceBoisVertical.PNG";
+			rotationImages[0] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
+			rotationImages[1] = "imagesDuJeu/imagePieceBoisVertical.PNG";
+			rotationImages[2] = "imagesDuJeu/imagePieceBoisHorizontal.PNG";
+			rotationImages[3] = "imagesDuJeu/imagePieceBoisVertical.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 			break;
 		case Brique: // Cree une piece avec la maison de brique
-			casesPiece[0][0] = TypeCase.Jardin;
+			casesPiece[0][0] = TypeCase.Maison;
 			casesPiece[0][1] = TypeCase.Jardin;
 			casesPiece[1][0] = TypeCase.Jardin;
-			casesPiece[0][2] = TypeCase.Maison;
+			casesPiece[0][2] = TypeCase.Jardin;
 			coordMaison.put("x", 0);
-			coordMaison.put("y", 2);
+			coordMaison.put("y", 0);
 			rotationImages = new String[4];
-			rotationImages[0] = "imagePieceBriqueHaut.PNG";
-			rotationImages[1] = "imagePieceBriqueDroite.PNG";
-			rotationImages[2] = "imagePieceBriqueBas.PNG";
-			rotationImages[3] = "imagePieceBriqueGauche.PNG";
+			rotationImages[0] = "imagesDuJeu/imagePieceBriqueHaut.png";
+			rotationImages[1] = "imagesDuJeu/imagePieceBriqueDroite.PNG";
+			rotationImages[2] = "imagesDuJeu/imagePieceBriqueBas.PNG";
+			rotationImages[3] = "imagesDuJeu/imagePieceBriqueGauche.PNG";
 			imagePiece.setImage(new Image(rotationImages[0]));
 		}
 	}
@@ -85,7 +85,7 @@ public class Piece {
 				if (casesPiece[i][j] != null) {
 					aff.append(casesPiece[i][j]);
 				} else {
-					aff.append("   ");
+					aff.append("[ ]");
 				}
 			}
 			aff.append("\n");
@@ -165,6 +165,8 @@ public class Piece {
 	}
 
 	public boolean placerPiece(int x, int y) {
+		x++;
+		y--;
 		if (verifierPlacementPiece(x, y)) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
@@ -184,6 +186,7 @@ public class Piece {
 			jeu.afficherPlateau();
 			return true;
 		} else {
+			enlever();
 			return false;
 		}
 
@@ -287,29 +290,29 @@ public class Piece {
 	}
 
 	private boolean verifierPlacementPiece(int x, int y) {
-		afficherPiece();
 		// Verification que les coordonnées sont bien dans le plateau
-		if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
-			return false;
-		}
+		// if ((x > 3) || (x < 0) || (y > 3) || (y < 0)) {
+		// return false;
+		// }
 		// Verification que la piece peut etre posée
-		for (int i = 0; i < casesPiece.length; i++) {
-			for (int j = 0; j < casesPiece.length; j++) {
-				if (casesPiece[i][j] != null) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (casesPiece[j][i] != null) {
 					try {
-						TypeCase t = jeu.getPlateau()[x + i][y + j];
+						TypeCase t = jeu.getPlateau()[x + j][y + i];
 						if (t != TypeCase.Vide) {
-							System.err.println("Tu essaye de poser sur un " + t.toString() + "en " + (x + i) + ";"
-									+ (y + j) + " en dessus d'un " + casesPiece[i][j] + " en " + i + ";" + j);
+							System.err.println("Tu essaye de poser sur un " + t.toString() + " en " + (x + j) + ";"
+									+ (y + i) + " (sur le plateau) en dessus d'un " + casesPiece[j][i] + " en " + j
+									+ ";" + i + "(relativement à la pièce)");
 							return false;
 						}
 					} catch (Exception e) {
-						System.err.println("Tu essais de poser la pièce hors des limites du plateau");
+						System.err.println("Tu essaie de placer en dehors du plateau la case " + casesPiece[i][j]);
 						return false;
 					}
 
 				} else {
-
+					System.out.println("case en " + j + ";" + i + "est null");
 				}
 			}
 		}
