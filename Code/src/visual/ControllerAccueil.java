@@ -45,6 +45,12 @@ public class ControllerAccueil implements Initializable {
 
 	@FXML
 	private Button quitter;
+	
+	@FXML
+	private Button plus;
+	
+	@FXML
+	private Button reinitialiser;
 
 	private GraphicsContext g;
 
@@ -152,6 +158,8 @@ public class ControllerAccueil implements Initializable {
 		labelMusique.setVisible(!labelMusique.isVisible());
 		labelEffets.setVisible(!labelEffets.isVisible());
 		quitter.setVisible(!quitter.isVisible());
+		plus.setVisible(!plus.isVisible());
+		reinitialiser.setVisible(false);
 		if (sliderMusique.isVisible()) {
 			g.setFill(Color.WHITE);
 			g.beginPath();
@@ -187,6 +195,19 @@ public class ControllerAccueil implements Initializable {
 	@FXML
 	public void cliquerQuitter(ActionEvent event) {
 		System.exit(0);
+	}
+	
+	@FXML
+	public void cliquerPlus(ActionEvent event) {
+		UtilSons.jouerSonBouton();
+		reinitialiser.setVisible(!reinitialiser.isVisible());
+	}
+	
+	@FXML
+	public void cliquerReinitialiser(ActionEvent event) {
+		UtilSons.jouerSonBouton();
+		
+		/////////////////////A COMPLETER////////////////////////
 	}
 
 

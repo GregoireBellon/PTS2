@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import poo.ManipTabScore;
 import poo.UtilSons;
 
 public class ControllerEntrerScoreCompetition {
@@ -24,6 +25,8 @@ public class ControllerEntrerScoreCompetition {
 	private String nomJoueur;
 
 	private String temps;
+	
+	private int situation;
 	
 	
 	/* 	
