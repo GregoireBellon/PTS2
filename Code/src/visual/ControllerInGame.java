@@ -26,13 +26,11 @@ import poo.Jeux;
 import poo.Piece;
 
 public class ControllerInGame implements Initializable {
-
 	private PathTransition animationToSouris = new PathTransition();
 	@FXML
 	private Button boutonAbandonner;
 	@FXML
 	private Button boutonSolution;
-
 	@FXML
 	private ImageView imagePlateau1;
 	@FXML
@@ -42,10 +40,8 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	private ImageView imagePlateau12;
-
 	@FXML
 	private ImageView imagePlateau13;
-
 	@FXML
 	private ImageView imagePlateau2;
 
@@ -77,15 +73,29 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	private ImageView Piece1;
 
+	private boolean piece1Placee;
+
 	@FXML
 	private ImageView Piece2;
+
+	private boolean piece2Placee;
 
 	@FXML
 	private ImageView Piece3;
 
-	private double[][] positionDepartCases = { { 230, 140 }, { 340, 140 }, { 120, 250 }, { 230, 250 }, { 340, 250 },
-			{ 450, 250 }, { 120, 360 }, { 230, 360 }, { 340, 360 }, { 450, 360 }, { 230, 470 }, { 340, 470 },
-			{ 450, 470 } };
+	private boolean piece3Placee;
+
+	/*
+	 * private double[][] positionDepartCases = { { 230, 140 }, { 340, 140 }, { 120,
+	 * 250 }, { 230, 250 }, { 340, 250 }, { 450, 250 }, { 120, 360 }, { 230, 360 },
+	 * { 340, 360 }, { 450, 360 }, { 230, 470 }, { 340, 470 }, { 450, 470 } };
+	 */
+	private double[][] positionDepartCases = { { 10, 30 }, { 120, 30 }, { 230, 30 }, { 340, 30 }, { 450, 30 },
+			{ 560, 30 }, { 10, 140 }, { 120, 140 }, { 230, 140 }, { 340, 140 }, { 450, 140 }, { 560, 140 }, { 10, 250 },
+			{ 120, 250 }, { 230, 250 }, { 340, 250 }, { 450, 250 }, { 560, 250 }, { 10, 250 }, { 120, 360 },
+			{ 230, 360 }, { 340, 360 }, { 450, 360 }, { 560, 360 }, { 10, 470 }, { 120, 470 }, { 230, 470 },
+			{ 340, 470 }, { 450, 470 }, { 560, 470 }, { 10, 580 }, { 120, 580 }, { 230, 580 }, { 340, 580 },
+			{ 450, 580 }, { 560, 580 } };
 	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
 	@FXML
 	private AnchorPane root;
@@ -102,20 +112,20 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void activerDeplacementPiece1(MouseEvent event) {
-		jeu.getPiece1().enlever();
-		suiviPieceSouris(jeu.getPiece1(), event);
+		piece1Placee = false;
+		suiviPieceSouris(jeu.getPiece1(), event, 1);
 	}
 
 	@FXML
 	void activerDeplacementPiece2(MouseEvent event) {
-		jeu.getPiece2().enlever();
-		suiviPieceSouris(jeu.getPiece2(), event);
+		piece2Placee = false;
+		suiviPieceSouris(jeu.getPiece2(), event, 2);
 	}
 
 	@FXML
 	void activerDeplacementPiece3(MouseEvent event) {
-		jeu.getPiece3().enlever();
-		suiviPieceSouris(jeu.getPiece3(), event);
+		piece3Placee = false;
+		suiviPieceSouris(jeu.getPiece3(), event, 3);
 	}
 
 	private void deplacerImage(ImageView image, double x, double y) {
@@ -124,8 +134,8 @@ public class ControllerInGame implements Initializable {
 		double toX = x;
 		double toY = y;
 
-		toX -= image.getLayoutX() /*- (image.getLayoutBounds().getWidth() / 2)*/;
-		toY -= image.getLayoutY() /*- (image.getLayoutBounds().getHeight() / 2)*/;
+		toX -= image.getLayoutX();
+		toY -= image.getLayoutY();
 
 		Path path = new Path();
 		path.getElements().add(new MoveTo(fromX, fromY));
@@ -201,88 +211,75 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void PieceDragueFini1(MouseEvent event) {
-		placerPiece(1, jeu.getPiece1());
+		placerPiece(1, jeu.getPiece1(), event);
 	}
 
 	@FXML
 	void PieceDragueFini2(MouseEvent event) {
-		placerPiece(2, jeu.getPiece2());
+		placerPiece(2, jeu.getPiece2(), event);
 	}
 
 	@FXML
 	void PieceDragueFini3(MouseEvent event) {
-		placerPiece(3, jeu.getPiece3());
+		placerPiece(3, jeu.getPiece3(), event);
 	}
 
 	private boolean placementAutoriser(int numPiece, int numCase, int numRotation) {
-		int xCase = -1;
-		int yCase = -1;
-		switch (numCase) {
-		case 1:
-			xCase = Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[1];
-			break;
-		case 2:
-			xCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1, numRotation)[1];
-			break;
-		case 3:
-			xCase = Piece.obtenirEmplacementMaison(0, 1, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(0, 1, numPiece - 1, numRotation)[1];
-			break;
-		case 4:
-			xCase = Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[1];
-			break;
-		case 5:
-			xCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1, numRotation)[1];
-			break;
-		case 6:
-			xCase = Piece.obtenirEmplacementMaison(3, 1, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(3, 1, numPiece - 1, numRotation)[1];
-			break;
-		case 7:
-			xCase = Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[1];
-			break;
-		case 8:
-			xCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1, numRotation)[1];
-			break;
-		case 9:
-			xCase = Piece.obtenirEmplacementMaison(2, 2, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(2, 2, numPiece - 1, numRotation)[1];
-			break;
-		case 10:
-			xCase = Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[1];
-			break;
-		case 11:
-			xCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1, numRotation)[1];
-			break;
-		case 12:
-			xCase = Piece.obtenirEmplacementMaison(2, 3, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(2, 3, numPiece - 1, numRotation)[1];
-			break;
-		case 13:
-			xCase = Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[0];
-			yCase = Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[1];
-			break;
-
-		default:
-			break;
+		int xCase = (numCase % 6) - 2;
+		int yCase = (numCase / 6) - 1;
+		if ((numCase % 6) == 0) {
+			xCase = 4;
 		}
-		if ((xCase != -1) && (yCase != -1)) {
-			System.out.println("Case ciblée : " + xCase + " ; " + yCase);
+		if (numCase > 30) {
+			yCase = 4;
+		}
+
+		int xCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[0];
+		int yCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[1];
+		/*
+		 * int xCase = -1; int yCase = -1; switch (numCase) { case 1: xCase =
+		 * Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[0]; yCase =
+		 * Piece.obtenirEmplacementMaison(1, 0, numPiece - 1, numRotation)[1]; break;
+		 * case 2: xCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1,
+		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 0, numPiece - 1,
+		 * numRotation)[1]; break; case 3: xCase = Piece.obtenirEmplacementMaison(0, 1,
+		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(0, 1,
+		 * numPiece - 1, numRotation)[1]; break; case 4: xCase =
+		 * Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[0]; yCase =
+		 * Piece.obtenirEmplacementMaison(1, 1, numPiece - 1, numRotation)[1]; break;
+		 * case 5: xCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1,
+		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 1, numPiece - 1,
+		 * numRotation)[1]; break; case 6: xCase = Piece.obtenirEmplacementMaison(3, 1,
+		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(3, 1,
+		 * numPiece - 1, numRotation)[1]; break; case 7: xCase =
+		 * Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[0]; yCase =
+		 * Piece.obtenirEmplacementMaison(0, 2, numPiece - 1, numRotation)[1]; break;
+		 * case 8: xCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1,
+		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(1, 2, numPiece - 1,
+		 * numRotation)[1]; break; case 9: xCase = Piece.obtenirEmplacementMaison(2, 2,
+		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 2,
+		 * numPiece - 1, numRotation)[1]; break; case 10: xCase =
+		 * Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[0]; yCase =
+		 * Piece.obtenirEmplacementMaison(3, 2, numPiece - 1, numRotation)[1]; break;
+		 * case 11: xCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1,
+		 * numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(1, 3, numPiece - 1,
+		 * numRotation)[1]; break; case 12: xCase = Piece.obtenirEmplacementMaison(2, 3,
+		 * numPiece - 1, numRotation)[0]; yCase = Piece.obtenirEmplacementMaison(2, 3,
+		 * numPiece - 1, numRotation)[1]; break; case 13: xCase =
+		 * Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[0]; yCase =
+		 * Piece.obtenirEmplacementMaison(3, 3, numPiece - 1, numRotation)[1]; break;
+		 *
+		 * default: break; }
+		 */
+		if ((xCase != -2) && (yCase != -2)) {
+			System.out.println("Case ciblée par la maison: " + xCaseMaison + " ; " + yCaseMaison);
 			switch (numPiece) {
 			case 1:
-				return jeu.getPiece1().placer(yCase, xCase, Contexte.Diurne);
+				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
 			case 2:
-				return jeu.getPiece2().placer(yCase, xCase, Contexte.Diurne);
+				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
 			case 3:
-				return jeu.getPiece3().placer(yCase, xCase, Contexte.Diurne);
+				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
 			default:
 				break;
 			}
@@ -290,20 +287,17 @@ public class ControllerInGame implements Initializable {
 		return true;
 	}
 
-	public void placerPiece(int numPiece, Piece p) {
+	public void placerPiece(int numPiece, Piece p, MouseEvent me) {
 		ImageView image = Piece1;
 		switch (numPiece) {
 		case 1:
 			image = Piece1;
-			jeu.getPiece1().enlever();
 			break;
 		case 2:
 			image = Piece2;
-			jeu.getPiece2().enlever();
 			break;
 		case 3:
 			image = Piece3;
-			jeu.getPiece3().enlever();
 			break;
 
 		default:
@@ -313,7 +307,7 @@ public class ControllerInGame implements Initializable {
 		double fromX = image.getX() + positionDepartPieces[numPiece - 1][0];
 		double fromY = image.getY() + positionDepartPieces[numPiece - 1][1];
 		int numCase = -1;
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < 36; i++) {
 			double distance = Math.sqrt(
 					Math.pow((fromX - positionDepartCases[i][0]), 2) + Math.pow(fromY - positionDepartCases[i][1], 2));
 			if (distance < minDistance) {
@@ -321,11 +315,24 @@ public class ControllerInGame implements Initializable {
 				numCase = i;
 			}
 		}
-		if ((minDistance < 500) && placementAutoriser(numPiece, numCase + 1, p.getDegreRotation() / 90)) {
+		if ((minDistance < 100) && placementAutoriser(numPiece, numCase + 1, p.getDegreRotation() / 90)) {
 			deplacerImage(image, positionDepartCases[numCase][0], positionDepartCases[numCase][1]);
+			switch (numPiece) {
+			case 1:
+				piece1Placee = true;
+				break;
+			case 2:
+				piece2Placee = true;
+				break;
+			case 3:
+				piece3Placee = true;
+				break;
 
+			default:
+				break;
+			}
 		}
-		if (jeu.getDefi().verifierDefi()) {
+		if (piece1Placee && piece2Placee && piece3Placee) {
 			System.out.println("GAGNÉÉÉÉÉÉ");
 		}
 		jeu.afficherPlateau();
@@ -336,7 +343,7 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece1().tournerHoraire();
 		Piece1 = jeu.getPiece1().getImagePiece();
 		jeu.getPiece1().afficherPiece();
-		jeu.getPiece1().enlever();
+		piece1Placee = false;
 	}
 
 	@FXML
@@ -344,7 +351,7 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece2().tournerHoraire();
 		Piece2 = jeu.getPiece2().getImagePiece();
 		jeu.getPiece2().afficherPiece();
-		jeu.getPiece2().enlever();
+		piece2Placee = false;
 	}
 
 	@FXML
@@ -352,10 +359,10 @@ public class ControllerInGame implements Initializable {
 		jeu.getPiece3().tournerHoraire();
 		Piece3 = jeu.getPiece3().getImagePiece();
 		jeu.getPiece3().afficherPiece();
-		jeu.getPiece3().enlever();
+		piece3Placee = false;
 	}
 
-	private void suiviPieceSouris(Piece piece, MouseEvent e) {
+	private void suiviPieceSouris(Piece piece, MouseEvent e, int numPiece) {
 		piece.getImagePiece().cursorProperty().setValue(Cursor.NONE);
 		animationToSouris.setNode(null);
 		animationToSouris.stop();

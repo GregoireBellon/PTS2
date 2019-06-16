@@ -1,4 +1,4 @@
-package visual;
+package poo;
 
 import java.io.File;
 
@@ -7,13 +7,13 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class UtilSons {
-	static Media musiqueDeFond;
-	static MediaPlayer mediaPlayerMusique;
+	public static Media musiqueDeFond;
+	public static MediaPlayer mediaPlayerMusique;
 	
-	static Media sonBoutonMedia;
-	static MediaPlayer bruitages;
+	public static Media sonBoutonMedia;
+	public static MediaPlayer bruitages;
 	
-	static void initSon() {
+	public static void initSon() {
 		File sonBouton = new File("ressources/sonBouton.mp3");
 		sonBoutonMedia = new Media(sonBouton.toURI().toString());
 		bruitages = new MediaPlayer(sonBoutonMedia);
@@ -24,7 +24,7 @@ public class UtilSons {
 		mediaPlayerMusique.setVolume(0.5);
 	}
 	
-	static void jouerSonBouton() {
+	public static void jouerSonBouton() {
 		double volume = bruitages.getVolume();
 		File sonBouton = new File("ressources/sonBouton.mp3");
 		sonBoutonMedia = new Media(sonBouton.toURI().toString());
@@ -33,7 +33,7 @@ public class UtilSons {
 		bruitages.play();
 	}
 	
-	static void jouerMusiqueFond() {
+	public static void jouerMusiqueFond() {
 		
 		mediaPlayerMusique.setAutoPlay(true);
 
