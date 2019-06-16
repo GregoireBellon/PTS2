@@ -54,21 +54,24 @@ public class ManipTabScore {
 		}
 	}
 
-	public static boolean EstHighScore(int contexte, int score) {
+	public static boolean EstHighScore(int contexte, int score) { //nom score
 
-		List<Integer> liste = CopierLignesContexte(contexte);
+		List<String> liste = CopierLignesContexte(contexte);
 		
-		for(Integer extract : liste) {
-			if(score>extract) return true;
+		int recup_score;
+		
+		for(String extract : liste) {
+		recup_score = Integer.parseInt(extract.substring(extract.indexOf(" ")+1));
+			if(score>recup_score) return true;
 		}
 		
 		return false;
 		
 	}
 
-	public static List<Integer>CopierLignesContexte(int contexte){
+	public static List<String>CopierLignesContexte(int contexte){
 		
-		List<Integer> scores = new ArrayList<Integer>();
+		List<String> scores = new ArrayList<String>();
 		int contexte_tete = 0;
 		int ligne_compteur = 0;
 		String ligne="";
@@ -95,10 +98,11 @@ public class ManipTabScore {
 
 				if (contexte_tete == contexte) {// si la tête est dans le bon contexte, on lit toutes les lignes et on
 					for (ligne_compteur = 0; ligne_compteur < 20; ligne_compteur++) { // on saute des lignes
-					
+						
 						ligne=parcoursBuff.readLine();
+						
 						if(!ligne.contains("<empty>")) {
-							scores.add(Integer.parseInt(ligne));	
+							scores.add(ligne);	
 						}
 						else break;
 					}
@@ -130,7 +134,7 @@ public class ManipTabScore {
 	//
 	//
 	//
-	public static void CollerListe(int contexte, List<Integer> scores) {
+	public static void CollerListe(int contexte, List<String> scores) {
 		
 		int contexte_tete = 0;
 		int ligne_compteur = 0;
@@ -197,13 +201,39 @@ public class ManipTabScore {
 	//
 	//
 //////////////////////////////////////////////////////////////////////////////////
+	public static List<Score> recupScore(int contexte){
+		
+		List<String> scoresString = CopierLignesContexte(contexte);
+		List<Score> scores = new ArrayList<Score>();
+		
+		int extract_temps;
+		String extract_nom;
+		
+		for(String extract : scoresString) {
+			
+			extract_temps = Integer.parseInt(extract.substring(extract.indexOf(" ")+1));
+			extract_nom = extract.substring(0, extract.indexOf(" "));
+			scores.add(new Score(extract_temps, extract_nom));
+		}
+		
+		return scores;
+
+	}
 	
-	public static void AjouterScore(int contexte, int temps) { // contexte entre 1 et 8
-		List<Integer> scores = CopierLignesContexte(contexte);
-		scores.add(temps);
+	public static void AjouterScore(int contexte, int temps, String nom) { // contexte entre 1 et 8
+		List<String> scoresString = new ArrayList<String>();
+		List<Score> scores = recupScore(contexte);
+		
+		scores.add(new Score(temps, nom));
+
 		Collections.sort(scores);
 		Collections.reverse(scores);
-		CollerListe(contexte, scores);
+		
+	for(Score extract : scores) {
+		scoresString.add(extract.toString());
+		}
+		
+		CollerListe(contexte, scoresString);
 	}
 
 	//
