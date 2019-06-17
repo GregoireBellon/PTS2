@@ -1,4 +1,5 @@
 package poo;
+
 import java.io.File;
 import java.util.Scanner;
 
@@ -43,6 +44,11 @@ public class Defi {
 			ligne = sc.nextLine();
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+		if (nom.contains("N")) {
+			contexte = Contexte.Nocturne;
+		} else {
+			contexte = Contexte.Diurne;
 		}
 		solution = ligne.split(" ")[1]; // Récupère la solution du niveau
 		for (int i = 0; i < 4; i++) { // Parcourt le tableau

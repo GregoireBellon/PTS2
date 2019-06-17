@@ -1,26 +1,26 @@
 <contexte =1>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
+Teddy 8
+Teddy 20
+Teddy 34
+Teddy 53
+Teddy 60
+Teddy 61
+Teddy 62
+Teddy 63
+Teddy 64
+Teddy 65
+Teddy 66
+Teddy 67
+Teddy 68
+Teddy 69
+Teddy 70
+Teddy 71
+Teddy 72
+Teddy 73
+Teddy 74
+Teddy 75
 <contexte =2>
-<empty>
+Teddy 8
 <empty>
 <empty>
 <empty>

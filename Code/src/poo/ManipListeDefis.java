@@ -23,13 +23,13 @@ public class ManipListeDefis {
 					supp.write("");
 					supp.close();
 				} catch (IOException e) {
-					System.out.println("Problème critique lors du formatage : \n" + e.getMessage());
+					System.out.println("Probleme critique lors du formatage : \n" + e.getMessage());
 					return;
 				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Problème dans la création de fichier");
+			System.out.println("Probleme dans la création de fichier");
 			return;
 		}
 
@@ -76,7 +76,7 @@ public class ManipListeDefis {
 			orga_ecrit.close();
 			ecrit.close();
 		} catch (IOException e) {
-			System.out.println("Problème lors de l'écriture du fichier : \n" + e.getMessage());
+			System.out.println("Probleme lors de l'écriture du fichier : \n" + e.getMessage());
 		}
 	}
 
