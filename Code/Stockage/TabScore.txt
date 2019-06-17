@@ -1,10 +1,7 @@
 <contexte =1>
-Test 3
-Test 8
 Teddy 8
 Teddy 20
 Teddy 34
-Test 50
 Teddy 53
 Teddy 60
 Teddy 61
@@ -17,50 +14,53 @@ Teddy 67
 Teddy 68
 Teddy 69
 Teddy 70
-Greg 71
+Teddy 71
 Teddy 72
+Teddy 73
+Teddy 74
+Teddy 75
 <contexte =2>
-Test 3
 Teddy 8
-Test 8
-Test 50
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
 <contexte =3>
-Test 8
-Test 50
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
-<empty> 
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
+<empty>
 <contexte =4>
 <empty>
 <empty>
