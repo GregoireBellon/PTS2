@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import poo.Contexte;
 import poo.Jeux;
+import poo.ManipListeDefis;
 import poo.Piece;
 import poo.UtilSons;
 
@@ -117,6 +118,8 @@ public class ControllerInGame implements Initializable {
 			{ 340, 470 }, { 450, 470 }, { 560, 470 }, { 10, 580 }, { 120, 580 }, { 230, 580 }, { 340, 580 },
 			{ 450, 580 }, { 560, 580 } };
 	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
+	private boolean progression;
+
 	@FXML
 	private AnchorPane root;
 
@@ -204,6 +207,10 @@ public class ControllerInGame implements Initializable {
 
 	}
 
+	public void isProgression(boolean progression) {
+		this.progression = progression;
+	}
+
 	public void lancerPartie(String niveau) {
 		imageFond.setImage(new Image("file:ressources/Jeux.PNG"));
 		chrono.run();
@@ -269,6 +276,58 @@ public class ControllerInGame implements Initializable {
 		rotationPiece2(null);
 		rotationPiece3(null);
 		rotationPiece3(null);
+	}
+
+	public void niveauComplete() {
+		String nomDefi = jeu.getDefi().getNom();
+		if (jeu.getDefi().getNom().charAt(jeu.getDefi().getNom().length() - 1) == 'D') {
+			if (Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 7) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)));
+			} else if (Integer
+					.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 13) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) + 6);
+
+			} else if (Integer
+					.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 19) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1))
+								+ 12);
+
+			} else {
+
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1))
+								+ 18);
+
+			}
+		} else {
+			if (Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 7) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) + 6);
+			} else if (Integer
+					.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 13) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1))
+								+ 12);
+
+			} else if (Integer
+					.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1)) < 19) {
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1))
+								+ 18);
+
+			} else {
+
+				ManipListeDefis.estTermine(
+						Integer.parseInt(jeu.getDefi().getNom().substring(0, jeu.getDefi().getNom().length() - 1))
+								+ 24);
+
+			}
+
+		}
+
 	}
 
 	@FXML
