@@ -1,66 +1,66 @@
 <contexte =1>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
+Test 3
+Test 8
+Teddy 8
+Teddy 20
+Teddy 34
+Test 50
+Teddy 53
+Teddy 60
+Teddy 61
+Teddy 62
+Teddy 63
+Teddy 64
+Teddy 65
+Teddy 66
+Teddy 67
+Teddy 68
+Teddy 69
+Teddy 70
+Greg 71
+Teddy 72
 <contexte =2>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
+Test 3
+Teddy 8
+Test 8
+Test 50
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
 <contexte =3>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
-<empty>
+Test 8
+Test 50
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
+<empty> 
 <contexte =4>
 <empty>
 <empty>
