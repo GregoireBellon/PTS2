@@ -24,6 +24,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import poo.Contexte;
 import poo.Jeux;
 import poo.Piece;
 
@@ -34,6 +35,8 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	private Button boutonSolution;
 	private Chrono chrono = new Chrono();
+	private boolean[] cochonCacherModeNocturne;
+	private Integer[][] coordCochonsModeNocturne;
 	private int[] coordPiece1 = { -1, -1 };
 	private int[] coordPiece2 = { -1, -1 };
 	private int[] coordPiece3 = { -1, -1 };
@@ -202,12 +205,17 @@ public class ControllerInGame implements Initializable {
 		listCases.add(imagePlateau13);
 		int i = 0;
 		int j = 0;
+		int nbCochons = 0;
+		coordCochonsModeNocturne = new Integer[10][2];
 		jeu.afficherPlateau();
 		for (int k = 0; k < listCases.size(); k++) {
 			ImageView image = listCases.get(k);
 			switch (jeu.getPlateau()[j][i]) {
 			case Cochon:
 				image.setImage(new Image("file:ressources/imageCochon.PNG"));
+				coordCochonsModeNocturne[nbCochons][0] = i;
+				coordCochonsModeNocturne[nbCochons][1] = j;
+				nbCochons++;
 				break;
 			case Vide:
 				image.setImage(new Image("file:ressources/imageVide.PNG"));
@@ -227,7 +235,8 @@ public class ControllerInGame implements Initializable {
 				j++;
 			}
 		}
-
+		System.out.println("Il y a " + nbCochons + " cochons");
+		cochonCacherModeNocturne = new boolean[nbCochons];
 		rotationPiece1(null);
 		rotationPiece2(null);
 		rotationPiece3(null);
@@ -266,6 +275,7 @@ public class ControllerInGame implements Initializable {
 			switch (numPiece) {
 			case 1:
 				boolean b = true;
+
 				int[][] t = coordUtiliserPiece2[numRotation];
 				for (int j = 0; j < coordUtiliserPiece1[numRotation].length; j++) {
 					for (int i = 0; i < t.length; i++) {
@@ -287,11 +297,27 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b) {
+
+				boolean contienCochonNocturne = false;
+				int numCochonContenue = -1;
+				for (int i = 0; i < cochonCacherModeNocturne.length; i++) {
+					if (((coordCochonsModeNocturne[i][0]) == (coordUtiliserPiece1[numRotation][0][0] + xCaseMaison))
+							&& ((coordCochonsModeNocturne[i][1]) == (coordUtiliserPiece1[numRotation][0][1]
+									+ yCaseMaison))) {
+						contienCochonNocturne = true;
+						numCochonContenue = i;
+						System.err.println("Cochon n°" + i + " caché");
+					}
+				}
+				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte())
+						&& (b || (jeu.getDefi().getContexte() == Contexte.Diurne))) {
 					coordPiece1[0] = xCaseMaison;
 					coordPiece1[1] = yCaseMaison;
+					if ((jeu.getDefi().getContexte() == Contexte.Nocturne) && contienCochonNocturne) {
+						cochonCacherModeNocturne[numCochonContenue] = true;
+					}
 				}
-				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b;
+				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte());
 			case 2:
 				boolean b2 = true;
 				int[][] t2 = coordUtiliserPiece1[numRotation];
@@ -315,11 +341,27 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b2) {
+				boolean contienCochonNocturne2 = false;
+				int numCochonContenue2 = -1;
+				for (int i = 0; i < cochonCacherModeNocturne.length; i++) {
+					if (((coordCochonsModeNocturne[i][0]) == (coordUtiliserPiece1[numRotation][0][0] + xCaseMaison))
+							&& ((coordCochonsModeNocturne[i][1]) == (coordUtiliserPiece1[numRotation][0][1]
+									+ yCaseMaison))) {
+						contienCochonNocturne2 = true;
+						numCochonContenue2 = i;
+						System.err.println("Cochon n°" + i + " caché");
+					}
+				}
+
+				if (jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte())
+						&& (b2 || (jeu.getDefi().getContexte() == Contexte.Diurne))) {
 					coordPiece2[0] = xCaseMaison;
 					coordPiece2[1] = yCaseMaison;
+					if ((jeu.getDefi().getContexte() == Contexte.Nocturne) && contienCochonNocturne2) {
+						cochonCacherModeNocturne[numCochonContenue2] = true;
+					}
 				}
-				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b2;
+				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte());
 			case 3:
 				boolean b3 = true;
 				int[][] t3 = coordUtiliserPiece1[numRotation];
@@ -343,11 +385,27 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b3) {
+				boolean contienCochonNocturne3 = false;
+				int numCochonContenue3 = -1;
+				for (int i = 0; i < cochonCacherModeNocturne.length; i++) {
+					if (((coordCochonsModeNocturne[i][0]) == (coordUtiliserPiece1[numRotation][0][0] + xCaseMaison))
+							&& ((coordCochonsModeNocturne[i][1]) == (coordUtiliserPiece1[numRotation][0][1]
+									+ yCaseMaison))) {
+						contienCochonNocturne3 = true;
+						numCochonContenue3 = i;
+						System.err.println("Cochon n°" + i + " caché");
+					}
+				}
+
+				if (jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte())
+						&& (b3 || (jeu.getDefi().getContexte() == Contexte.Diurne))) {
 					coordPiece3[0] = xCaseMaison;
 					coordPiece3[1] = yCaseMaison;
+					if ((jeu.getDefi().getContexte() == Contexte.Nocturne) && contienCochonNocturne3) {
+						cochonCacherModeNocturne[numCochonContenue3] = true;
+					}
 				}
-				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b3;
+				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte());
 			default:
 				break;
 			}
@@ -402,8 +460,19 @@ public class ControllerInGame implements Initializable {
 			}
 		}
 		if (piece1Placee && piece2Placee && piece3Placee) {
-			chrono.stopChrono();
-			timeline.pause();
+			boolean b = true;
+			for (int i = 0; i < cochonCacherModeNocturne.length; i++) {
+				if (cochonCacherModeNocturne[i] == false) {
+					b = false;
+					System.err.println("Cochon n° " + i + "pas caché !" + jeu.getDefi().getContexte());
+					break;
+				}
+			}
+			if (((jeu.getDefi().getContexte() == Contexte.Nocturne) && b)
+					|| (jeu.getDefi().getContexte() == Contexte.Diurne)) {
+				chrono.stopChrono();
+				timeline.pause();
+			}
 		}
 		jeu.afficherPlateau();
 	}

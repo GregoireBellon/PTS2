@@ -305,9 +305,10 @@ public class Piece {
 				// Si la piece est une Maison et que la case sur laquelle elle doit etre plac�
 				// n'est pas un cochon on return false
 				if ((contexte == Contexte.Nocturne) && (casesPiece[i][j] == TypeCase.Maison)
-						&& ((jeu.getPlateau()[i][j] != TypeCase.Cochon) || (jeu.getPlateau()[x][y] != TypeCase.Vide))) {
+						&& ((jeu.getPlateau()[x][y] != TypeCase.Cochon) && (jeu.getPlateau()[x][y] != TypeCase.Vide))) {
 					return false;
 				}
+
 			}
 		}
 		return true;
