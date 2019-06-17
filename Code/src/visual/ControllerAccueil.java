@@ -69,6 +69,7 @@ public class ControllerAccueil implements Initializable {
 
 	@FXML
 	void CliquerEntrainement(ActionEvent event) {
+
 		UtilSons.jouerSonBouton();
 
 		try {
