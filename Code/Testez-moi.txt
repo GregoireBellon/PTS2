@@ -1,0 +1,7 @@
+Afin de tester la persistance des données, vous trouverez dans le dossier Code un fichier TabScoreSample.txt et ListeDefisSample.txt.
+Il vous suffira de copier/coller les informations présents dans les fichiers équivalents dans le dossier Stockage.
+
+Pour lancer l'application, il faut executer le fichier Launcher.bat situé dans le dossier Code.
+
+Par souci de temps, le mode compétition n'est pas implémenté mais afin de pouvoir tester les scores malgré tout une classe nommée TestManipTabScore
+est mise à disposition dans le code source.

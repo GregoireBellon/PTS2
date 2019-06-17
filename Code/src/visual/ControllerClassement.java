@@ -159,6 +159,9 @@ public class ControllerClassement implements Initializable {
 		listeCategories.add("Master Diurne");
 		listeCategories.add("Master Nocturne");
 		categorie.setText(listeCategories.get(selection - 1));
+		afficherScores();
+
+		
 
 		///////////// A COMPLETER (afficher par d�faut avec la
 		///////////// s�lection)////////////////////////
@@ -213,103 +216,182 @@ public class ControllerClassement implements Initializable {
 
 		if (liste.size() > 0) {
 			nom1.setText(liste.get(0).getNom());
-		} else
+			temps1.setText(Integer.toString(liste.get(0).getTemps()));
+		} else {
 			nom1.setText("");
+			temps1.setText("");
+		}
 
 		if (liste.size() > 1) {
 			nom2.setText(liste.get(1).getNom());
-		} else
+			temps2.setText(Integer.toString(liste.get(1).getTemps()));
+
+		} else {
 			nom2.setText("");
+			temps2.setText("");
+		}
 
 		if (liste.size() > 2) {
 			nom3.setText(liste.get(2).getNom());
-		} else
+			temps3.setText(Integer.toString(liste.get(2).getTemps()));
+
+		} else {
 			nom3.setText("");
+			temps3.setText("");
+		}
 
 		if (liste.size() > 3) {
 			nom4.setText(liste.get(3).getNom());
-		} else
+			temps4.setText(Integer.toString(liste.get(3).getTemps()));
+
+		} else {
 			nom4.setText("");
+			temps4.setText("");
+		}
 
 		if (liste.size() > 4) {
 			nom5.setText(liste.get(4).getNom());
-		} else
+			temps5.setText(Integer.toString(liste.get(4).getTemps()));
+
+		} else {
 			nom5.setText("");
+			temps5.setText("");
+		}
 
 		if (liste.size() > 5) {
 			nom6.setText(liste.get(5).getNom());
-		} else
+			temps6.setText(Integer.toString(liste.get(5).getTemps()));
+
+		} else {
 			nom6.setText("");
+			temps6.setText("");
+		}
 
 		if (liste.size() > 6) {
 			nom7.setText(liste.get(6).getNom());
-		} else
+			temps7.setText(Integer.toString(liste.get(6).getTemps()));
+
+		} else {
 			nom7.setText("");
+			temps7.setText("");
+		}
 
 		if (liste.size() > 7) {
 			nom8.setText(liste.get(7).getNom());
-		} else
+			temps8.setText(Integer.toString(liste.get(7).getTemps()));
+
+		} else {
 			nom8.setText("");
+			temps8.setText("");
+		}
 
 		if (liste.size() > 8) {
 			nom9.setText(liste.get(8).getNom());
-		} else
+			temps9.setText(Integer.toString(liste.get(8).getTemps()));
+
+		} else {
 			nom9.setText("");
+			temps9.setText("");
+		}
 
 		if (liste.size() > 9) {
 			nom10.setText(liste.get(9).getNom());
-		} else
+			temps10.setText(Integer.toString(liste.get(9).getTemps()));
+
+		} else {
 			nom10.setText("");
+			temps10.setText("");
+		}
 
 		if (liste.size() > 10) {
 			nom11.setText(liste.get(10).getNom());
-		} else
+			temps11.setText(Integer.toString(liste.get(10).getTemps()));
+
+		} else {
 			nom11.setText("");
+			temps11.setText("");
+		}
 
 		if (liste.size() > 11) {
 			nom12.setText(liste.get(11).getNom());
-		} else
+			temps12.setText(Integer.toString(liste.get(11).getTemps()));
+
+		} else {
 			nom12.setText("");
+			temps12.setText("");
+		}
 
 		if (liste.size() > 12) {
 			nom13.setText(liste.get(12).getNom());
-		} else
+			temps13.setText(Integer.toString(liste.get(12).getTemps()));
+
+		} else {
 			nom13.setText("");
+			temps13.setText("");
+		}
 
 		if (liste.size() > 13) {
 			nom14.setText(liste.get(13).getNom());
-		} else
+			temps14.setText(Integer.toString(liste.get(13).getTemps()));
+
+		} else {
 			nom14.setText("");
+			temps14.setText("");
+		}
 
 		if (liste.size() > 14) {
 			nom15.setText(liste.get(14).getNom());
-		} else
+			temps15.setText(Integer.toString(liste.get(14).getTemps()));
+
+		} else {
 			nom15.setText("");
+			temps15.setText("");
+		}
 
 		if (liste.size() > 15) {
 			nom16.setText(liste.get(15).getNom());
-		} else
+			temps16.setText(Integer.toString(liste.get(15).getTemps()));
+
+		} else {
 			nom16.setText("");
+			temps16.setText("");
+		}
 
 		if (liste.size() > 16) {
 			nom17.setText(liste.get(16).getNom());
-		} else
+			temps17.setText(Integer.toString(liste.get(16).getTemps()));
+
+		} else {
 			nom17.setText("");
+			temps17.setText("");
+		}
 
 		if (liste.size() > 17) {
 			nom18.setText(liste.get(17).getNom());
-		} else
+			temps18.setText(Integer.toString(liste.get(17).getTemps()));
+
+		} else {
 			nom18.setText("");
+			temps18.setText("");
+		}
 
 		if (liste.size() > 18) {
 			nom19.setText(liste.get(18).getNom());
-		} else
+			temps19.setText(Integer.toString(liste.get(18).getTemps()));
+
+		} else {
 			nom19.setText("");
+			temps19.setText("");
+		}
 
 		if (liste.size() > 19) {
 			nom20.setText(liste.get(19).getNom());
-		} else
+			temps20.setText(Integer.toString(liste.get(19).getTemps()));
+
+		} else {
 			nom20.setText("");
+			temps20.setText("");
+		}
 
 	}
 
