@@ -35,20 +35,29 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	private Button boutonSolution;
 	private Chrono chrono = new Chrono();
+	private int[] coordPiece1 = { -1, -1 };
+	private int[] coordPiece2 = { -1, -1 };
+	private int[] coordPiece3 = { -1, -1 };
+	private int[][][] coordUtiliserPiece1 = { { { 0, 0 }, { 1, 0 }, { 2, 0 }, { 0, -1 } },
+			{ { 0, 0 }, { -1, 0 }, { 0, 1 }, { 0, 2 } }, { { 0, 0 }, { 0, -1 }, { 0, -2 }, { 0, -1 } },
+			{ { 0, 0 }, { 1, 0 }, { 0, -2 }, { 0, -1 } } };
+	private int[][][] coordUtiliserPiece2 = { { { 0, 0 }, { 1, 0 }, { 0, -1 } }, { { 0, 0 }, { 0, -1 }, { -1, 0 } },
+			{ { 0, 0 }, { -1, 0 }, { 0, -1 } }, { { 0, 0 }, { 0, -1 }, { 1, 0 } } };
+	private int[][][] coordUtiliserPiece3 = { { { 0, 0 }, { 1, 0 }, { -1, 0 } }, { { 0, 0 }, { 0, 1 }, { 0, -1 } },
+			{ { 0, 0 }, { 1, 0 }, { -1, 0 } }, { { 0, 0 }, { 0, 1 }, { 0, -1 } } };
 	@FXML
 	private ImageView imagePlateau1;
 	@FXML
 	private ImageView imagePlateau10;
 	@FXML
 	private ImageView imagePlateau11;
-
 	@FXML
 	private ImageView imagePlateau12;
+
 	@FXML
 	private ImageView imagePlateau13;
 	@FXML
 	private ImageView imagePlateau2;
-
 	@FXML
 	private ImageView imagePlateau3;
 
@@ -89,23 +98,20 @@ public class ControllerInGame implements Initializable {
 
 	private boolean piece3Placee;
 
-	/*
-	 * private double[][] positionDepartCases = { { 230, 140 }, { 340, 140 }, { 120,
-	 * 250 }, { 230, 250 }, { 340, 250 }, { 450, 250 }, { 120, 360 }, { 230, 360 },
-	 * { 340, 360 }, { 450, 360 }, { 230, 470 }, { 340, 470 }, { 450, 470 } };
-	 */
 	private double[][] positionDepartCases = { { 10, 30 }, { 120, 30 }, { 230, 30 }, { 340, 30 }, { 450, 30 },
 			{ 560, 30 }, { 10, 140 }, { 120, 140 }, { 230, 140 }, { 340, 140 }, { 450, 140 }, { 560, 140 }, { 10, 250 },
 			{ 120, 250 }, { 230, 250 }, { 340, 250 }, { 450, 250 }, { 560, 250 }, { 10, 250 }, { 120, 360 },
 			{ 230, 360 }, { 340, 360 }, { 450, 360 }, { 560, 360 }, { 10, 470 }, { 120, 470 }, { 230, 470 },
 			{ 340, 470 }, { 450, 470 }, { 560, 470 }, { 10, 580 }, { 120, 580 }, { 230, 580 }, { 340, 580 },
 			{ 450, 580 }, { 560, 580 } };
+
 	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
 	@FXML
 	private AnchorPane root;
-
 	@FXML
 	private Text TextTemps;
+
+	Timeline timeline;
 
 	private double[][] transformCursorPosition = { { 0, 0 }, { 0, 0 }, { 0, 0 } };
 
@@ -117,18 +123,24 @@ public class ControllerInGame implements Initializable {
 	@FXML
 	void activerDeplacementPiece1(MouseEvent event) {
 		piece1Placee = false;
+		coordPiece1[0] = -10;
+		coordPiece1[1] = -10;
 		suiviPieceSouris(jeu.getPiece1(), event, 1);
 	}
 
 	@FXML
 	void activerDeplacementPiece2(MouseEvent event) {
 		piece2Placee = false;
+		coordPiece2[0] = -10;
+		coordPiece2[1] = -10;
 		suiviPieceSouris(jeu.getPiece2(), event, 2);
 	}
 
 	@FXML
 	void activerDeplacementPiece3(MouseEvent event) {
 		piece3Placee = false;
+		coordPiece3[0] = -10;
+		coordPiece3[1] = -10;
 		suiviPieceSouris(jeu.getPiece3(), event, 3);
 	}
 
@@ -163,7 +175,6 @@ public class ControllerInGame implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		chrono.run();
-		Timeline timeline;
 		timeline = new Timeline(new KeyFrame(Duration.millis(100), ae -> TextTemps.setText(chrono.getDureeTxt())));
 		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
@@ -249,11 +260,89 @@ public class ControllerInGame implements Initializable {
 			System.out.println("Case ciblée par la maison: " + xCaseMaison + " ; " + yCaseMaison);
 			switch (numPiece) {
 			case 1:
-				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
+				boolean b = true;
+				int[][] t = coordUtiliserPiece2[numRotation];
+				for (int j = 0; j < coordUtiliserPiece1[numRotation].length; j++) {
+					for (int i = 0; i < t.length; i++) {
+						if (((t[i][0] + coordPiece2[0]) == (coordUtiliserPiece1[numRotation][j][0] + xCaseMaison))
+								&& ((t[i][1] + coordPiece2[1]) == (coordUtiliserPiece1[numRotation][j][1]
+										+ yCaseMaison))) {
+							b = false;
+						}
+					}
+				}
+
+				t = coordUtiliserPiece3[numRotation];
+				for (int j = 0; j < coordUtiliserPiece1[numRotation].length; j++) {
+					for (int i = 0; i < t.length; i++) {
+						if (((t[i][0] + coordPiece3[0]) == (coordUtiliserPiece1[numRotation][j][0] + xCaseMaison))
+								&& ((t[i][1] + coordPiece3[1]) == (coordUtiliserPiece1[numRotation][j][1]
+										+ yCaseMaison))) {
+							b = false;
+						}
+					}
+				}
+				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b) {
+					coordPiece1[0] = xCaseMaison;
+					coordPiece1[1] = yCaseMaison;
+				}
+				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b;
 			case 2:
-				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
+				boolean b2 = true;
+				int[][] t2 = coordUtiliserPiece1[numRotation];
+				for (int j = 0; j < coordUtiliserPiece2[numRotation].length; j++) {
+					for (int i = 0; i < t2.length; i++) {
+						if (((t2[i][0] + coordPiece1[0]) == (coordUtiliserPiece2[numRotation][j][0] + xCaseMaison))
+								&& ((t2[i][1] + coordPiece1[1]) == (coordUtiliserPiece2[numRotation][j][1]
+										+ yCaseMaison))) {
+							b2 = false;
+						}
+					}
+				}
+
+				t2 = coordUtiliserPiece3[numRotation];
+				for (int j = 0; j < coordUtiliserPiece2[numRotation].length; j++) {
+					for (int i = 0; i < t2.length; i++) {
+						if (((t2[i][0] + coordPiece3[0]) == (coordUtiliserPiece2[numRotation][j][0] + xCaseMaison))
+								&& ((t2[i][1] + coordPiece3[1]) == (coordUtiliserPiece2[numRotation][j][1]
+										+ yCaseMaison))) {
+							b2 = false;
+						}
+					}
+				}
+				if (jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b2) {
+					coordPiece2[0] = xCaseMaison;
+					coordPiece2[1] = yCaseMaison;
+				}
+				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b2;
 			case 3:
-				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne);
+				boolean b3 = true;
+				int[][] t3 = coordUtiliserPiece1[numRotation];
+				for (int j = 0; j < coordUtiliserPiece3[numRotation].length; j++) {
+					for (int i = 0; i < t3.length; i++) {
+						if (((t3[i][0] + coordPiece1[0]) == (coordUtiliserPiece3[numRotation][j][0] + xCaseMaison))
+								&& ((t3[i][1] + coordPiece1[1]) == (coordUtiliserPiece3[numRotation][j][1]
+										+ yCaseMaison))) {
+							b3 = false;
+						}
+					}
+				}
+
+				t3 = coordUtiliserPiece2[numRotation];
+				for (int j = 0; j < coordUtiliserPiece3[numRotation].length; j++) {
+					for (int i = 0; i < t3.length; i++) {
+						if (((t3[i][0] + coordPiece3[0]) == (coordUtiliserPiece3[numRotation][j][0] + xCaseMaison))
+								&& ((t3[i][1] + coordPiece3[1]) == (coordUtiliserPiece3[numRotation][j][1]
+										+ yCaseMaison))) {
+							b3 = false;
+						}
+					}
+				}
+				if (jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b3) {
+					coordPiece3[0] = xCaseMaison;
+					coordPiece3[1] = yCaseMaison;
+				}
+				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b3;
 			default:
 				break;
 			}
@@ -294,6 +383,7 @@ public class ControllerInGame implements Initializable {
 			switch (numPiece) {
 			case 1:
 				piece1Placee = true;
+
 				break;
 			case 2:
 				piece2Placee = true;
@@ -308,6 +398,7 @@ public class ControllerInGame implements Initializable {
 		}
 		if (piece1Placee && piece2Placee && piece3Placee) {
 			chrono.stopChrono();
+			timeline.pause();
 		}
 		jeu.afficherPlateau();
 	}
@@ -318,6 +409,8 @@ public class ControllerInGame implements Initializable {
 		Piece1 = jeu.getPiece1().getImagePiece();
 		jeu.getPiece1().afficherPiece();
 		piece1Placee = false;
+		coordPiece1[0] = -10;
+		coordPiece1[1] = -10;
 	}
 
 	@FXML
@@ -326,6 +419,8 @@ public class ControllerInGame implements Initializable {
 		Piece2 = jeu.getPiece2().getImagePiece();
 		jeu.getPiece2().afficherPiece();
 		piece2Placee = false;
+		coordPiece2[0] = -10;
+		coordPiece2[1] = -10;
 	}
 
 	@FXML
@@ -334,6 +429,8 @@ public class ControllerInGame implements Initializable {
 		Piece3 = jeu.getPiece3().getImagePiece();
 		jeu.getPiece3().afficherPiece();
 		piece3Placee = false;
+		coordPiece3[0] = -10;
+		coordPiece3[1] = -10;
 	}
 
 	private void suiviPieceSouris(Piece piece, MouseEvent e, int numPiece) {

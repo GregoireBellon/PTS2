@@ -32,7 +32,7 @@
          <font>
             <Font size="34.0" />
          </font></Button>
-      <Button layoutX="536.0" layoutY="238.0" mnemonicParsing="false" onAction="#CliquerEntraînement" prefHeight="70.0" prefWidth="300.0" text="Entraînement">
+      <Button layoutX="536.0" layoutY="238.0" mnemonicParsing="false" onAction="#CliquerEntrainement" prefHeight="70.0" prefWidth="300.0" text="Entraînement">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
