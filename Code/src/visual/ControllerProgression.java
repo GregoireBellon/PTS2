@@ -581,7 +581,7 @@ public class ControllerProgression implements Initializable{
 
 	}
 
-	private void lancerNiveau (ActionEvent event, String niveau) {
+	/*private void lancerNiveau (ActionEvent event, String niveau) {
 		try {
 			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
@@ -590,7 +590,7 @@ public class ControllerProgression implements Initializable{
 
 			stageJeu = loader.load();
 
-			ControllerInGame niveau = loader.getController();
+			//ControllerInGame niveau = loader.getController();
 			
 
 			Scene sceneJeu = new Scene(stageJeu);
@@ -606,5 +606,5 @@ public class ControllerProgression implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 }
