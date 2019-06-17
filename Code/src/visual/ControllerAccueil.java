@@ -31,40 +31,83 @@ public class ControllerAccueil implements Initializable {
 	private Canvas canvas;
 
 	@FXML
-	private CheckBox checkBoxPleinEcran;
-
-	private GraphicsContext g;
-
-	@FXML
-	private Label labelEffets;
-
-	@FXML
-	private Label labelMusique;
-
-	@FXML
-	private Button plus;
-
-	@FXML
-	private Button quitter;
-
-	@FXML
-	private Button reinitialiser;
+	private Slider sliderMusique;
 
 	@FXML
 	private Slider sliderEffets;
 
 	@FXML
-	private Slider sliderMusique;
+	private CheckBox checkBoxPleinEcran;
 
 	@FXML
-	void changerVolumeEffets(MouseEvent event) {
-		UtilSons.bruitages.setVolume(sliderEffets.getValue());
+	private Label labelMusique;
+
+	@FXML
+	private Label labelEffets;
+
+	@FXML
+	private Button quitter;
+	
+	@FXML
+	private Button plus;
+	
+	@FXML
+	private Button reinitialiser;
+
+	private GraphicsContext g;
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		g = canvas.getGraphicsContext2D();
+
+		sliderMusique.setValue(UtilSons.mediaPlayerMusique.getVolume());
+		sliderEffets.setValue(UtilSons.bruitages.getVolume());
+		checkBoxPleinEcran.setSelected(DemarrageApplication.fullScreen);
+
 	}
 
 	@FXML
-	void changerVolumeMusique(MouseEvent event) {
-		UtilSons.mediaPlayerMusique.setVolume(sliderMusique.getValue());
+	void CliquerEntrainement(ActionEvent event) {
 
+		UtilSons.jouerSonBouton();
+
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			Parent stage = FXMLLoader.load(getClass().getResource("EntrainementFXML.fxml"));
+
+			Scene scene = new Scene(stage);
+
+			fenetre.setScene(scene);
+
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void CliquerProgression(ActionEvent event) {
+		UtilSons.jouerSonBouton();
+
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			Parent stage = FXMLLoader.load(getClass().getResource("ProgressionFXML.fxml"));
+
+			Scene scene = new Scene(stage);
+
+			fenetre.setScene(scene);
+
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -96,27 +139,6 @@ public class ControllerAccueil implements Initializable {
 			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 			Parent stage = FXMLLoader.load(getClass().getResource("CompetitionFXML.fxml"));
-
-			Scene scene = new Scene(stage);
-
-			fenetre.setScene(scene);
-
-			fenetre.setFullScreen(DemarrageApplication.fullScreen);
-
-			fenetre.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@FXML
-	void CliquerEntrainement(ActionEvent event) {
-		UtilSons.jouerSonBouton();
-
-		try {
-			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			Parent stage = FXMLLoader.load(getClass().getResource("EntrainementFXML.fxml"));
 
 			Scene scene = new Scene(stage);
 
@@ -163,55 +185,35 @@ public class ControllerAccueil implements Initializable {
 	}
 
 	@FXML
-	public void cliquerPlus(ActionEvent event) {
-		UtilSons.jouerSonBouton();
-		reinitialiser.setVisible(!reinitialiser.isVisible());
+	void changerVolumeEffets(MouseEvent event) {
+		UtilSons.bruitages.setVolume(sliderEffets.getValue());
 	}
 
 	@FXML
-	void CliquerProgression(ActionEvent event) {
-		UtilSons.jouerSonBouton();
+	void changerVolumeMusique(MouseEvent event) {
+		UtilSons.mediaPlayerMusique.setVolume(sliderMusique.getValue());
 
-		try {
-			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			Parent stage = FXMLLoader.load(getClass().getResource("ProgressionFXML.fxml"));
-
-			Scene scene = new Scene(stage);
-
-			fenetre.setScene(scene);
-
-			fenetre.setFullScreen(DemarrageApplication.fullScreen);
-
-			fenetre.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@FXML
 	public void cliquerQuitter(ActionEvent event) {
 		System.exit(0);
 	}
-
+	
+	@FXML
+	public void cliquerPlus(ActionEvent event) {
+		UtilSons.jouerSonBouton();
+		reinitialiser.setVisible(!reinitialiser.isVisible());
+	}
+	
 	@FXML
 	public void cliquerReinitialiser(ActionEvent event) {
 		UtilSons.jouerSonBouton();
-
+		
 		ManipListeDefis.CreerFichier();
 		ManipTabScore.CreerFichier();
 
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		g = canvas.getGraphicsContext2D();
-
-		sliderMusique.setValue(UtilSons.mediaPlayerMusique.getVolume());
-		sliderEffets.setValue(UtilSons.bruitages.getVolume());
-		checkBoxPleinEcran.setSelected(DemarrageApplication.fullScreen);
-
-	}
 
 }
