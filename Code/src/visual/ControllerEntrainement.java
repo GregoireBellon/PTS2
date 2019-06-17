@@ -40,16 +40,60 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerDE(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(13, Contexte.Diurne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(13, Contexte.Diurne);
 
 	}
 
 	@FXML
 	void cliquerDJ(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(7, Contexte.Diurne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(7, Contexte.Diurne);
 
 
 	}
@@ -57,8 +101,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerDM(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(19, Contexte.Diurne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(19, Contexte.Diurne);
 
 
 	}
@@ -66,8 +132,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerDS(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(1, Contexte.Diurne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(1, Contexte.Diurne);
 
 
 	}
@@ -75,8 +163,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerNE(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(13, Contexte.Nocturne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(13, Contexte.Nocturne);
 
 
 	}
@@ -84,8 +194,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerNJ(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(7, Contexte.Nocturne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(7, Contexte.Nocturne);
 
 
 	}
@@ -93,8 +225,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerNM(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(19, Contexte.Nocturne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(19, Contexte.Nocturne);
 
 
 	}
@@ -102,8 +256,30 @@ public class ControllerEntrainement {
 	@FXML
 	void cliquerNS(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(1, Contexte.Nocturne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		Random.niveauRandom(1, Contexte.Nocturne);
 
 
 	}
