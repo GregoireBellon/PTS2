@@ -13,7 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import poo.Contexte;
 import poo.ManipListeDefis;
+import poo.Random;
 import poo.UtilSons;
 
 public class ControllerProgression implements Initializable{
@@ -293,7 +295,7 @@ public class ControllerProgression implements Initializable{
 	@FXML
 	public void cliquer1D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
-
+		
 	}
 
 	@FXML
@@ -579,4 +581,30 @@ public class ControllerProgression implements Initializable{
 
 	}
 
+	private void lancerNiveau (ActionEvent event, String niveau) {
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+			Parent stageJeu;
+
+			stageJeu = loader.load();
+
+			ControllerInGame niveau = loader.getController();
+			
+
+			Scene sceneJeu = new Scene(stageJeu);
+
+			niveau.lancerPartie(Random.niveauRandom(13, Contexte.Diurne));
+			
+			fenetre.setScene(sceneJeu);
+			
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
