@@ -39,6 +39,7 @@ public class Defi {
 		File file = new File("Stockage/Defis/" + nom + ".txt"); // Récupère les données du fichier correspondant au
 		String ligne = "";
 		try { // défi à charger
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(file); // Lit les données du fichier file
 			ligne = sc.nextLine();
 		} catch (Exception e) {
