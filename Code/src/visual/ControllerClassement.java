@@ -209,7 +209,7 @@ public class ControllerClassement implements Initializable {
 
 	@FXML
 	public void afficherScores() {
-		ArrayList<Score> liste = ManipTabScore.recupScore(selection);
+		List<Score> liste = ManipTabScore.recupScore(selection);
 
 		if (liste.size() > 0) {
 			nom1.setText(liste.get(0).getNom());
