@@ -35,6 +35,7 @@ public class Defi {
 	}
 
 	private void chargerDefi(String nom) {
+		this.nom = nom;
 		// try {
 		File file = new File("Stockage/Defis/" + nom + ".txt"); // Récupère les données du fichier correspondant au
 		String ligne = "";

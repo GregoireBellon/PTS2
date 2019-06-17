@@ -98,12 +98,12 @@ public class Piece {
 			}
 			aff.append("\n");
 		}
-		System.out.println(aff);
+		// System.out.println(aff);
 	}
 
 	public void enlever() {
 		if ((posX != null) && (posY != null)) {
-			System.err.println("Enlevage de la piece aux coord : " + posX + ";" + posY);
+			// System.err.println("Enlevage de la piece aux coord : " + posX + ";" + posY);
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (casesPiece[i][j] != null) {
@@ -120,7 +120,7 @@ public class Piece {
 			}
 			posX = null;
 			posY = null;
-			System.out.println("Pièce enlevée");
+			// System.out.println("Pièce enlevée");
 		} else {
 
 		}
@@ -166,7 +166,7 @@ public class Piece {
 			posY = y;
 			return true;
 		} else {
-			System.out.println("Impossible de placer");
+			// System.out.println("Impossible de placer");
 			return false;
 		}
 

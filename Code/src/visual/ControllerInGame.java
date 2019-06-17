@@ -55,18 +55,21 @@ public class ControllerInGame implements Initializable {
 	private int[][][] coordUtiliserPiece3 = { { { 0, 0 }, { 1, 0 }, { -1, 0 } }, { { 0, 0 }, { 0, 1 }, { 0, -1 } },
 			{ { 0, 0 }, { 1, 0 }, { -1, 0 } }, { { 0, 0 }, { 0, 1 }, { 0, -1 } } };
 	@FXML
+	private ImageView imageFond;
+	@FXML
 	private ImageView imagePlateau1;
 	@FXML
 	private ImageView imagePlateau10;
 	@FXML
 	private ImageView imagePlateau11;
+
 	@FXML
 	private ImageView imagePlateau12;
-
 	@FXML
 	private ImageView imagePlateau13;
 	@FXML
 	private ImageView imagePlateau2;
+
 	@FXML
 	private ImageView imagePlateau3;
 
@@ -113,10 +116,10 @@ public class ControllerInGame implements Initializable {
 			{ 230, 360 }, { 340, 360 }, { 450, 360 }, { 560, 360 }, { 10, 470 }, { 120, 470 }, { 230, 470 },
 			{ 340, 470 }, { 450, 470 }, { 560, 470 }, { 10, 580 }, { 120, 580 }, { 230, 580 }, { 340, 580 },
 			{ 450, 580 }, { 560, 580 } };
-
 	private double[][] positionDepartPieces = { { 671, 14 }, { 671, 140 }, { 671, 390 } };
 	@FXML
 	private AnchorPane root;
+
 	@FXML
 	private Text TextTemps;
 
@@ -192,6 +195,7 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void donnerSolution(ActionEvent event) {
+		String sol = jeu.getDefi().getSolution();
 
 	}
 
@@ -201,6 +205,7 @@ public class ControllerInGame implements Initializable {
 	}
 
 	public void lancerPartie(String niveau) {
+		imageFond.setImage(new Image("file:ressources/Jeux.PNG"));
 		chrono.run();
 		timeline = new Timeline(new KeyFrame(Duration.millis(100), ae -> TextTemps.setText(chrono.getDureeTxt())));
 		timeline.setCycleCount(Animation.INDEFINITE);
@@ -258,7 +263,7 @@ public class ControllerInGame implements Initializable {
 				j++;
 			}
 		}
-		System.out.println("Il y a " + nbCochons + " cochons");
+		// System.out.println("Il y a " + nbCochons + " cochons");
 		cochonCacherModeNocturne = new boolean[nbCochons];
 		rotationPiece1(null);
 		rotationPiece2(null);
@@ -294,7 +299,8 @@ public class ControllerInGame implements Initializable {
 		int xCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[0];
 		int yCaseMaison = Piece.obtenirEmplacementMaison(xCase, yCase, numPiece - 1, numRotation)[1];
 		if ((xCase != -2) && (yCase != -2)) {
-			System.out.println("Case ciblée par la maison: " + xCaseMaison + " ; " + yCaseMaison);
+			// System.out.println("Case ciblée par la maison: " + xCaseMaison + " ; " +
+			// yCaseMaison);
 			switch (numPiece) {
 			case 1:
 				boolean b = true;
@@ -329,7 +335,7 @@ public class ControllerInGame implements Initializable {
 									+ yCaseMaison))) {
 						contienCochonNocturne = true;
 						numCochonContenue = i;
-						System.err.println("Cochon n°" + i + " caché");
+						// System.err.println("Cochon n°" + i + " caché");
 					}
 				}
 				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte())
@@ -372,7 +378,7 @@ public class ControllerInGame implements Initializable {
 									+ yCaseMaison))) {
 						contienCochonNocturne2 = true;
 						numCochonContenue2 = i;
-						System.err.println("Cochon n°" + i + " caché");
+						// System.err.println("Cochon n°" + i + " caché");
 					}
 				}
 
@@ -416,7 +422,7 @@ public class ControllerInGame implements Initializable {
 									+ yCaseMaison))) {
 						contienCochonNocturne3 = true;
 						numCochonContenue3 = i;
-						System.err.println("Cochon n°" + i + " caché");
+						// System.err.println("Cochon n°" + i + " caché");
 					}
 				}
 
@@ -487,7 +493,8 @@ public class ControllerInGame implements Initializable {
 			for (int i = 0; i < cochonCacherModeNocturne.length; i++) {
 				if (cochonCacherModeNocturne[i] == false) {
 					b = false;
-					System.err.println("Cochon n° " + i + "pas caché !" + jeu.getDefi().getContexte());
+					// System.err.println("Cochon n° " + i + "pas caché !" +
+					// jeu.getDefi().getContexte());
 					break;
 				}
 			}
@@ -497,7 +504,7 @@ public class ControllerInGame implements Initializable {
 				timeline.pause();
 			}
 		}
-		jeu.afficherPlateau();
+		// jeu.afficherPlateau();
 	}
 
 	@FXML

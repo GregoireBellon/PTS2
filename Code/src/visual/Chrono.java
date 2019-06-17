@@ -2,25 +2,6 @@ package visual;
 
 public class Chrono extends Thread {
 
-	private long tempsDepart = 0;
-	private String dureeFinal = "";
-
-	public void startChrono() {
-		tempsDepart = System.currentTimeMillis();
-	}
-	public String stopChrono() {
-		dureeFinal = getDureeTxt();
-		return dureeFinal;
-	}
-
-	public long getDureeSec() {
-		return (System.currentTimeMillis() - tempsDepart) / 1000;
-	}
-
-	public String getDureeTxt() {
-		return timeToHMS(getDureeSec());
-	}
-
 	public static String timeToHMS(long tempsS) {
 
 		int h = (int) (tempsS / 3600);
@@ -38,11 +19,32 @@ public class Chrono extends Thread {
 		if (s > 0) {
 			r += s + " s";
 		}
-		if (h <= 0 && m <= 0 && s <= 0) {
+		if ((h <= 0) && (m <= 0) && (s <= 0)) {
 			r = "0 s";
 		}
 
 		return r;
+	}
+
+	private String dureeFinal = "";
+	private boolean stoped = true;
+
+	private long tempsDepart = 0;
+
+	public String getDureeFinal() {
+		return dureeFinal;
+	}
+
+	public long getDureeSec() {
+		return (System.currentTimeMillis() - tempsDepart) / 1000;
+	}
+
+	public String getDureeTxt() {
+		return timeToHMS(getDureeSec());
+	}
+
+	public boolean isStoped() {
+		return stoped;
 	}
 
 	@Override
@@ -50,11 +52,23 @@ public class Chrono extends Thread {
 		startChrono();
 	}
 
-	public String getDureeFinal() {
-		return dureeFinal;
-	}
 	public void setDureeFinal(String dureeFinal) {
 		this.dureeFinal = dureeFinal;
+	}
+
+	public void setStoped(boolean stoped) {
+		this.stoped = stoped;
+	}
+
+	public void startChrono() {
+		tempsDepart = System.currentTimeMillis();
+		stoped = false;
+	}
+
+	public String stopChrono() {
+		dureeFinal = getDureeTxt();
+		stoped = true;
+		return dureeFinal;
 	}
 
 }
