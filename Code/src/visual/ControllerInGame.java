@@ -1,5 +1,6 @@
 package visual;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,12 @@ import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,10 +28,12 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import poo.Contexte;
 import poo.Jeux;
 import poo.Piece;
+import poo.UtilSons;
 
 public class ControllerInGame implements Initializable {
 	private PathTransition animationToSouris = new PathTransition();
@@ -117,7 +124,23 @@ public class ControllerInGame implements Initializable {
 
 	@FXML
 	void abandonner(ActionEvent event) {
+		UtilSons.jouerSonBouton();
 
+		try {
+			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			Parent stage = FXMLLoader.load(getClass().getResource("AccueilFXML.fxml"));
+
+			Scene scene = new Scene(stage);
+
+			fenetre.setScene(scene);
+
+			fenetre.setFullScreen(DemarrageApplication.fullScreen);
+
+			fenetre.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
