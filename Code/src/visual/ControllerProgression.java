@@ -13,9 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import poo.Contexte;
 import poo.ManipListeDefis;
-import poo.Random;
 import poo.UtilSons;
 
 public class ControllerProgression implements Initializable{
@@ -295,144 +293,167 @@ public class ControllerProgression implements Initializable{
 	@FXML
 	public void cliquer1D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
-		
+		lancerNiveau(event, "1D");
 	}
 
 	@FXML
 	public void cliquer2D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "2D");
 
 	}
 
 	@FXML
 	public void cliquer3D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "3D");
 
 	}
 
 	@FXML
 	public void cliquer4D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "4D");
 
 	}
 
 	@FXML
 	public void cliquer5D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "5D");
 
 	}
 
 	@FXML
 	public void cliquer6D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "6D");
 
 	}
 
 	@FXML
 	public void cliquer7D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "7D");
 
 	}
 
 	@FXML
 	public void cliquer8D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "8D");
 
 	}
 
 	@FXML
 	public void cliquer9D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "9D");
 
 	}
 
 	@FXML
 	public void cliquer10D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "10D");
 
 	}
 
 	@FXML
 	public void cliquer11D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "11D");
 
 	}
 
 	@FXML
 	public void cliquer12D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "12D");
 
 	}
 
 	@FXML
 	public void cliquer13D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "13D");
 
 	}
 
 	@FXML
 	public void cliquer14D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "14D");
 
 	}
 
 	@FXML
 	public void cliquer15D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "15D");
 
 	}
 
 	@FXML
 	public void cliquer16D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "16D");
 
 	}
 
 	@FXML
 	public void cliquer17D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "17D");
 
 	}
 
 	@FXML
 	public void cliquer18D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "18D");
 
 	}
 
 	@FXML
 	public void cliquer19D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "19D");
 
 	}
 
 	@FXML
 	public void cliquer20D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "20D");
 
 	}
 
 	@FXML
 	public void cliquer21D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "21D");
 
 	}
 
 	@FXML
 	public void cliquer22D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "22D");
 
 	}
 
 	@FXML
 	public void cliquer23D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "23D");
 
 	}
 
 	@FXML
 	public void cliquer24D(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "24D");
 
 	}
 
@@ -440,148 +461,172 @@ public class ControllerProgression implements Initializable{
 	@FXML
 	public void cliquer1N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "1N");
 
 	}
 
 	@FXML
 	public void cliquer2N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "2N");
 
 	}
 
 	@FXML
 	public void cliquer3N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "3N");
 
 	}
 
 	@FXML
 	public void cliquer4N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "4N");
 
 	}
 
 	@FXML
 	public void cliquer5N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "5N");
 
 	}
 
 	@FXML
 	public void cliquer6N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "6N");
 
 	}
 
 	@FXML
 	public void cliquer7N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "7N");
 
 	}
 
 	@FXML
 	public void cliquer8N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "8N");
 
 	}
 
 	@FXML
 	public void cliquer9N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "9N");
 
 	}
 
 	@FXML
 	public void cliquer10N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "10N");
 
 	}
 
 	@FXML
 	public void cliquer11N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "11N");
 
 	}
 
 	@FXML
 	public void cliquer12N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "12N");
 
 	}
 
 	@FXML
 	public void cliquer13N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "13N");
 
 	}
 
 	@FXML
 	public void cliquer14N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "14N");
 
 	}
 
 	@FXML
 	public void cliquer15N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "15N");
 
 	}
 
 	@FXML
 	public void cliquer16N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "16N");
 
 	}
 
 	@FXML
 	public void cliquer17N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "17N");
 
 	}
 
 	@FXML
 	public void cliquer18N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "18N");
 
 	}
 
 	@FXML
 	public void cliquer19N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "19N");
 
 	}
 
 	@FXML
 	public void cliquer20N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "20N");
 
 	}
 
 	@FXML
 	public void cliquer21N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "21N");
 
 	}
 
 	@FXML
 	public void cliquer22N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "22N");
 
 	}
 
 	@FXML
 	public void cliquer23N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "23N");
 
 	}
 
 	@FXML
 	public void cliquer24N(ActionEvent event) {
 		UtilSons.jouerSonBouton();
+		lancerNiveau(event, "24N");
 
 	}
 
-	/*private void lancerNiveau (ActionEvent event, String niveau) {
+	private void lancerNiveau(ActionEvent event, String niveau) {
 		try {
 			Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
@@ -590,12 +635,12 @@ public class ControllerProgression implements Initializable{
 
 			stageJeu = loader.load();
 
-			//ControllerInGame niveau = loader.getController();
+			ControllerInGame niveauACharger = loader.getController();
 			
 
 			Scene sceneJeu = new Scene(stageJeu);
 
-			niveau.lancerPartie(Random.niveauRandom(13, Contexte.Diurne));
+			niveauACharger.lancerPartie(niveau);
 			
 			fenetre.setScene(sceneJeu);
 			
@@ -606,5 +651,5 @@ public class ControllerProgression implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 }
