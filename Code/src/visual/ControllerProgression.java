@@ -265,7 +265,7 @@ public class ControllerProgression implements Initializable{
 		}
 		
 		
-		d1.setStyle("-fx-background-color: #9ACC27"); //C'est la formule pour changer la couleur
+	 //C'est la formule pour changer la couleur
 	}
 
 	@FXML

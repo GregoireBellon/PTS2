@@ -174,11 +174,15 @@ public class ControllerInGame implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+	}
+	
+	public void lancerPartie(String niveau) {
 		chrono.run();
 		timeline = new Timeline(new KeyFrame(Duration.millis(100), ae -> TextTemps.setText(chrono.getDureeTxt())));
 		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
-		Jeux jeu = new Jeux();
+		Jeux jeu = new Jeux(niveau);
 		this.jeu = jeu;
 		jeu.getPiece1().setImagePiece(Piece1);
 		jeu.getPiece2().setImagePiece(Piece2);
@@ -227,6 +231,10 @@ public class ControllerInGame implements Initializable {
 			}
 		}
 
+		rotationPiece1(null);
+		rotationPiece2(null);
+		rotationPiece3(null);
+		rotationPiece3(null);
 	}
 
 	@FXML

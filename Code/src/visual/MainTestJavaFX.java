@@ -14,7 +14,15 @@ public class MainTestJavaFX extends Application {
 	public void start(Stage primaryStage) {
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("InGame.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("InGame.fxml"));
+
+
+			root = loader.load();
+			
+			ControllerInGame controller = loader.getController();
+			
+			controller.lancerPartie("1N");
+
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 		} catch (IOException e) {

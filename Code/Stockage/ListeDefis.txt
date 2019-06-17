@@ -5,7 +5,7 @@
 5/starter/diurne/non
 6/starter/diurne/non
 7/starter/nocturne/non
-8/starter/nocturne/oui
+8/starter/nocturne/non
 9/junior/nocturne/non
 10/junior/nocturne/non
 11/junior/nocturne/non

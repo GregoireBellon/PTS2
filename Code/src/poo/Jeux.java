@@ -12,14 +12,14 @@ public class Jeux {
 
 	private TypeCase[][] plateau;
 
+	public Jeux() {
+		plateau = new TypeCase[4][4];
+		defi = new Defi("24D", this);
+	}
+
 	public Jeux(String defi) {
 		plateau = new TypeCase[4][4];
 		this.defi = new Defi(defi, this);
-	}
-	
-	public Jeux() {
-		plateau = new TypeCase[4][4];
-		defi = new Defi("1D", this);
 	}
 
 	public void afficherPlateau() {
