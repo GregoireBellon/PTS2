@@ -24,7 +24,6 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import poo.Contexte;
 import poo.Jeux;
 import poo.Piece;
 
@@ -113,8 +112,6 @@ public class ControllerInGame implements Initializable {
 
 	Timeline timeline;
 
-	private double[][] transformCursorPosition = { { 0, 0 }, { 0, 0 }, { 0, 0 } };
-
 	@FXML
 	void abandonner(ActionEvent event) {
 
@@ -176,7 +173,7 @@ public class ControllerInGame implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
-	
+
 	public void lancerPartie(String niveau) {
 		chrono.run();
 		timeline = new Timeline(new KeyFrame(Duration.millis(100), ae -> TextTemps.setText(chrono.getDureeTxt())));
@@ -290,11 +287,11 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b) {
+				if (jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b) {
 					coordPiece1[0] = xCaseMaison;
 					coordPiece1[1] = yCaseMaison;
 				}
-				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b;
+				return jeu.getPiece1().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b;
 			case 2:
 				boolean b2 = true;
 				int[][] t2 = coordUtiliserPiece1[numRotation];
@@ -318,11 +315,11 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b2) {
+				if (jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b2) {
 					coordPiece2[0] = xCaseMaison;
 					coordPiece2[1] = yCaseMaison;
 				}
-				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b2;
+				return jeu.getPiece2().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b2;
 			case 3:
 				boolean b3 = true;
 				int[][] t3 = coordUtiliserPiece1[numRotation];
@@ -346,11 +343,11 @@ public class ControllerInGame implements Initializable {
 						}
 					}
 				}
-				if (jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b3) {
+				if (jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b3) {
 					coordPiece3[0] = xCaseMaison;
 					coordPiece3[1] = yCaseMaison;
 				}
-				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, Contexte.Diurne) && b3;
+				return jeu.getPiece3().verifPlacement(yCaseMaison, xCaseMaison, jeu.getDefi().getContexte()) && b3;
 			default:
 				break;
 			}
