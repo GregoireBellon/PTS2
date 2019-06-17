@@ -227,6 +227,10 @@ public class ControllerInGame implements Initializable {
 			}
 		}
 
+		rotationPiece1(null);
+		rotationPiece2(null);
+		rotationPiece3(null);
+		rotationPiece3(null);
 	}
 
 	@FXML
